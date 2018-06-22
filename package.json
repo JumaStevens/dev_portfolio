@@ -1,0 +1,19 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Freelance portfolio",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --mode production --progress --hide-modules --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JumaStevens/dev_portfolio.git"
+  },
+  "author": "Juma Stevens <jumastevens@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JumaStevens/dev_portfolio/issues"
+  },
+  "homepage": "https://github.com/JumaStevens/dev_portfolio#readme"
+}
