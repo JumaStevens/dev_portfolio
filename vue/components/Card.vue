@@ -1,29 +1,33 @@
 <template lang='pug'>
-div(
-  class='card'
-)
+div(class='container-card')
 
-  //- display
-  div(
-    class='card__display'
-  )
-    img(
-      class='card__img'
+  article(class='card')
+    //- display
+    div(
+      v-if='card.image'
+      class='card__display'
     )
-
-  //- body
-  div(
-    class='card__body'
-  )
-    h4(
-      class='card__title'
-    ) Dash Chat
-    p(
-      class='card__text'
-    ) A minimalist chat utility that is secure and fun to use.
-    a(
-      class='card__link'
-    ) Read More
+      img(
+        :src='card.image'
+        class='card__image'
+      )
+    //- body
+    div(
+      v-if='card.headline || card.text || card.link'
+      class='card__body'
+    )
+      h3(
+        v-if='card.headline'
+        class='card__headline'
+      ) {{ card.headline }}
+      p(
+        v-if='card.text'
+        class='card__text'
+      ) {{ card.text }}
+      a(
+        v-if='card.link'
+        class='card__link'
+      ) {{ card.link }}
 
 </template>
 
@@ -32,36 +36,56 @@ div(
 
 export default {
   components: {},
-  props: {},
+  props: {
+    cardData: {
+      type: Object,
+      required: true
+    }
+  },
   data () {
     return {}
   },
-  computed: {},
+  computed: {
+    card () {
+      return {
+        image: this.cardData.image ? this.cardData.image : '',
+        headline: this.cardData.headline ? this.cardData.headline : '',
+        text: this.cardData.text ? this.cardData.text : '',
+        link: this.cardData.link ? this.cardData.link : ''
+      }
+    }
+  },
   methods: {}
 }
 </script>
 
 
 <style lang='sass' scoped>
+.container-card
+
 .card
-  margin: 0 auto
   width: 500px
-  box-shadow: 0px 16px 16px rgba(33, 33, 33, 0.2)
+  // box-shadow: 0px 16px 16px rgba(33, 33, 33, 0.2)
 
   &__display
+    @extend %flex--row
+    justify-content: center
+    align-items: flex-end
     height: 500px
     background: $grey
+
+  &__image
+    height: 80%
 
   &__body
     background: $white
 
-  &__img
-
-  &__title
+  &__headline
 
   &__text
+    @extend %text-copy
 
   &__link
     color: $blue
-    
+
 </style>

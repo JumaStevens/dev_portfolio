@@ -1,16 +1,31 @@
 <template lang='pug'>
-main.container
-  h2 Select Work
-  Card
+main(class='container-index')
+  Hero
+  Services
+  Work
+  Testimonial
+  About
+  Contact
 </template>
 
 
 <script>
-import Card from '~comp/Card.vue'
+import Hero from '~comp/Hero.vue'
+import Services from '~comp/Services.vue'
+import Work from '~comp/Work.vue'
+import Testimonial from '~comp/Testimonial.vue'
+import About from '~comp/About.vue'
+import Contact from '~comp/Contact.vue'
+
 
 export default {
   components: {
-    Card
+    Hero,
+    Services,
+    Work,
+    Testimonial,
+    About,
+    Contact
   },
   data () {
     return {}
@@ -19,9 +34,8 @@ export default {
 </script>
 
 <style lang='sass' scoped>
-.container
-  
-  & h2
-    color: black
+.container-index
+
+
 
 </style>

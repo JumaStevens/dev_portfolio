@@ -1,26 +1,17 @@
 <template lang='pug'>
-nav(
-  class='navigation'
-)
+div(class='container-navigation')
 
-  //- logo
-  a(
-    class='navigation__logo'
-  ) Juma
-
-  //-
-  ul(
-    class='navigation__list'
-  )
-    li(
-      v-for='(item, index) in nav'
-      :key='item + index'
-      class='navigation__item'
-    )
-      a(
-        class='navigation__link'
-      ) {{ item.text }}
-
+  nav(class='navigation')
+    ul(class='navigation__list')
+      li(
+        v-for='(item, index) in nav'
+        :key='item + index'
+        class='navigation__item'
+      )
+        router-link(
+          to=''
+          class='navigation__link'
+        ) {{ item.text }}
 </template>
 
 
@@ -33,7 +24,16 @@ export default {
     return {
       nav: [
         {
-          text: 'work'
+          text: 'Services'
+        },
+        {
+          text: 'Work'
+        },
+        {
+          text: 'Bio'
+        },
+        {
+          text: 'Contact'
         }
       ]
     }
@@ -45,13 +45,18 @@ export default {
 
 
 <style lang='sass' scoped>
-.navigation
+.container-navigation
   position: fixed
-  width: 100%
+  top: 0
+  left: 0
+  width: 100vw
   height: $unit*6
-  display: flex
-  align-items: center
-  background: rgba(0,0,0,0.8)
+  background: $white
+
+.navigation
+  @extend %container-content
+  @extend %flex--row-center
+  height: inherit
 
   &__logo
     color: $white
@@ -61,8 +66,18 @@ export default {
     margin-left: auto
 
   &__item
+    @extend %flex--row-center
+    margin-right: $unit*3
+
+    &:last-child
+      margin-right: unset
+      background: $blue
+
+      & > .navigation__link
+        color: $white
 
   &__link
-    color: $white
+    padding: $unit $unit*2
+    color: $black
 
 </style>
