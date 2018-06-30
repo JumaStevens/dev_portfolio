@@ -24,7 +24,7 @@ export default {
 
 <style lang='sass' scoped>
 .container-footer
-  background: $black
+  background: $grey
 
 .footer
   @extend %container-content
@@ -33,6 +33,5 @@ export default {
 
   &__copywrite
     font-size: $fs-1
-    color: $white
 
 </style>

@@ -26,7 +26,7 @@ export default {
       testimonial: [
         {
           headline: 'Rob Alan — Monumental',
-          text: 'Juma went above and beyound my expectations, delivering exception code quality. My business has steadily been growing ever since.'
+          text: 'Juma leads our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
         },
         {
           headline: 'Sera - Vessel',
@@ -48,7 +48,7 @@ export default {
 <style lang='sass' scoped>
 .container-testimonial
   @extend %container-main
-  background: $grey
+  // background: $grey
 
 .testimonial
   @extend %container-content

@@ -35,6 +35,7 @@ export default {
 <style lang='sass' scoped>
 .container-contact
   @extend %container-main
+  // background: $grey
 
 .contact
   @extend %container-content

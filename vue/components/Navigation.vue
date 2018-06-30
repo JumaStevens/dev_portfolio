@@ -2,7 +2,6 @@
 div(class='container-navigation')
 
   nav(class='navigation')
-    //- a(class='navigation__logo') { js }
     Hamburger(class='navigation__hamburger')
     //- ul(class='navigation__list')
     //-   li(
@@ -52,10 +51,11 @@ export default {
 <style lang='sass' scoped>
 .container-navigation
   position: fixed
+  z-index: 99
   top: 0
   left: 0
-  width: 100vw
-  height: $unit*6
+  width: $unit*6
+  height: 100vh
   background: $white
 
 .navigation
@@ -64,7 +64,8 @@ export default {
   height: inherit
 
   &__logo
-    color: $white
+    color: $black
+    font-weight: bold
 
   &__hamburger
     margin-left: auto

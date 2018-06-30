@@ -7,13 +7,22 @@ div(class='container-about')
       :cardData='card'
       class='about__card'
     )
-    h3(class='about__subhead') {{ subhead }}
-    ul(class='about__list')
-      li(
-        v-for='(item, index) in skillset'
-        :key='item + index'
-        class='about__item'
-      )
+    div(class='about__skills')
+      h3(class='about__subhead') {{ subhead }}
+      ul(class='about__list')
+        li(
+          v-for='(item, index) in skillset'
+          :key='item + index'
+          class='about__item'
+        )
+    div(class='about__techniques')
+      h3(class='about__subhead') {{ subhead }}
+      ul(class='about__list')
+        li(
+          v-for='(item, index) in skillset'
+          :key='item + index'
+          class='about__item'
+        )
 
 </template>
 
@@ -56,7 +65,7 @@ export default {
   +mq-m
     display: grid
     grid-gap: 0 $unit*5
-    grid-template-rows: auto auto 1fr
+    grid-template-rows: auto repeat(2, 1fr)
     grid-template-columns: repeat(2, 1fr)
 
   &__headline
@@ -65,10 +74,24 @@ export default {
       grid-row: 1 / 2
       grid-column: 1 / -1
 
-  &__subhead
+  &__skills
+    @extend %card-container
+    padding: $unit*3 $unit*2 $unit*2 $unit*2
     +mq-m
       grid-row: 2 / 3
       grid-column: 2 / -1
+      margin-bottom: 20px
+
+  &__techniques
+    @extend %card-container
+    padding: $unit*3 $unit*2 $unit*2 $unit*2
+    +mq-m
+      grid-row: 3 / -1
+      grid-column: 2 / -1
+      margin-top: 20px
+
+  &__subhead
+
 
   &__card
     +mq-m

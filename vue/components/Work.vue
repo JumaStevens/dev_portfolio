@@ -68,7 +68,7 @@ export default {
 
   &__list
     display: grid
-    grid-gap: $unit*5
+    grid-gap: $unit*10 $unit*5
     +mq-s
       grid-template-columns: repeat(2, 1fr)
 

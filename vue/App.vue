@@ -43,7 +43,7 @@ export default {
 @import './assets/sass/main.sass'
 
 .vue-app
-  padding-top: $unit*6
+  padding-left: $unit*6
 
   &__error,
   &__view

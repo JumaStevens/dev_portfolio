@@ -2,22 +2,28 @@
 div(class='container-hero')
 
   section(class='hero')
-    h1(class='hero__headline') {{ headline }}
-    p(class='hero__text') {{ text }}
-    a(class='hero__link') {{ link }}
+    div(class='hero__body')
+      h1(class='hero__headline') {{ headline }}
+      p(class='hero__text') {{ text }}
+      a(class='hero__link') {{ link }}
+
+    CardCode(class='hero__card-code')
 </template>
 
 
 <script>
+import CardCode from '~comp/CardCode.vue'
 
 export default {
-  components: {},
+  components: {
+    CardCode
+  },
   props: {},
   data () {
     return {
-      headline: 'Next-generation Digital Solutions',
-      text: 'Full Stack Web Developer specializing in modular, forward-thinking code. I help agencies and businesses build engaging digital products.',
-      link: 'Let\'s chat!'
+      headline: 'Creative Digital Solutions',
+      text: 'Full Stack Developer specializing in modular, expressive code helping agencies and businesses build engaging digital products.',
+      link: 'Let\'s Chat!'
     }
   },
   computed: {},
@@ -28,22 +34,32 @@ export default {
 
 <style lang='sass' scoped>
 .container-hero
+  background: $grey
 
 .hero
   @extend %container-content
-  @extend %flex--column
-  min-height: calc(100vh - #{$unit*6})
-  justify-content: center
+  @extend %flex--row
+  min-height: 100vh
+  justify-content: space-between
+  align-items: center
+
+  &__body
+    max-width: $fs*28
+    +mq-s
+      margin-right: $unit*10
 
   &__headline
     font-size: $fs2
 
   &__text
     @extend %text-copy
+    margin-top: $unit*2
 
   &__link
-    align-self: flex-start
+    @extend %card-container
+    display: inline-block
     padding: $unit $unit*2
+    margin-top: $unit*4
     background: $blue
     color: $white
 

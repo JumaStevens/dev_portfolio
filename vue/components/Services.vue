@@ -51,7 +51,7 @@ export default {
 <style lang='sass' scoped>
 .container-services
   @extend %container-main
-  background: $grey
+  // background: $grey
 
 .services
   @extend %container-content
