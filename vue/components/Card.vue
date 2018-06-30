@@ -67,10 +67,13 @@ export default {
 
 <style lang='sass' scoped>
 .container-card
+  height: 100%
 
 .card
-  width: 500px
-  // box-shadow: 0px 16px 16px rgba(33, 33, 33, 0.2)
+  @extend %card-container
+  height: 100%
+  background: $white
+
 
   &__aspect-ratio
     display: grid
@@ -80,18 +83,20 @@ export default {
       grid-column: 1 / 2
 
   &__display
-    @extend %flex--row
-    justify-content: center
-    align-items: flex-end
+    position: relative
     grid-row: 1 / 2
     grid-column: 1 / 2
-    height: 500px
     background: $grey
 
   &__image
+    position: absolute
+    left: 50%
+    bottom: 0
     height: 80%
+    transform: translateX(-50%)
 
   &__body
+    padding: $unit*3 $unit*2 $unit*2 $unit*2
     background: $white
 
   &__headline

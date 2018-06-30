@@ -17,7 +17,7 @@ export default {
     return {
       headline: 'Next-generation Digital Solutions',
       text: 'Full Stack Web Developer specializing in modular, forward-thinking code. I help agencies and businesses build engaging digital products.',
-      link: 'Let\'s talk!'
+      link: 'Let\'s chat!'
     }
   },
   computed: {},

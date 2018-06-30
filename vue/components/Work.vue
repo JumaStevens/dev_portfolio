@@ -58,6 +58,7 @@ export default {
 
 <style lang='sass' scoped>
 .container-work
+  @extend %container-main
 
 .work
   @extend %container-content
@@ -68,7 +69,8 @@ export default {
   &__list
     display: grid
     grid-gap: $unit*5
-    grid-template-columns: repeat(2, 1fr)
+    +mq-s
+      grid-template-columns: repeat(2, 1fr)
 
   &__item
 

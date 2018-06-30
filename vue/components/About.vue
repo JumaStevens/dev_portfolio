@@ -29,7 +29,7 @@ export default {
   props: {},
   data () {
     return {
-      headline: 'About Me',
+      headline: 'Meet the Developer',
       subhead: 'Skillset',
       skillset: [
         1, 2, 3, 4, 5
@@ -49,13 +49,15 @@ export default {
 
 <style lang='sass' scoped>
 .container-about
+  @extend %container-main
 
 .about
   @extend %container-content
   +mq-m
     display: grid
+    grid-gap: 0 $unit*5
     grid-template-rows: auto auto 1fr
-    grid-template-columns: auto 1fr
+    grid-template-columns: repeat(2, 1fr)
 
   &__headline
     @extend %text-headline

@@ -34,6 +34,7 @@ export default {
 
 <style lang='sass' scoped>
 .container-contact
+  @extend %container-main
 
 .contact
   @extend %container-content

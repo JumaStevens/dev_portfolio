@@ -2,23 +2,28 @@
 div(class='container-navigation')
 
   nav(class='navigation')
-    ul(class='navigation__list')
-      li(
-        v-for='(item, index) in nav'
-        :key='item + index'
-        class='navigation__item'
-      )
-        router-link(
-          to=''
-          class='navigation__link'
-        ) {{ item.text }}
+    //- a(class='navigation__logo') { js }
+    Hamburger(class='navigation__hamburger')
+    //- ul(class='navigation__list')
+    //-   li(
+    //-     v-for='(item, index) in nav'
+    //-     :key='item + index'
+    //-     class='navigation__item'
+    //-   )
+    //-     router-link(
+    //-       to=''
+    //-       class='navigation__link'
+    //-     ) {{ item.text }}
 </template>
 
 
 <script>
+import Hamburger from '~comp/Hamburger.vue'
 
 export default {
-  components: {},
+  components: {
+    Hamburger
+  },
   props: {},
   data () {
     return {
@@ -60,6 +65,9 @@ export default {
 
   &__logo
     color: $white
+
+  &__hamburger
+    margin-left: auto
 
   &__list
     display: flex

@@ -50,6 +50,8 @@ export default {
 
 <style lang='sass' scoped>
 .container-services
+  @extend %container-main
+  background: $grey
 
 .services
   @extend %container-content
@@ -59,12 +61,22 @@ export default {
 
   &__list
     @extend %flex--column
-    +mq-m
+    +mq-s
       flex-direction: row
 
   &__item
     @extend %flex--column
+    @extend %card-container
     flex: 1
+    padding: $unit*3 $unit*2 $unit*2 $unit*2
+    margin-bottom: $unit*5
+    background: $white
+    &:last-child
+      margin-bottom: unset
+    +mq-s
+      margin: 0 $unit*5 0 0
+      &:last-child
+        margin-right: unset
 
   &__icon
     width: 24px
