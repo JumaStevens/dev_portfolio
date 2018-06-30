@@ -4,6 +4,7 @@ div(class='container-hero')
   section(class='hero')
     h1(class='hero__headline') {{ headline }}
     p(class='hero__text') {{ text }}
+    a(class='hero__link') {{ link }}
 </template>
 
 
@@ -15,7 +16,8 @@ export default {
   data () {
     return {
       headline: 'Next-generation Digital Solutions',
-      text: 'Full Stack Web Developer specializing in modular, forward-thinking code. I help agencies and businesses build engaging digital products.'
+      text: 'Full Stack Web Developer specializing in modular, forward-thinking code. I help agencies and businesses build engaging digital products.',
+      link: 'Let\'s talk!'
     }
   },
   computed: {},
@@ -38,6 +40,12 @@ export default {
 
   &__text
     @extend %text-copy
+
+  &__link
+    align-self: flex-start
+    padding: $unit $unit*2
+    background: $blue
+    color: $white
 
 
 </style>

@@ -2,15 +2,20 @@
 div(class='container-card')
 
   article(class='card')
-    //- display
-    div(
-      v-if='card.image'
-      class='card__display'
-    )
-      img(
-        :src='card.image'
-        class='card__image'
+    div(class='card__aspect-ratio')
+      svg(
+        class='card__aspect-ratio-sizer'
+        viewBox='0 0 1 1'
       )
+      //- display
+      div(
+        v-if='card.image'
+        class='card__display'
+      )
+        img(
+          :src='card.image'
+          class='card__image'
+        )
     //- body
     div(
       v-if='card.headline || card.text || card.link'
@@ -67,10 +72,19 @@ export default {
   width: 500px
   // box-shadow: 0px 16px 16px rgba(33, 33, 33, 0.2)
 
+  &__aspect-ratio
+    display: grid
+
+    &-sizer
+      grid-row: 1 / 2
+      grid-column: 1 / 2
+
   &__display
     @extend %flex--row
     justify-content: center
     align-items: flex-end
+    grid-row: 1 / 2
+    grid-column: 1 / 2
     height: 500px
     background: $grey
 
