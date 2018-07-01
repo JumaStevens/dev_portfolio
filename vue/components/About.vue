@@ -5,24 +5,29 @@ div(class='container-about')
     h2(class='about__headline') {{ headline }}
     Card(
       :cardData='card'
-      class='about__card'
+      class='about__card no-shadow'
     )
     div(class='about__skills')
-      h3(class='about__subhead') {{ subhead }}
+      h3(class='about__subhead') {{ skillset.subhead }}
       ul(class='about__list')
         li(
-          v-for='(item, index) in skillset'
+          v-for='(item, index) in skillset.list'
           :key='item + index'
           class='about__item'
         )
+          img(
+            v-lazy='item.image'
+            class='about__icon'
+          )
+
     div(class='about__techniques')
-      h3(class='about__subhead') {{ subhead }}
+      h3(class='about__subhead') {{ techniques.subhead }}
       ul(class='about__list')
         li(
-          v-for='(item, index) in skillset'
+          v-for='(item, index) in techniques.list'
           :key='item + index'
           class='about__item'
-        )
+        ) {{ item }}
 
 </template>
 
@@ -30,6 +35,18 @@ div(class='container-about')
 <script>
 import Card from '~comp/Card.vue'
 import headshot from '~/assets/images/headshot.png'
+import iconFirebase from '~/assets/images/iconFirebase.png'
+import iconJavascript from '~/assets/images/iconJavascript.png'
+import iconNode from '~/assets/images/iconNode.png'
+import iconSass from '~/assets/images/iconSass.png'
+import iconPug from '~/assets/images/iconPug.png'
+import iconHTML from '~/assets/images/iconHTML.png'
+import iconCSS from '~/assets/images/iconCSS.png'
+import iconGulp from '~/assets/images/iconGulp.png'
+import iconPhotoshop from '~/assets/images/iconPhotoshop.png'
+import iconWebpack from '~/assets/images/iconWebpack.png'
+import iconShopify from '~/assets/images/iconShopify.png'
+import iconVue from '~/assets/images/iconVue.png'
 
 export default {
   components: {
@@ -39,10 +56,60 @@ export default {
   data () {
     return {
       headline: 'Meet the Developer',
-      subhead: 'Skillset',
-      skillset: [
-        1, 2, 3, 4, 5
-      ],
+      skillset: {
+        subhead: 'Skillset',
+        list: [
+          {
+            image: iconHTML
+          },
+          {
+            image: iconCSS
+          },
+          {
+            image: iconJavascript
+          },
+          {
+            image: iconVue
+          },
+          {
+            image: iconFirebase
+          },
+          {
+            image: iconShopify
+          },
+          {
+            image: iconNode
+          },
+          {
+            image: iconWebpack
+          },
+          {
+            image: iconPug
+          },
+          {
+            image: iconSass
+          },
+          {
+            image: iconGulp
+          },
+          {
+            image: iconPhotoshop
+          }
+        ]
+      },
+      techniques: {
+        subhead: 'Techniques',
+        list: [
+          'BEM',
+          'Mobile First',
+          'Responsive Design',
+          'SMACSS',
+          'SPA/SSR',
+          'Version Control',
+          'Design System',
+          'ES6/ES7/ES8'
+        ]
+      },
       card: {
         image: headshot,
         headline: 'Full Stack Web Developer',
@@ -99,16 +166,27 @@ export default {
       grid-column: 1 / 2
 
   &__list
-    @extend %flex--row
-    flex-wrap: wrap
+    display: grid
+    grid-gap: $unit*2
+    grid-template-rows: repeat(3, auto)
+    grid-template-columns: repeat(4, auto)
+    grid-auto-flow: column
     +mq-m
       grid-row: 3 / -1
       grid-column: 2 / -1
 
   &__item
-    background: $dark
-    width: 40px
-    height: 40px
+    @extend %flex--row-center
+    width: $unit*5
+    height: $unit*5
+
+  &__icon
+    max-width: 100%
+    max-height: 100%
+    object-fit: contain
+    object-position: center
+
+
 
 
 </style>

@@ -59,7 +59,7 @@ const config = {
         options: {
           svgo: {
             plugins: [
-              { removeDoctype: true },
+              { removeDoctype: false },
               { removeComments: true }
             ]
           }

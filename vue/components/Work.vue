@@ -18,7 +18,13 @@ div(class='container-work')
 
 <script>
 import Card from '~comp/Card.vue'
-import mockup from '~/assets/images/mockup.png'
+import dashMockup from '~/assets/images/dashMockup.png'
+import kushMockup from '~/assets/images/kushMockup.png'
+import adventMockup from '~/assets/images/adventMockup.png'
+import hhrMockup from '~/assets/images/hhrMockup.png'
+import galleryMockup from '~/assets/images/galleryMockup.png'
+import portfolioMockup from '~/assets/images/portfolioMockup.png'
+import mockupVessel from '~/assets/images/mockupVessel.jpg'
 
 export default {
   components: {
@@ -30,21 +36,39 @@ export default {
       headline: 'Select Work',
       work: [
         {
-          image: mockup,
-          headline: 'Dash Messenger - Application',
-          text: 'A minimalist chat utility that is secure and fun to use.',
-          link: ''
-        },
-        {
-          image: mockup,
+          image: kushMockup,
           headline: 'Kush Rugs - Shopify Storefront',
           text: 'An e-commerce storefront selling ethically sourced, high-end designer rugs.',
           link: ''
         },
         {
-          image: mockup,
+          image: dashMockup,
+          headline: 'Dash Messenger - Application',
+          text: 'A minimalist chat utility that is secure and fun to use.',
+          link: ''
+        },
+        {
+          image: hhrMockup,
           headline: 'HRR — Job Board',
           text: 'Hurricane relief app allowing survivors to find jobs.',
+          link: ''
+        },
+        {
+          image: galleryMockup,
+          headline: 'Dash Messenger - Application',
+          text: 'A minimalist chat utility that is secure and fun to use.',
+          link: ''
+        },
+        {
+          image: portfolioMockup,
+          headline: 'Dash Messenger - Application',
+          text: 'A minimalist chat utility that is secure and fun to use.',
+          link: ''
+        },
+        {
+          image: adventMockup,
+          headline: 'Dash Messenger - Application',
+          text: 'A minimalist chat utility that is secure and fun to use.',
           link: ''
         }
       ]

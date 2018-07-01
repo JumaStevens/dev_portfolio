@@ -13,7 +13,7 @@ export default {
   props: {},
   data () {
     return {
-      copywrite: 'Juma Stevens 2018'
+      copywrite: '© 2018 Juma Stevens'
     }
   },
   computed: {},
@@ -24,12 +24,13 @@ export default {
 
 <style lang='sass' scoped>
 .container-footer
-  background: $grey
+
 
 .footer
   @extend %container-content
   @extend %flex--row-center
   min-height: $unit*6
+  border-top: 1px solid $grey
 
   &__copywrite
     font-size: $fs-1

@@ -13,7 +13,7 @@ div(class='container-card')
         class='card__display'
       )
         img(
-          :src='card.image'
+          v-lazy='card.image'
           class='card__image'
         )
     //- body
@@ -90,12 +90,19 @@ export default {
 
   &__image
     position: absolute
+    z-index: 5
     left: 50%
     bottom: 0
-    height: 80%
+    max-width: 80%
+    max-height: 80%
     transform: translateX(-50%)
+    object-fit: contain
+    object-position: bottom
+    box-shadow: 8px -8px 16px rgba(34, 34, 34, 0.5)
 
   &__body
+    position: relative
+    z-index: 6
     padding: $unit*3 $unit*2 $unit*2 $unit*2
     background: $white
 
@@ -106,5 +113,13 @@ export default {
 
   &__link
     color: $blue
+
+
+// override(s)
+.no-shadow
+
+  & .card__image
+    box-shadow: unset
+
 
 </style>

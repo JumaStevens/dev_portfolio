@@ -9,13 +9,19 @@ div(class='container-testimonial')
         :key='item + index'
         class='testimonial__item'
       )
-        div(class='testimonial__icon')
+        img(
+          v-lazy='item.image'
+          class='testimonial__icon'
+        )
         h3(class='testimonial__subhead') {{ item.headline }}
         p(class='testimonial__text') {{ item.text }}
 </template>
 
 
 <script>
+import avatarRob from '~/assets/images/avatarRob.jpg'
+import avatarSerra from '~/assets/images/avatarSerra.jpg'
+import avatarShaun from '~/assets/images/avatarShaun.jpg'
 
 export default {
   components: {},
@@ -25,16 +31,19 @@ export default {
       headline: 'Testimonial',
       testimonial: [
         {
+          image: avatarRob,
           headline: 'Rob Alan — Monumental',
           text: 'Juma leads our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
         },
         {
-          headline: 'Sera - Vessel',
-          text: 'Since launching our new website we have seen a steady 20% monthly user engagment with out line of products. The best thing I\'ve ever done was hire Juma.'
+          image: avatarShaun,
+          headline: 'Shaun Brian Sells - HHR',
+          text: 'Juma loves when I make banana bread for him.'
         },
         {
-          headline: 'Mom - Banana Bread',
-          text: 'Juma loves when I make banana bread for him.'
+          image: avatarSerra,
+          headline: 'Serra - Vessel',
+          text: 'Since launching our new website we have seen a steady 20% monthly user engagment with out line of products. The best thing I\'ve ever done was hire Juma.'
         }
       ]
     }
@@ -76,8 +85,9 @@ export default {
         margin-right: unset
 
   &__icon
-    width: 24px
-    height: 24px
+    width: $unit*5
+    height: $unit*5
+    border-radius: 50%
     background: $dark
 
   &__subhead
