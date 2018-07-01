@@ -149,6 +149,18 @@ export default {
       grid-column: 2 / -1
       margin-bottom: 20px
 
+    & .about__list
+      display: grid
+      grid-gap: $unit*2
+      grid-template-rows: repeat(3, auto)
+      grid-template-columns: repeat(4, auto)
+      grid-auto-flow: column
+
+    & .about__item
+      @extend %flex--row-center
+      width: $unit*5
+      height: $unit*5
+
   &__techniques
     @extend %card-container
     padding: $unit*3 $unit*2 $unit*2 $unit*2
@@ -157,8 +169,31 @@ export default {
       grid-column: 2 / -1
       margin-top: 20px
 
-  &__subhead
+    & .about__list
+      display: grid
+      grid-gap: $unit*2
+      grid-template-rows: repeat(4, auto)
+      grid-template-columns: repeat(2, auto)
+      grid-auto-flow: column
 
+    & .about__item
+      position: relative
+      padding-left: $unit*1.5
+      color: $dark
+
+      &::before
+        content: ''
+        position: absolute
+        top: 50%
+        left: 0
+        width: $unit/2
+        height: $unit/2
+        transform: translateY(-50%)
+        background: $dark
+        border-radius: 50%
+
+
+  &__subhead
 
   &__card
     +mq-m
@@ -166,27 +201,15 @@ export default {
       grid-column: 1 / 2
 
   &__list
-    display: grid
-    grid-gap: $unit*2
-    grid-template-rows: repeat(3, auto)
-    grid-template-columns: repeat(4, auto)
-    grid-auto-flow: column
+    margin-top: $unit*3
     +mq-m
       grid-row: 3 / -1
       grid-column: 2 / -1
-
-  &__item
-    @extend %flex--row-center
-    width: $unit*5
-    height: $unit*5
 
   &__icon
     max-width: 100%
     max-height: 100%
     object-fit: contain
     object-position: center
-
-
-
 
 </style>
