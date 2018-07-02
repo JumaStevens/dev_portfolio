@@ -9,7 +9,7 @@ const config = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'firebase/public'),
-    publicPath: '/firebase/public/'
+    publicPath: ''
   },
   module: {
     rules: [

@@ -23,7 +23,7 @@ export default {
     return {
       headline: 'Creative Digital Solutions',
       text: 'Full Stack Web Developer specializing in modular, expressive code helping businesses and agencies build better digital experiences.',
-      link: 'Let\'s Chat!'
+      link: 'Get In Touch'
     }
   },
   computed: {},

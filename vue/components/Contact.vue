@@ -34,6 +34,7 @@ div(class='container-contact')
 
 <script>
 import isEmail from 'validator/lib/isEmail'
+import axios from 'axios'
 
 
 export default {
@@ -106,6 +107,27 @@ export default {
     },
 
 
+    sendEmail () {
+      const email = this.email
+      const url = 'https://us-central1-microservices-6ff30.cloudfunctions.net/sendGrid/mail/6ZXMcE86d3U3G6YjiLBjNcS2ws72'
+      const config = {
+        headers : {
+          'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'
+        },
+        data: {
+          from: email.from,
+          subject: `💸 New Client: ${email.name}`,
+          text: email.message
+        }
+      }
+
+      axios.post(url, config)
+        .then((res) => console.log('axios response: ', res))
+        .catch((e) => console.log('axios error: ', e))
+    },
+
+
     submit () {
       if (!this.userText) return
 
@@ -114,6 +136,9 @@ export default {
 
       // current bot task
       const botTask = this.botTask[0]
+
+      // email data
+      const email = this.email
 
       // task success
       const taskSuccess = () => {
@@ -126,13 +151,31 @@ export default {
       const taskError = () => this.log.push({ fromBot: true, message: botTask.errorMessage })
 
       // email task
-      if (botTask && botTask.task === 'email') this.validateEmail(this.userText) ? taskSuccess() : taskError()
+      if (botTask && botTask.task === 'email') {
+        if (this.validateEmail(this.userText)) {
+          taskSuccess()
+          email.from = this.userText
+        } else {
+          taskError()
+        }
+      }
 
       // name task
-      else if (botTask && botTask.task === 'name') this.validateName(this.userText) ? taskSuccess() : taskError()
+      else if (botTask && botTask.task === 'name') {
+        if (this.validateName(this.userText)) {
+          taskSuccess()
+          email.name = this.userText
+        } else {
+          taskError()
+        }
+      }
 
       // project task
-      else if (botTask && botTask.task === 'project') taskSuccess()
+      else if (botTask && botTask.task === 'project') {
+        taskSuccess()
+        email.message = `FROM: ${email.name}, MESSAGE: ${this.userText}`
+        this.sendEmail()
+      }
 
       // all task complete
       else this.log.push({ fromBot: true, message: 'Ok, noted.' })
