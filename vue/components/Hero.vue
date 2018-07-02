@@ -7,7 +7,7 @@ div(class='container-hero')
       p(class='hero__text') {{ text }}
       a(class='hero__link') {{ link }}
 
-    CardCode(class='hero__card-code')
+    CardCode(class='hero__code')
 </template>
 
 
@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       headline: 'Creative Digital Solutions',
-      text: 'Full Stack Developer specializing in modular, expressive code helping agencies and businesses build engaging digital products.',
+      text: 'Full Stack Web Developer specializing in modular, expressive code helping businesses and agencies build better digital experiences.',
       link: 'Let\'s Chat!'
     }
   },
@@ -34,11 +34,26 @@ export default {
 
 <style lang='sass' scoped>
 .container-hero
-  background: $grey
+  position: relative
+  z-index: 2
+  background: $white
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 50%
+    width: 50%
+    height: 100%
+    border-radius: 6px
+    background: $grey
 
 .hero
   @extend %container-content
-  @extend %flex--row
+  position: relative
+  z-index: 3
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
   min-height: 100vh
   justify-content: space-between
   align-items: center
@@ -62,6 +77,9 @@ export default {
     margin-top: $unit*4
     background: $blue
     color: $white
+
+  &__code
+    justify-self: end
 
 
 </style>

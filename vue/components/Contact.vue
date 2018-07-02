@@ -62,7 +62,7 @@ export default {
         {
           task: 'email',
           message: 'What\'s your email?',
-          successMessage: 'Great, thank you!',
+          successMessage: 'Thank you.',
           errorMessage: 'Oops, email is incorrectly formatted. Try again.'
         },
         {
@@ -74,7 +74,7 @@ export default {
         {
           task: 'project',
           message: 'So what can I do for you?',
-          successMessage: 'Ok. Thank you for reaching out, we\'ll be in touch!',
+          successMessage: 'Ok. Thank you for reaching out, we\'ll be in touch shortly!',
           errorMessage: 'Sorry, I didn\'t catch that. What now?'
         }
       ]
@@ -135,7 +135,7 @@ export default {
       else if (botTask && botTask.task === 'project') taskSuccess()
 
       // all task complete
-      else this.log.push({ fromBot: true, message: 'Got it, and noted.' })
+      else this.log.push({ fromBot: true, message: 'Ok, noted.' })
 
       // reset log to bottom position
       this.scrollToBottom()

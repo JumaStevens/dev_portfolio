@@ -15,10 +15,12 @@ div(class='container-about')
           :key='item + index'
           class='about__item'
         )
-          img(
-            v-lazy='item.image'
-            class='about__icon'
-          )
+          figure(class='about__icon')
+            img(
+              v-lazy='item.image'
+              class='about__icon-image'
+            )
+            figcaption(class='about__icon-caption') {{ item.text }}
 
     div(class='about__techniques')
       h3(class='about__subhead') {{ techniques.subhead }}
@@ -60,40 +62,52 @@ export default {
         subhead: 'Skillset',
         list: [
           {
-            image: iconHTML
+            image: iconHTML,
+            text: 'HTML5'
           },
           {
-            image: iconCSS
+            image: iconCSS,
+            text: 'CSS3'
           },
           {
-            image: iconJavascript
+            image: iconJavascript,
+            text: 'JavaScript'
           },
           {
-            image: iconVue
+            image: iconVue,
+            text: 'Vue.js'
           },
           {
-            image: iconFirebase
+            image: iconFirebase,
+            text: 'Firebase'
           },
           {
-            image: iconShopify
+            image: iconShopify,
+            text: 'Shopify'
           },
           {
-            image: iconNode
+            image: iconNode,
+            text: 'Node.js'
           },
           {
-            image: iconWebpack
+            image: iconWebpack,
+            text: 'Webpack'
           },
           {
-            image: iconPug
+            image: iconPug,
+            text: 'Pug'
           },
           {
-            image: iconSass
+            image: iconSass,
+            text: 'SASS'
           },
           {
-            image: iconGulp
+            image: iconGulp,
+            text: 'Gulp.js'
           },
           {
-            image: iconPhotoshop
+            image: iconPhotoshop,
+            text: 'Photoshop'
           }
         ]
       },
@@ -207,9 +221,32 @@ export default {
       grid-column: 2 / -1
 
   &__icon
-    max-width: 100%
-    max-height: 100%
-    object-fit: contain
-    object-position: center
+    @extend %flex--column-center
+    position: relative
+    width: 100%
+    height: 100%
+    margin: 0
+
+
+    &-image
+      max-width: 100%
+      max-height: 100%
+      object-fit: contain
+      object-position: center
+
+    &-caption
+      display: none
+      color: $dark
+      white-space: nowrap
+      font-size: 12px
+      +mq-xs
+        align-self: flex-start
+
+    &:hover &-caption
+      display: flex
+
+    &:hover &-image
+      display: none
+
 
 </style>

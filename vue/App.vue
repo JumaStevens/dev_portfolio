@@ -56,14 +56,20 @@ export default {
 @import './assets/sass/main.sass'
 
 .vue-app
-  padding-left: $unit*6
+  +mq-s
+    padding-left: $unit*6
 
   &__hamburger
     position: fixed
     z-index: 99
-    top: 50%
-    left: $unit*3
-    transform: translate(-50%, -50%)
+    top: $unit*3
+    right: 5%
+    +mq-s
+      top: 50%
+      left: $unit*3
+      right: unset
+      transform: translate(-50%, -50%)
+
 
   &__error,
   &__view

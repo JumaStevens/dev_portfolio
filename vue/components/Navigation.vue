@@ -94,16 +94,20 @@ export default {
   &__list
     grid-row: 2 / 3
     display: flex
+    flex-direction: column
+    +mq-s
+      flex-direction: row
 
   &__item
     @extend %flex--row-center
-    margin-right: $unit*3
+    justify-content: flex-start
+    +mq-s
+      margin-right: $unit*5
 
     &:last-child
       margin-right: unset
 
   &__link
-    padding: $unit $unit*2
     color: $white
     opacity: 0.9
 

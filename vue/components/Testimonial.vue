@@ -88,7 +88,7 @@ export default {
     width: $unit*5
     height: $unit*5
     border-radius: 50%
-    background: $dark
+    background: $grey
 
   &__subhead
     margin: $unit*2 0 $unit
