@@ -30,7 +30,7 @@ export default {
   @extend %container-content
   @extend %flex--row-center
   min-height: $unit*6
-  border-top: 1px solid $grey
+  // border-top: 1px solid $grey
 
   &__copywrite
     font-size: $fs-1

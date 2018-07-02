@@ -110,6 +110,7 @@ export default {
 
   &__text
     @extend %text-copy
+    margin-top: $unit
 
   &__link
     color: $blue

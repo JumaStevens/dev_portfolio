@@ -1,12 +1,16 @@
 <template lang='pug'>
 div(class='container-hamburger')
-  a(class='hamburger')
-
+  a(
+    @click='toggleMenu'
+    :class='{ active: isOpen }'
+    class='hamburger'
+  )
 
 </template>
 
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   components: {},
@@ -14,8 +18,16 @@ export default {
   data () {
     return {}
   },
-  computed: {},
-  methods: {}
+  computed: {
+    ...mapState({
+      isOpen: state => state.app.menu.isOpen
+    })
+  },
+  methods: {
+    ...mapMutations({
+      toggleMenu: 'app/TOGGLE_MENU'
+    })
+  }
 }
 </script>
 
@@ -28,6 +40,8 @@ export default {
   width: $unit*5
   height: $unit*5
   display: block
+  border-radius: 50%
+  background: rgba(255, 255, 255, 0.5)
 
   &::after,
   &::before
@@ -38,13 +52,21 @@ export default {
     width: $unit*3
     height: 2px
     background: $black
-    transition: translate 500ms
+    transition: transform 500ms
 
   &::after
     transform: translate(-50%, -#{$unit/2})
 
   &::before
     transform: translate(-50%, #{$unit/2})
+
+  &.active
+    background: transparent
+
+    &::after,
+    &::before
+      background: $white
+      transform: translate(-50%, 0)
 
 
 </style>

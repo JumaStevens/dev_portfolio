@@ -112,8 +112,8 @@ export default {
       },
       card: {
         image: headshot,
-        headline: 'Full Stack Web Developer',
-        text: 'My name is Juma Stevens. I practice a minimalistic dogma, both visually and in code. I believe simplicity is key for a great user experience. I iterate quickly, allowing data to drive decisions.'
+        headline: 'Juma Stevens',
+        text: 'Hello! I\'m a Full Stack Web Developer specializing in creative digital solutions. I practice a minimalist dogma, both in UI/UX choice and in code. I believe simplicity is key for a great user experience. I iterate quickly, allowing data to drive decisions.'
       }
     }
   },

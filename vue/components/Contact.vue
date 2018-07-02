@@ -8,7 +8,10 @@ div(class='container-contact')
       @submit.prevent='submit'
       class='contact__form'
     )
-      ul(class='contact__list')
+      ul(
+        ref='logList'
+        class='contact__list'
+      )
         li(
           v-for='(item, index) in log'
           :key='item + index'
@@ -39,11 +42,16 @@ export default {
   data () {
     return {
       headline: 'Contact',
+      email: {
+        from: '',
+        name: '',
+        message: ''
+      },
       userText: '',
       log: [
         {
           fromBot: true,
-          message: 'Hey, I\'m Bot. Let\'s chat!'
+          message: 'Hello, I\'m Bot. Let\'s chat!'
         },
         {
           fromBot: true,
@@ -88,14 +96,13 @@ export default {
 
     nextBotTask () {
       const task = this.botTask[0]
-      if (!task) return
+      if (task) this.log.push({ fromBot: true, message: task.message })
+    },
 
-      const logData = {
-        fromBot: true,
-        message: task.message
-      }
 
-      this.log.push(logData)
+    scrollToBottom () {
+      const log = this.$refs.logList
+      this.$nextTick(() => log.scrollTop = log.scrollHeight)
     },
 
 
@@ -130,6 +137,9 @@ export default {
       // all task complete
       else this.log.push({ fromBot: true, message: 'Got it, and noted.' })
 
+      // reset log to bottom position
+      this.scrollToBottom()
+
       // clear user input
       this.userText = ''
     }
@@ -150,26 +160,31 @@ export default {
 
   &__form
     display: grid
-    grid-template-rows: 1fr auto
-    grid-template-columns: 1fr auto
+    grid-template-rows: $unit*50 auto
+    grid-template-columns: 1fr $unit*11
     grid-gap: $unit*10 $unit*2
     margin: 0 auto
 
   &__list
-    @extend %flex--column
+    display: grid
+    grid-template-columns: $unit*3 1fr $unit*3 $unit*12
+    grid-auto-rows: min-content
+    grid-gap: $unit*3 0
     grid-row: 1 / 2
-    grid-column: 1 / 2
+    grid-column: 1 / -1
+    padding: 0 $unit
+    overflow-y: auto
 
   &__item
     @extend %card-container
-    align-self: flex-start
+    grid-column: 1 / 3
+    justify-self: start
     padding: $unit
-    margin: 0 $unit*3 $unit*3 0
 
     &.fromBot
       position: relative
-      align-self: flex-end
-      margin: 0 0 $unit*3 $unit*3
+      grid-column: 2 / 4
+      justify-self: end
       overflow: visible
       background: $black
       color: $white
@@ -180,9 +195,6 @@ export default {
         top: 0
         right: -$unit*5
         font-size: $fs1
-
-    &:last-child
-      margin-bottom: unset
 
   &__input
     grid-row: 2 / 3

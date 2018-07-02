@@ -1,7 +1,12 @@
 <template lang='pug'>
-div(class='vue-app')
+div(
+  :class='{ menuIsOpen: menuIsOpen }'
+  class='vue-app'
+)
 
   Navigation
+
+  Hamburger(class='vue-app__hamburger')
 
   Error404(
     v-if='error.isError && error.type == "404"'
@@ -12,19 +17,22 @@ div(class='vue-app')
     class='vue-app__view'
   )
 
-  Footer
+  Footer(class='vue-app__footer')
 </template>
 
 
 <script>
 import Error404 from './views/Error404.vue'
 import Navigation from '~comp/Navigation.vue'
+import Hamburger from '~comp/Hamburger.vue'
 import Footer from '~comp/Footer.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Error404,
     Navigation,
+    Hamburger,
     Footer
   },
   data () {
@@ -33,7 +41,12 @@ export default {
   computed: {
     error () {
       return this.$store.state.error
-    }
+    },
+
+
+    ...mapState({
+      menuIsOpen: state => state.app.menu.isOpen
+    })
   }
 }
 </script>
@@ -45,9 +58,21 @@ export default {
 .vue-app
   padding-left: $unit*6
 
+  &__hamburger
+    position: fixed
+    z-index: 99
+    top: 50%
+    left: $unit*3
+    transform: translate(-50%, -50%)
+
   &__error,
   &__view
 
+  &.menuIsOpen
+
+    & .vue-app__view,
+    & .vue-app__footer
+      display: none
 
 
 </style>

@@ -91,6 +91,7 @@ export default {
     background: $dark
 
   &__subhead
+    margin: $unit*2 0 $unit
 
   &__text
     @extend %text-copy
