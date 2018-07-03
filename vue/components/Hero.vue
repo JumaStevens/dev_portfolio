@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       headline: 'Creative Digital Solutions',
-      text: 'Full Stack Web Developer specializing in modular, expressive code helping businesses and agencies build better digital experiences.',
+      text: 'Full Stack Web Developer specializing in modular code architecture, helping businesses and agencies build better digital experiences.',
       link: 'Get In Touch'
     }
   },
@@ -45,7 +45,6 @@ export default {
     left: 50%
     width: 50%
     height: 100%
-    border-radius: 6px
     background: $grey
 
 .hero

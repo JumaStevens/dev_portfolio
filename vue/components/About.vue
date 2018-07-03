@@ -62,16 +62,16 @@ export default {
         subhead: 'Skillset',
         list: [
           {
+            image: iconJavascript,
+            text: 'JavaScript'
+          },
+          {
             image: iconHTML,
             text: 'HTML5'
           },
           {
             image: iconCSS,
             text: 'CSS3'
-          },
-          {
-            image: iconJavascript,
-            text: 'JavaScript'
           },
           {
             image: iconVue,
@@ -99,7 +99,7 @@ export default {
           },
           {
             image: iconSass,
-            text: 'SASS'
+            text: 'Sass'
           },
           {
             image: iconGulp,

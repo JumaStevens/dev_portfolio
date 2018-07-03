@@ -33,12 +33,12 @@ export default {
         {
           image: avatarRob,
           headline: 'Rob Alan — Monumental',
-          text: 'Juma leads our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
+          text: 'Juma lead our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
         },
         {
           image: avatarShaun,
           headline: 'Shaun Brian Sells - HHR',
-          text: 'Juma loves when I make banana bread for him.'
+          text: 'I detailed my vision, and Juma lifted it to reality.'
         },
         {
           image: avatarSerra,

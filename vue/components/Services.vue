@@ -26,18 +26,18 @@ export default {
       services: [
         {
           svg: '',
-          headline: 'Modular',
-          text: 'Code that scales.'
+          headline: 'Web Development',
+          text: 'Advanced JavaScript to modular microservices, your project will benefit from superior code craftmanship.'
         },
         {
           svg: '',
-          headline: 'Secure',
-          text: 'Security is a top concern.'
+          headline: 'Shopify Partner',
+          text: 'E-commerce is competive. Shopify savvy, deep analytics, and artificial intelligence gives your project the edge it needs.'
         },
         {
           svg: '',
-          headline: 'Future Proof',
-          text: 'The web development space progresses fast, don\'t be left behind.'
+          headline: 'Site Performance',
+          text: '53% of users abandon sites after 3 seconds of waiting. A thorough speed audit will grow your user retention.'
         }
       ]
     }

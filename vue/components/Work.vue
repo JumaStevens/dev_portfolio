@@ -37,37 +37,37 @@ export default {
       work: [
         {
           image: kushMockup,
-          headline: 'Kush Rugs - Shopify Storefront',
+          headline: 'Kush Rugs - Shopify',
           text: 'An e-commerce storefront selling ethically sourced, high-end designer rugs.',
           link: ''
         },
         {
           image: dashMockup,
-          headline: 'Dash Messenger - Application',
-          text: 'A minimalist chat utility that is secure and fun to use.',
+          headline: 'Messenger - Single Page Application',
+          text: 'A minimalist chat utility that is secure and easy to use.',
           link: ''
         },
         {
           image: hhrMockup,
-          headline: 'HRR — Job Board',
+          headline: 'HRR — Server Side Rendered',
           text: 'Hurricane relief app allowing survivors to find jobs.',
           link: ''
         },
         {
           image: galleryMockup,
-          headline: 'Dash Messenger - Application',
+          headline: 'Gallery - Artist Portfolio',
           text: 'A minimalist chat utility that is secure and fun to use.',
           link: ''
         },
         {
           image: portfolioMockup,
-          headline: 'Dash Messenger - Application',
+          headline: 'Portfolio (Past) - Single Page Application',
           text: 'A minimalist chat utility that is secure and fun to use.',
           link: ''
         },
         {
           image: adventMockup,
-          headline: 'Dash Messenger - Application',
+          headline: 'Advent - Agency Webpage',
           text: 'A minimalist chat utility that is secure and fun to use.',
           link: ''
         }

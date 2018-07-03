@@ -2,10 +2,11 @@ const webpack = require('webpack')
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+require('babel-polyfill')
 
 
 const config = {
-  entry: './vue/main.js',
+  entry: ['babel-polyfill', './vue/main.js'],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'firebase/public'),

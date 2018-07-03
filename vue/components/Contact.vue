@@ -75,7 +75,7 @@ export default {
         {
           task: 'project',
           message: 'So what can I do for you?',
-          successMessage: 'Ok. Thank you for reaching out, we\'ll be in touch shortly!',
+          successMessage: 'Ok. Sending out message, one moment...',
           errorMessage: 'Sorry, I didn\'t catch that. What now?'
         }
       ]
@@ -107,7 +107,7 @@ export default {
     },
 
 
-    sendEmail () {
+    async sendEmail () {
       const email = this.email
       const url = 'https://us-central1-microservices-6ff30.cloudfunctions.net/sendGrid/mail/6ZXMcE86d3U3G6YjiLBjNcS2ws72'
       const config = {
@@ -122,9 +122,24 @@ export default {
         }
       }
 
-      axios.post(url, config)
-        .then((res) => console.log('axios response: ', res))
-        .catch((e) => console.log('axios error: ', e))
+      const success = (res) => {
+        this.log.push({ fromBot: true, message: 'Sent! Thank you, expect a human response within 24 hours.' })
+        // reset log to bottom position
+        this.scrollToBottom()
+      }
+
+      const error = (e) => {
+        this.log.push({ fromBot: true, message: '#&%@! Something went wrong, try again.' })
+        // reset log to bottom position
+        this.scrollToBottom()
+      }
+
+      try {
+        const res = await axios.post(url, config)
+        success(res)
+      } catch(e) {
+        error(e)
+      }
     },
 
 
