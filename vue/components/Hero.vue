@@ -40,24 +40,34 @@ export default {
 
   &::before
     content: ''
+    width: 100%
+    height: 50%
     position: absolute
-    top: 0
-    left: 50%
-    width: 50%
-    height: 100%
+    top: 50%
     background: $grey
+    +mq-s
+      width: 50%
+      height: 100%
+      top: 0
+      left: 50%
+
+
 
 .hero
   @extend %container-content
   position: relative
   z-index: 3
   display: grid
-  grid-template-columns: repeat(2, 1fr)
+  grid-template-columns: repeat(1, 1fr)
   min-height: 100vh
   justify-content: space-between
   align-items: center
+  +mq-s
+    grid-template-columns: repeat(2, 1fr)
+
 
   &__body
+    padding: $unit*10 0
     max-width: $fs*28
     +mq-s
       margin-right: $unit*10
@@ -78,7 +88,10 @@ export default {
     color: $white
 
   &__code
-    justify-self: end
+    padding: $unit*10 0
+    justify-self: center
+    +mq-s
+      justify-self: end
 
 
 </style>

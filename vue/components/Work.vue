@@ -37,38 +37,38 @@ export default {
       work: [
         {
           image: kushMockup,
-          headline: 'Kush Rugs - Shopify',
-          text: 'An e-commerce storefront selling ethically sourced, high-end designer rugs.',
+          headline: 'Kush Rugs — Shopify',
+          text: 'E-commerce storefront selling ethically sourced designer rugs.',
           link: ''
         },
         {
           image: dashMockup,
-          headline: 'Messenger - Single Page Application',
-          text: 'A minimalist chat utility that is secure and easy to use.',
+          headline: 'Messenger — Single Page Application',
+          text: 'Minimalist chat utility that is secure and easy to use.',
           link: ''
         },
         {
           image: hhrMockup,
           headline: 'HRR — Server Side Rendered',
-          text: 'Hurricane relief app allowing survivors to find jobs.',
+          text: 'Hurricane relief job board, connecting restaurateurs with displaced survivors.',
           link: ''
         },
         {
           image: galleryMockup,
-          headline: 'Gallery - Artist Portfolio',
-          text: 'A minimalist chat utility that is secure and fun to use.',
+          headline: 'Gallery — Artist Portfolio',
+          text: 'Stripped down showcase of large photographic content.',
           link: ''
         },
         {
           image: portfolioMockup,
-          headline: 'Portfolio (Past) - Single Page Application',
-          text: 'A minimalist chat utility that is secure and fun to use.',
+          headline: 'Portfolio — Single Page Application',
+          text: 'Lightweight portfolio for technology professionals.',
           link: ''
         },
         {
           image: adventMockup,
-          headline: 'Advent - Agency Webpage',
-          text: 'A minimalist chat utility that is secure and fun to use.',
+          headline: 'Advent — Agency Webpage',
+          text: 'Mobile-first, brand development digital agency.',
           link: ''
         }
       ]
@@ -92,9 +92,10 @@ export default {
 
   &__list
     display: grid
-    grid-gap: $unit*10 $unit*5
+    grid-gap: $unit*5
     +mq-s
       grid-template-columns: repeat(2, 1fr)
+      grid-gap: $unit*10 $unit*5
 
   &__item
 

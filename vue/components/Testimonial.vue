@@ -37,13 +37,13 @@ export default {
         },
         {
           image: avatarShaun,
-          headline: 'Shaun Brian Sells - HHR',
-          text: 'I detailed my vision, and Juma lifted it to reality.'
+          headline: 'Shaun Brian Sells — HHR',
+          text: 'Working together was a great experience. From idea to fruition, communication was professional and clear.'
         },
         {
           image: avatarSerra,
-          headline: 'Serra - Vessel',
-          text: 'Since launching our new website we have seen a steady 20% monthly user engagment with out line of products. The best thing I\'ve ever done was hire Juma.'
+          headline: 'Serra — Vessel',
+          text: 'Juma truly felt like he was apart of our team. Looking forward to future projects.'
         }
       ]
     }

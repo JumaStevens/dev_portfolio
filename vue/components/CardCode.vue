@@ -3,13 +3,64 @@ div(class='container-code')
 
   figure(class='code')
     p(class='code__line')
-      span(class='code__text code__text--purple') const
-      span(class='code__text code__text--yellow') set
-      span(class='code__text code__text--blue') =
-      span(class='code__text code__text--green') Set
-      span(class='code__text code__text--white') ()
-      span(class='code__text code__text--grey') // true {{ test }}
+      span(class='code__text white') &lt;
+      span(class='code__text red') template
+      span(class='code__text yellow') &nbsp; lang
+      span(class='code__text white') =
+      span(class='code__text green') "pug"
+      span(class='code__text white') &gt;
 
+    p(class='code__line')
+      span(class='code__text red') Card
+      span(class='code__text yellow') (class
+      span(class='code__text white') =
+      span(class='code__text green') "card"
+      span(class='code__text yellow') )
+
+    p(class='code__line')
+      span(class='code__text white') &lt;/
+      span(class='code__text red') template
+      span(class='code__text white') &gt;
+
+    p(class='code__line')
+      | <br>
+      span(class='code__text white') &lt;
+      span(class='code__text red') script
+      span(class='code__text white') &gt;
+
+    p(class='code__line')
+      span(class='code__text purple') import
+      span(class='code__text red') &nbsp; Card
+      span(class='code__text purple') &nbsp; from
+      span(class='code__text green') &nbsp; "~comp/Card.vue"
+
+    p(class='code__line')
+      | <br>
+      span(class='code__text purple') export
+      span(class='code__text red') &nbsp; default
+      span(class='code__text white') &nbsp; {
+
+    p(class='code__line')
+      | &nbsp; &nbsp;
+      span(class='code__text white') components
+      span(class='code__text blue') :
+      span(class='code__text white') &nbsp; {
+        | &nbsp;
+        | Card
+        | &nbsp;
+        | },
+
+    p(class='code__line')
+      | &nbsp; &nbsp;
+      span(class='code__text grey') ...
+
+    p(class='code__line')
+      span(class='code__text white') }
+
+    p(class='code__line')
+      span(class='code__text white') &lt;/
+      span(class='code__text red') script
+      span(class='code__text white') &gt;
 </template>
 
 
@@ -21,19 +72,7 @@ export default {
   data () {
     return {}
   },
-  computed: {
-    test () {
-      // coded with love
-      const dev = {
-        name: 'Juma Stevens',
-        title: 'Full Stack Developer',
-        skills: ['Shopify', 'Vue', 'Node']
-      }
-      const hire = ({ name }) => `Hire ${name}, save the world!`
-
-      hire(dev)
-    }
-  },
+  computed: {},
   methods: {}
 }
 </script>
@@ -44,30 +83,38 @@ export default {
 
 .code
   @extend %card-container
-  width: 300px
-  height: 200px
-  padding: $unit*2
+  padding: $unit*3 $unit*8 $unit*2 $unit*2
   margin: 0
   background: rgba(41, 44, 52, 1)
+  +mq-s
+    padding: $unit*3 $unit*4 $unit*2 $unit*2
+  +mq-m
+    padding: $unit*3 $unit*8 $unit*2 $unit*2
 
   &__line
 
   &__text
+    font-size: 12px
+    +mq-xs
+      font-size: $fs
+    +mq-s
+      font-size: 12px
+    +mq-m
+      font-size: $fs
 
-    &::before
-      content: ' '
-
-    &--purple
+    &.purple
       color: rgba(187, 126, 215, 1)
-    &--yellow
+    &.yellow
       color: rgba(201, 155, 110, 1)
-    &--blue
+    &.blue
       color: rgba(115, 171, 181, 1)
-    &--green
+    &.green
       color: rgba(161, 193, 129, 1)
-    &--white
+    &.red
+      color: rgba(210, 115, 119, 1)
+    &.white
       color: rgba(172, 178, 190, 1)
-    &--grey
+    &.grey
       color: rgba(93, 99, 108, 1)
 
 </style>

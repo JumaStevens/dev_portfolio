@@ -79,12 +79,14 @@ export default {
         margin-right: unset
 
   &__icon
+    display: none
     width: 24px
     height: 24px
     background: $dark
 
   &__subhead
-    margin: $unit*2 0 $unit
+    // margin: $unit*2 0 $unit 0
+    margin: 0 0 $unit 0
 
   &__text
     @extend %text-copy

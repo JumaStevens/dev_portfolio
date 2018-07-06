@@ -114,20 +114,20 @@ export default {
       techniques: {
         subhead: 'Techniques',
         list: [
-          'BEM',
-          'Mobile First',
           'Responsive Design',
-          'SMACSS',
-          'SPA/SSR',
+          'Mobile First',
           'Version Control',
           'Design System',
-          'ES6/ES7/ES8'
+          'ES6/ES7/ES8',
+          'SPA/SSR',
+          'BEM',
+          'SMACSS'
         ]
       },
       card: {
         image: headshot,
         headline: 'Juma Stevens',
-        text: 'Hello! I\'m a Full Stack Web Developer specializing in creative digital solutions. I practice a minimalist dogma, both in UI/UX choice and in code. I believe simplicity is key for a great user experience. I iterate quickly, allowing data to drive decisions.'
+        text: 'Hello! I\'m a Full Stack Web Developer specializing in creative digital solutions. I practice a minimalism dogma, building carefully-crafted web experiences. I love to collaborate on ideas, design systems, and build cool products with code.'
       }
     }
   },
@@ -158,6 +158,7 @@ export default {
   &__skills
     @extend %card-container
     padding: $unit*3 $unit*2 $unit*2 $unit*2
+    margin-bottom: $unit*5
     +mq-m
       grid-row: 2 / 3
       grid-column: 2 / -1
@@ -210,6 +211,7 @@ export default {
   &__subhead
 
   &__card
+    margin-bottom: $unit*5
     +mq-m
       grid-row: 2 / -1
       grid-column: 1 / 2
