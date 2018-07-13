@@ -48,11 +48,7 @@ div(class='container-code')
         | &nbsp;
         | Card
         | &nbsp;
-        | },
-
-    p(class='code__line')
-      | &nbsp; &nbsp;
-      span(class='code__text grey') ...
+        | }
 
     p(class='code__line')
       span(class='code__text white') }
@@ -83,13 +79,13 @@ export default {
 
 .code
   @extend %card-container
-  padding: $unit*3 $unit*8 $unit*2 $unit*2
+  padding: $unit*3 $unit*8 $unit*3 $unit*2
   margin: 0
   background: rgba(41, 44, 52, 1)
   +mq-s
-    padding: $unit*3 $unit*4 $unit*2 $unit*2
+    padding: $unit*3 $unit*4 $unit*3 $unit*2
   +mq-m
-    padding: $unit*3 $unit*8 $unit*2 $unit*2
+    padding: $unit*3 $unit*8 $unit*3 $unit*2
 
   &__line
 

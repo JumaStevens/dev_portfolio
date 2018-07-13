@@ -1,5 +1,8 @@
 export default {
-  TOGGLE_MENU (state) {
-    state.menu.isOpen = !state.menu.isOpen
+  RECORD_SCROLL_POSITION ({ scroll }) {
+    scroll.y = window.scrollY
+  },
+  TOGGLE_MENU ({ menu }) {
+    menu.isOpen = !menu.isOpen
   }
 }

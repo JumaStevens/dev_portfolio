@@ -1,5 +1,8 @@
 <template lang='pug'>
-div(class='container-about')
+div(
+  id='bio'
+  class='container-about'
+)
 
   section(class='about')
     h2(class='about__headline') {{ headline }}
@@ -157,7 +160,7 @@ export default {
 
   &__skills
     @extend %card-container
-    padding: $unit*3 $unit*2 $unit*2 $unit*2
+    padding: $unit*3 $unit*2
     margin-bottom: $unit*5
     +mq-m
       grid-row: 2 / 3
@@ -178,7 +181,7 @@ export default {
 
   &__techniques
     @extend %card-container
-    padding: $unit*3 $unit*2 $unit*2 $unit*2
+    padding: $unit*3 $unit*2
     +mq-m
       grid-row: 3 / -1
       grid-column: 2 / -1

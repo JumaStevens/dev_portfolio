@@ -11,14 +11,27 @@ div(
         :key='item + index'
         class='navigation__item'
       )
-        router-link(
-          to=''
+        a(
+          @click='handleNavLink(item)'
           class='navigation__link'
         ) {{ item.text }}
     aside(class='navigation__connect')
-      a(class='navigation__link') GitHub
-      a(class='navigation__link') LinkedIn
-      a(class='navigation__link') Jumastevens@gmail.com
+      a(
+        href='https://github.com/JumaStevens'
+        target='_blank'
+        rel='external'
+        class='navigation__link'
+      ) GitHub
+      a(
+        href='https://www.linkedin.com/in/juma-stevens-05730b138/'
+        target='_blank'
+        rel='external'
+        class='navigation__link'
+      ) LinkedIn
+      a(
+        href='mailto:jumastevens@gmail.com'
+        class='navigation__link'
+      ) Jumastevens@gmail.com
 </template>
 
 
@@ -52,10 +65,22 @@ export default {
   },
   computed: {
     ...mapState({
+      scrollY: state => state.app.scroll.y,
       isOpen: state => state.app.menu.isOpen
     })
   },
   methods: {
+    handleNavLink ({ text }) {
+      const anchor = `#${text.toLowerCase()}`
+      this.toggleMenu()
+
+      this.$nextTick(() => {
+        window.scrollTo(0, this.scrollY)
+        this.$scrollTo(anchor)
+      })
+    },
+
+
     ...mapMutations({
       toggleMenu: 'app/TOGGLE_MENU'
     })
@@ -101,11 +126,12 @@ export default {
   &__item
     @extend %flex--row-center
     justify-content: flex-start
+    margin-bottom: $unit
     +mq-s
-      margin-right: $unit*5
+      margin: 0 $unit*5 0 0
 
     &:last-child
-      margin-right: unset
+      margin: 0
 
   &__link
     color: $white
@@ -118,6 +144,7 @@ export default {
     display: grid
     grid-template-rows: repeat(2, min-content)
     grid-template-columns: repeat(3, min-content)
+    grid-gap: $unit $unit*5
     grid-row: 3 / -1
     align-self: center
     margin: $unit*5 0

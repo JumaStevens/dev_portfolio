@@ -1,5 +1,8 @@
 <template lang='pug'>
-div(class='container-work')
+div(
+  id='work'
+  class='container-work'
+)
 
   section(class='work')
     h2(class='work__headline') {{ headline }}
@@ -38,7 +41,7 @@ export default {
         {
           image: kushMockup,
           headline: 'Kush Rugs — Shopify',
-          text: 'E-commerce storefront selling ethically sourced designer rugs.',
+          text: 'E-commerce storefront selling ethically sourced designer rugs. (Monumental Agency)',
           link: ''
         },
         {

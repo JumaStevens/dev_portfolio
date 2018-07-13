@@ -1,11 +1,10 @@
 <template lang='pug'>
 div(class='container-hamburger')
   a(
-    @click='toggleMenu'
+    @click='handleClick'
     :class='{ active: isOpen }'
     class='hamburger'
   )
-
 </template>
 
 
@@ -20,11 +19,25 @@ export default {
   },
   computed: {
     ...mapState({
+      scrollY: state => state.app.scroll.y,
       isOpen: state => state.app.menu.isOpen
     })
   },
   methods: {
+    handleClick () {
+      this.toggleMenu()
+
+      if (!this.isOpen) {
+        this.$nextTick(() => window.scrollTo(0, this.scrollY))
+      }
+      else {
+        this.recordScrollPosition()
+      }
+    },
+
+
     ...mapMutations({
+      recordScrollPosition: 'app/RECORD_SCROLL_POSITION',
       toggleMenu: 'app/TOGGLE_MENU'
     })
   }

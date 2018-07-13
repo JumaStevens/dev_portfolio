@@ -103,7 +103,7 @@ export default {
   &__body
     position: relative
     z-index: 6
-    padding: $unit*3 $unit*2 $unit*2 $unit*2
+    padding: $unit*3 $unit*2
     background: $white
 
   &__headline

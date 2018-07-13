@@ -1,5 +1,8 @@
 <template lang='pug'>
-div(class='container-testimonial')
+div(
+  id='testimonial'
+  class='container-testimonial'
+)
 
   section(class='testimonial')
     h2(class='testimonial__headline') {{ headline }}
@@ -67,19 +70,20 @@ export default {
 
   &__list
     @extend %flex--column
-    +mq-s
+    +mq-m
       flex-direction: row
 
   &__item
     @extend %flex--column
     @extend %card-container
+    max-width: $unit*57
     flex: 1
-    padding: $unit*3 $unit*2 $unit*2 $unit*2
+    padding: $unit*3 $unit*2
     margin-bottom: $unit*5
     background: $white
     &:last-child
       margin-bottom: unset
-    +mq-s
+    +mq-m
       margin: 0 $unit*5 0 0
       &:last-child
         margin-right: unset

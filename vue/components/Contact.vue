@@ -1,5 +1,8 @@
 <template lang='pug'>
-div(class='container-contact')
+div(
+  id='contact'
+  class='container-contact'
+)
 
   section(class='contact')
     h2(class='contact__headline') {{ headline }}
@@ -123,7 +126,7 @@ export default {
       }
 
       const success = (res) => {
-        this.log.push({ fromBot: true, message: 'Sent! Thank you, expect a human response within 24 hours.' })
+        this.log.push({ fromBot: true, message: 'Sent! Thank you, expect a human to respond within 24 hours.' })
         // reset log to bottom position
         this.scrollToBottom()
       }

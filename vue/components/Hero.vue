@@ -1,11 +1,17 @@
 <template lang='pug'>
-div(class='container-hero')
+div(
+  id='hero'
+  class='container-hero'
+)
 
   section(class='hero')
     div(class='hero__body')
       h1(class='hero__headline') {{ headline }}
       p(class='hero__text') {{ text }}
-      a(class='hero__link') {{ link }}
+      a(
+        v-scroll-to='"#contact"'
+        class='hero__link'
+      ) {{ link }}
 
     CardCode(class='hero__code')
 </template>
