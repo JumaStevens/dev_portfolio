@@ -27,7 +27,7 @@ export default {
   props: {},
   data () {
     return {
-      headline: 'Creative Digital Solutions',
+      headline: 'Creative Web Solutions',
       text: 'Full Stack Web Developer specializing in modular code architecture, helping businesses and agencies build better digital experiences.',
       link: 'Get In Touch'
     }
