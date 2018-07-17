@@ -73,6 +73,9 @@ export default {
 
 
   &__body
+    @extend %flex--column-center
+    align-items: flex-start
+    min-height: 100vh
     padding: $unit*10 0
     max-width: $fs*28
     +mq-s
@@ -94,6 +97,9 @@ export default {
     color: $white
 
   &__code
+    @extend %flex--column-center
+    align-items: flex-start
+    min-height: 100vh
     padding: $unit*10 0
     justify-self: center
     +mq-s

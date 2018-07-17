@@ -130,7 +130,7 @@ export default {
       card: {
         image: headshot,
         headline: 'Juma Stevens',
-        text: 'Hello! I\'m a Full Stack Web Developer specializing in creative digital solutions. I practice a minimalism dogma, building carefully-crafted web experiences. I love to collaborate on ideas, design systems, and build cool products with code.'
+        text: 'Hello! I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and build cool products with code.'
       }
     }
   },

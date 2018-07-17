@@ -41,11 +41,11 @@ export default {
         {
           image: avatarShaun,
           headline: 'Shaun Brian Sells — HHR',
-          text: 'Working together was a great experience. From idea to fruition, communication was professional and clear.'
+          text: 'Working together was a great experience. Communication was professional and prompt.'
         },
         {
           image: avatarSerra,
-          headline: 'Serra — Vessel',
+          headline: 'Serra Kreger — Vessel',
           text: 'Juma truly felt like he was apart of our team. Looking forward to future projects.'
         }
       ]

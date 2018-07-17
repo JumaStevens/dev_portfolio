@@ -50,24 +50,24 @@ export default {
           text: 'Minimalist chat utility that is secure and easy to use.',
           link: ''
         },
-        {
-          image: hhrMockup,
-          headline: 'HRR — Server Side Rendered',
-          text: 'Hurricane relief job board, connecting restaurateurs with displaced survivors.',
-          link: ''
-        },
+        // {
+        //   image: hhrMockup,
+        //   headline: 'HRR — Server Side Rendered',
+        //   text: 'Hurricane relief job board, connecting restaurateurs with displaced survivors.',
+        //   link: ''
+        // },
         {
           image: galleryMockup,
           headline: 'Gallery — Artist Portfolio',
           text: 'Stripped down showcase of large photographic content.',
           link: ''
         },
-        {
-          image: portfolioMockup,
-          headline: 'Portfolio — Single Page Application',
-          text: 'Lightweight portfolio for technology professionals.',
-          link: ''
-        },
+        // {
+        //   image: portfolioMockup,
+        //   headline: 'Portfolio — Single Page Application',
+        //   text: 'Lightweight portfolio for technology professionals.',
+        //   link: ''
+        // },
         {
           image: adventMockup,
           headline: 'Advent — Agency Webpage',

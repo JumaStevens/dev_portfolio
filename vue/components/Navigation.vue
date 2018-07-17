@@ -97,10 +97,11 @@ export default {
   left: -100%
   width: 100vw
   min-height: 100vh
-  padding-left: $unit*6
   background: $black
   transition: opacity 200ms
   opacity: 0
+  +mq-s
+    padding-left: $unit*6
 
   &.active
     opacity: 1
@@ -126,7 +127,7 @@ export default {
   &__item
     @extend %flex--row-center
     justify-content: flex-start
-    margin-bottom: $unit
+    margin-bottom: $unit*2
     +mq-s
       margin: 0 $unit*5 0 0
 
@@ -144,10 +145,12 @@ export default {
     display: grid
     grid-template-rows: repeat(2, min-content)
     grid-template-columns: repeat(3, min-content)
-    grid-gap: $unit $unit*5
+    grid-gap: $unit*2 $unit*5
     grid-row: 3 / -1
     align-self: center
     margin: $unit*5 0
+    +mq-s
+      grid-gap: $unit $unit*5
 
     & .navigation__link
       grid-row: 1 / 2
