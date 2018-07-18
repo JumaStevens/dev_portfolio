@@ -46,7 +46,7 @@ export default {
         {
           image: avatarSerra,
           headline: 'Serra Kreger — Vessel',
-          text: 'Juma truly felt like he was apart of our team. Looking forward to future projects.'
+          text: 'Juma truly felt like he was a part of our team. Looking forward to future projects.'
         }
       ]
     }
