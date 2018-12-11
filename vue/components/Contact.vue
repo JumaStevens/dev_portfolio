@@ -28,6 +28,7 @@ div(
       )
       input(
         class='contact__submit'
+        :class='{ active: userText }'
         type='submit'
         value='Send'
       )
@@ -55,7 +56,7 @@ export default {
       log: [
         {
           fromBot: true,
-          message: 'Hello, I\'m Bot. Let\'s chat!'
+          message: 'Hello, I\'m Bot 🤖. Let\'s chat!'
         },
         {
           fromBot: true,
@@ -228,7 +229,7 @@ export default {
 
   &__list
     display: grid
-    grid-template-columns: $unit*3 1fr $unit*3 $unit*12
+    grid-template-columns: $unit*3 1fr $unit*3
     grid-auto-rows: min-content
     grid-gap: $unit*3 0
     grid-row: 1 / 2
@@ -238,24 +239,18 @@ export default {
 
   &__item
     @extend %card-container
-    grid-column: 1 / 3
-    justify-self: start
+    grid-column: 2 / 4
+    justify-self: end
     padding: $unit
+    background: $blue
+    color: $white
 
     &.fromBot
-      position: relative
-      grid-column: 2 / 4
-      justify-self: end
+      grid-column: 1 / 3
+      justify-self: start
       overflow: visible
-      background: $black
-      color: $white
-
-      &::after
-        content: '🤖'
-        position: absolute
-        top: 0
-        right: -$unit*5
-        font-size: $fs1
+      background: $grey
+      color: $black
 
   &__input
     grid-row: 2 / 3
@@ -267,7 +262,10 @@ export default {
     grid-row: 2 / 3
     grid-column: 2 / 3
     padding: $unit $unit*3
-    background: $blue
+    background: $dark
     color: $white
+
+    &.active
+      background: $blue
 
 </style>

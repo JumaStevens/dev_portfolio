@@ -9,5 +9,9 @@
       { "text": "Friends", "url": "/friends" },
       { "text": "Auth", "url": "/auth" }
     ]
-  }
+  },
+  "messages": [
+    "hello",
+    "how's it going?"
+  ]
 }

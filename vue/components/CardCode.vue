@@ -79,9 +79,10 @@ export default {
 
 .code
   @extend %card-container
+  height: 100%
   padding: $unit*3 $unit*8 $unit*3 $unit*2
   margin: 0
-  background: rgba(41, 44, 52, 1)
+  // background: rgba(41, 44, 52, 1)
   +mq-s
     padding: $unit*3 $unit*4 $unit*3 $unit*2
   +mq-m

@@ -22,12 +22,15 @@ div(
 <script>
 import Card from '~comp/Card.vue'
 import dashMockup from '~/assets/images/dashMockup.png'
+import feedMeSugarMockup from '~/assets/images/feedMeSugarMockup.png'
+import chatCiaoMockup from '~/assets/images/chatCiaoMockup.png'
 import kushMockup from '~/assets/images/kushMockup.png'
 import adventMockup from '~/assets/images/adventMockup.png'
 import hhrMockup from '~/assets/images/hhrMockup.png'
 import galleryMockup from '~/assets/images/galleryMockup.png'
 import portfolioMockup from '~/assets/images/portfolioMockup.png'
 import mockupVessel from '~/assets/images/mockupVessel.jpg'
+
 
 export default {
   components: {
@@ -39,14 +42,26 @@ export default {
       headline: 'Select Work',
       work: [
         {
+          image: feedMeSugarMockup,
+          headline: 'Feed Me Sugar — Server-Side Rendering',
+          text: 'Asynchronous e-commerce application utilizing Shopify APIs.',
+          link: 'https://www.feedmesugar.com/'
+        },
+        {
+          image: chatCiaoMockup,
+          headline: 'Chat Ciao — P2P Messenger',
+          text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
+          link: 'https://chat-ciao.herokuapp.com/'
+        },
+        {
           image: kushMockup,
           headline: 'Kush Rugs — Shopify',
           text: 'E-commerce storefront selling ethically sourced designer rugs. (Monumental Agency)',
-          link: ''
+          link: 'https://kushrugs.com/'
         },
         {
           image: dashMockup,
-          headline: 'Messenger — Single Page Application',
+          headline: 'Dash — Single Page Application',
           text: 'Minimalist chat utility that is secure and easy to use.',
           link: ''
         },
@@ -57,10 +72,16 @@ export default {
         //   link: ''
         // },
         {
+          image: adventMockup,
+          headline: 'Advent — Agency Webpage',
+          text: 'Mobile-first, brand development digital agency.',
+          link: 'https://advent-digital-agency.herokuapp.com/'
+        },
+        {
           image: galleryMockup,
           headline: 'Gallery — Artist Portfolio',
           text: 'Stripped down showcase of large photographic content.',
-          link: ''
+          link: 'https://still-citadel-96416.herokuapp.com/'
         },
         // {
         //   image: portfolioMockup,
@@ -68,12 +89,6 @@ export default {
         //   text: 'Lightweight portfolio for technology professionals.',
         //   link: ''
         // },
-        {
-          image: adventMockup,
-          headline: 'Advent — Agency Webpage',
-          text: 'Mobile-first, brand development digital agency.',
-          link: ''
-        }
       ]
     }
   },

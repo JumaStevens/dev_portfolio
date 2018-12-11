@@ -3,6 +3,12 @@ div(class='container-card')
 
   article(class='card')
     div(class='card__aspect-ratio')
+      a(
+        v-if='card.link'
+        :href='card.link'
+        target='_blank'
+        class='card__link'
+      )
       svg(
         class='card__aspect-ratio-sizer'
         viewBox='0 0 1 1'
@@ -29,10 +35,11 @@ div(class='container-card')
         v-if='card.text'
         class='card__text'
       ) {{ card.text }}
-      a(
-        v-if='card.link'
-        class='card__link'
-      ) {{ card.link }}
+      //- a(
+      //-   v-if='card.link'
+      //-   :href='card.link'
+      //-   class='card__link'
+      //- ) {{ card.linkText }}
 
 </template>
 
@@ -74,13 +81,17 @@ export default {
   height: 100%
   background: $white
 
-
   &__aspect-ratio
     display: grid
 
     &-sizer
       grid-row: 1 / 2
       grid-column: 1 / 2
+
+  &__link
+    grid-row: 1 / 2
+    grid-column: 1 / 2
+    z-index: 6
 
   &__display
     position: relative
@@ -107,6 +118,7 @@ export default {
     background: $white
 
   &__headline
+    // font-weight: 500
 
   &__text
     @extend %text-copy

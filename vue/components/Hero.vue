@@ -13,16 +13,17 @@ div(
         class='hero__link'
       ) {{ link }}
 
-    CardCode(class='hero__code')
+    HeroComposite(class='hero__composite')
 </template>
 
 
 <script>
-import CardCode from '~comp/CardCode.vue'
+import HeroComposite from '~comp/HeroComposite.vue'
+
 
 export default {
   components: {
-    CardCode
+    HeroComposite
   },
   props: {},
   data () {
@@ -40,52 +41,39 @@ export default {
 
 <style lang='sass' scoped>
 .container-hero
-  position: relative
-  z-index: 2
+  @extend %container-main
   background: $white
-
-  &::before
-    content: ''
-    width: 100%
-    height: 50%
-    position: absolute
-    top: 50%
-    background: $grey
-    +mq-s
-      width: 50%
-      height: 100%
-      top: 0
-      left: 50%
-
-
 
 .hero
   @extend %container-content
   position: relative
-  z-index: 3
+  max-height: 1000px
+  height: calc(100vh + 200px)
   display: grid
+  grid-template-rows: 1fr 200px
   grid-template-columns: repeat(1, 1fr)
-  min-height: 100vh
-  justify-content: space-between
-  align-items: center
   +mq-s
-    grid-template-columns: repeat(2, 1fr)
-
+    // grid-template-rows: 100vh auto
+    // grid-template-columns: repeat(2, 1fr)
 
   &__body
-    @extend %flex--column-center
-    align-items: flex-start
-    min-height: 100vh
+    // @extend %flex--column-center
+    // align-items: flex-start
+    position: relative
+    z-index: 5
+    grid-row: 1 / 2
+    grid-column: 1 / 2
     padding: $unit*10 0
-    max-width: $fs*28
-    +mq-s
-      margin-right: $unit*10
 
   &__headline
     font-size: $fs2
+    font-weight: 900
+    +mq-s
+      font-size: $fs3
 
   &__text
     @extend %text-copy
+    max-width: $fs*28
     margin-top: $unit*2
 
   &__link
@@ -96,14 +84,21 @@ export default {
     background: $blue
     color: $white
 
-  &__code
-    @extend %flex--column-center
-    align-items: flex-start
-    min-height: 100vh
-    padding: $unit*10 0
-    justify-self: center
+  &__composite
+    grid-row: 1 / 2
+    grid-column: 1 / 2
+    position: absolute
+    bottom: calc(0% - 400px)
+    right: calc(100% - 80px)
+    +mq-xs
+      // grid-row: 2 / 3
+      // position: relative
+      bottom: calc(0% - 200px)
+      right: calc(100% - 200px)
     +mq-s
-      justify-self: end
-
+      // grid-row: 2 / 3
+      // position: relative
+      bottom: - 300px
+      right: unset
 
 </style>
