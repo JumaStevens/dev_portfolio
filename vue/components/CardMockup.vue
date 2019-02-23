@@ -109,7 +109,6 @@ export default {
     border: 1px solid currentColor
 
     &-list
-      height: stretch
       display: grid
       grid-auto-rows: min-content
       grid-gap: $unit*3 0

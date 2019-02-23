@@ -1,19 +1,9 @@
 {
-  "functions": {
-    "predeploy": [
-      "npm --prefix functions run build"
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  },
   "hosting": {
-    "public": "public",
+    "public": "functions/nuxt/dist",
     "rewrites": [{
       "source": "**",
-      "destination": "/index.html"
+      "function": "https-nuxtApp"
     }],
     "ignore": [
       "firebase.json",

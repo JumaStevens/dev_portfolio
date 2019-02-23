@@ -4,15 +4,16 @@ div(class='hero-composite')
     class='hero-composite__aspect-ratio-sizer'
     viewBox='0 0 375 812'
   )
-  CardWireframe(
-    :log='log'
-    class='hero-composite__wireframe'
-  )
-  CardCode(class='hero-composite__code')
-  CardMockup(
-    :log='log'
-    class='hero-composite__mockup'
-  )
+  div(class='hero-composite__view')
+    CardWireframe(
+      :log='log'
+      class='hero-composite__wireframe'
+    )
+    CardCode(class='hero-composite__code')
+    CardMockup(
+      :log='log'
+      class='hero-composite__mockup'
+    )
 </template>
 
 
@@ -79,26 +80,33 @@ export default {
 
 <style lang='sass' scoped>
 .hero-composite
-  width: min-content
+  max-width: 375px
+  max-height: 812px
+  width: 100%
   display: grid
-  grid-template-rows: min-content
-  grid-template-columns: 1fr
-  border-radius: 6px
-  transform: rotateX(-60deg) rotateZ(45deg) scale(1)
-  box-shadow: 40px 32px 40px rgba(34, 34, 34, 0.7)
   justify-self: center
   border-radius: 24px
-  overflow: hidden
   border: 2px solid $white
-
+  box-shadow: 40px 32px 40px rgba(34, 34, 34, 0.7)
+  overflow: hidden
+  transform: rotateX(-60deg) rotateZ(45deg) scale(1)
 
   &__aspect-ratio-sizer,
+  &__view
+    grid-row: 1 / 2
+    grid-column: 1 / 2
+
+  &__aspect-ratio-sizer
+
+  &__view
+    position: relative
+
   &__code,
   &__wireframe,
   &__mockup
-    grid-row: 1 / 2
-    grid-column: 1 / 2
-    max-width: 375px
+    position: absolute
+    width: 100%
+    height: 100%
 
   &__code
     // box-shadow: 40px 32px 24px rgba(34, 34, 34, 0.5)
@@ -116,4 +124,9 @@ export default {
 
   &__wireframe
     // box-shadow: 40px 32px 24px rgba(34, 34, 34, 0.5)
+
+
+
+  &__aspect-ratio-sizer
+
 </style>

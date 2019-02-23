@@ -30,7 +30,7 @@ export default {
         {
           svg: '',
           headline: 'Web Development',
-          text: 'Advanced JavaScript to modular microservices, your project will benefit from superior code craftmanship.'
+          text: 'Advanced JavaScript to modular microservices, your project will benefit from superior code craftsmanship.'
         },
         {
           svg: '',
@@ -91,7 +91,7 @@ export default {
   &__subhead
     // margin: $unit*2 0 $unit 0
     margin: 0 0 $unit 0
-    
+
 
   &__text
     @extend %text-copy

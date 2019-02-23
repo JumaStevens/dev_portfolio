@@ -60,7 +60,7 @@ export default {
     // @extend %flex--column-center
     // align-items: flex-start
     position: relative
-    z-index: 5
+    z-index: 3
     grid-row: 1 / 2
     grid-column: 1 / 2
     padding: $unit*10 0
@@ -88,6 +88,7 @@ export default {
     grid-row: 1 / 2
     grid-column: 1 / 2
     position: absolute
+    z-index: 4
     bottom: calc(0% - 400px)
     right: calc(100% - 80px)
     +mq-xs
