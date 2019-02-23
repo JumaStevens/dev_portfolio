@@ -1,0 +1,17 @@
+{
+  "logo": {
+    "text": "dash",
+    "url": "/"
+  },
+  "navMenu": {
+    "menuList": [
+      { "text": "Chat", "url": "/chat" },
+      { "text": "Friends", "url": "/friends" },
+      { "text": "Auth", "url": "/auth" }
+    ]
+  },
+  "messages": [
+    "hello",
+    "how's it going?"
+  ]
+}

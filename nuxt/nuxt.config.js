@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const path = require('path')
 // const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
@@ -28,7 +29,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    // '@assets/sass/main.sass'
+    '@assets/sass/main.sass'
   ],
 
   /*
@@ -43,17 +44,17 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    // '@nuxtjs/axios',
+    '@nuxtjs/axios',
 
-    // '@nuxtjs/pwa',
+    '@nuxtjs/pwa',
 
-    // ['nuxt-sass-resources-loader', {
-    //   resources: '@/assets/sass/global.sass'
-    // }],
+    ['nuxt-sass-resources-loader', {
+      resources: '@/assets/sass/global.sass'
+    }],
 
-    // ['nuxt-validate'],
+    ['nuxt-validate'],
 
-    // ['nuxt-client-init-module'],
+    ['nuxt-client-init-module'],
   ],
   /*
   ** Axios module configuration
@@ -71,25 +72,28 @@ module.exports = {
     */
     extend(config, ctx) {
       // Run ESLint on save
-      // if (ctx.isDev && ctx.isClient) {
-      //   config.module.rules.push({
-      //     enforce: 'pre',
-      //     test: /\.(js|vue)$/,
-      //     loader: 'eslint-loader',
-      //     exclude: /(node_modules)/,
-      //     options: {
-      //       fix: true
-      //     }
-      //   })
-      // }
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+          options: {
+            fix: true
+          }
+        })
+      }
+
+      // Custom alias
+      config.resolve.alias['~comp'] = path.join(__dir)
 
       // Load SVG as Vue Components
-      // const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
-      // svgRule.test = /\.(png|jpe?g|gif|webp)$/
-      // config.module.rules.push({
-      //   test: /\.svg$/,
-      //   loader: 'vue-svg-loader',
-      // })
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/
+      config.module.rules.push({
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
+      })
     },
 
     publicPath: '/'
