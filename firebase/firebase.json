@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "functions/nuxt/dist",
+    "public": "functions/nuxt/dist/client/",
     "rewrites": [{
       "source": "**",
       "function": "https-nuxtApp"

@@ -5,6 +5,8 @@
       <h1 class="title">
         nuxttts is cool
       </h1>
+      <img src='~/assets/images/avatarSerra.jpg'>
+
       <h2 class="subtitle">
         My well-made Nuxt.js project
       </h2>
@@ -26,6 +28,7 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+
 
 export default {
   components: {
