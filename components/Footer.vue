@@ -13,7 +13,7 @@ export default {
   props: {},
   data () {
     return {
-      copywrite: '© 2018 Juma Stevens'
+      copywrite: '© 2019 Juma Stevens'
     }
   },
   computed: {},
@@ -30,7 +30,6 @@ export default {
   @extend %container-content
   @extend %flex--row-center
   min-height: $unit*6
-  // border-top: 1px solid $grey
 
   &__copywrite
     font-size: $fs-1

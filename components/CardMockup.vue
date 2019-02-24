@@ -77,14 +77,11 @@ export default {
 .wireframe
   display: grid
   grid-template-rows: $unit*8 1fr $unit*8
-  // grid-gap: $unit*5 0
   color: $blue
-  background: $white
 
   &__text
     @extend %flex--row-center
     height: 100%
-    // text-transform: uppercase
     color: currentColor
 
   &__header
@@ -140,7 +137,6 @@ export default {
 .hifi
   display: grid
   border: unset
-  // transform: translate(-80px, -120px)
 
 .hifi .wireframe
 
