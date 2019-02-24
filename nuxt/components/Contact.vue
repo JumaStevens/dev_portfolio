@@ -37,7 +37,7 @@ div(
 
 
 <script>
-import isEmail from 'validator/lib/isEmail'
+// import isEmail from 'validator/lib/isEmail'
 import axios from 'axios'
 
 
@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     validateEmail (text) {
-      return isEmail(text)
+      return true //isEmail(text)
     },
 
 

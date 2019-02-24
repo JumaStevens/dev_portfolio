@@ -11,10 +11,8 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_nuxticons_d431d39a from 'nuxt_plugin_nuxticons_d431d39a' // Source: ./nuxt-icons.js (mode: 'all')
-import nuxt_plugin_libmoduleplugin1f1aa9a7_55b562ae from 'nuxt_plugin_libmoduleplugin1f1aa9a7_55b562ae' // Source: ./lib.module.plugin.1f1aa9a7.js (mode: 'all')
-import nuxt_plugin_veevalidate_01a8a476 from 'nuxt_plugin_veevalidate_01a8a476' // Source: ./vee-validate.js (mode: 'all')
-import nuxt_plugin_axios_9eaf2796 from 'nuxt_plugin_axios_9eaf2796' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_vuelazyload_d07c1d40 from 'nuxt_plugin_vuelazyload_d07c1d40' // Source: ../../../nuxt/plugins/vue-lazyload.js (mode: 'all')
+import nuxt_plugin_vuescrollto_44ce9a1c from 'nuxt_plugin_vuescrollto_44ce9a1c' // Source: ../../../nuxt/plugins/vue-scrollto.js (mode: 'all')
 
 // Component: <NoSsr>
 Vue.component(NoSsr.name, NoSsr)
@@ -153,10 +151,8 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_nuxticons_d431d39a === 'function') await nuxt_plugin_nuxticons_d431d39a(app.context, inject)
-  if (typeof nuxt_plugin_libmoduleplugin1f1aa9a7_55b562ae === 'function') await nuxt_plugin_libmoduleplugin1f1aa9a7_55b562ae(app.context, inject)
-  if (typeof nuxt_plugin_veevalidate_01a8a476 === 'function') await nuxt_plugin_veevalidate_01a8a476(app.context, inject)
-  if (typeof nuxt_plugin_axios_9eaf2796 === 'function') await nuxt_plugin_axios_9eaf2796(app.context, inject)
+  if (typeof nuxt_plugin_vuelazyload_d07c1d40 === 'function') await nuxt_plugin_vuelazyload_d07c1d40(app.context, inject)
+  if (typeof nuxt_plugin_vuescrollto_44ce9a1c === 'function') await nuxt_plugin_vuescrollto_44ce9a1c(app.context, inject)
 
   // If server-side, wait for async component to be resolved first
   if (process.server && ssrContext && ssrContext.url) {

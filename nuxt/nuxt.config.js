@@ -1,11 +1,13 @@
-const pkg = require('./package')
 const path = require('path')
-// const isProd = process.env.NODE_ENV === 'production'
+const pkg = require('./package')
+
+const isProd = process.env.NODE_ENV === 'production'
+
 
 module.exports = {
   mode: 'universal',
 
-  buildDir: '../firebase/functions/nuxt',
+  buildDir: isProd ? '../firebase/functions/nuxt' : '.nuxt',
 
   /*
   ** Headers of the page
@@ -29,14 +31,15 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@assets/sass/main.sass'
+    '@/assets/sass/main.sass'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    // { src: '~/plugins/vue-lazyload.js', ssr: false },
+    { src: '~/plugins/vue-lazyload.js', ssr: true },
+    { src: '~/plugins/vue-scrollto.js', ssr: true },
   ],
 
   /*
@@ -44,18 +47,27 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    // '@nuxtjs/axios',
+    //
+    // '@nuxtjs/pwa',
 
-    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
 
-    ['nuxt-sass-resources-loader', {
-      resources: '@/assets/sass/global.sass'
-    }],
+    // 'nuxt-validate',
 
-    ['nuxt-validate'],
-
-    ['nuxt-client-init-module'],
+    // 'nuxt-client-init-module',
   ],
+
+
+  /*
+  ** Style resource settings
+  */
+  styleResources: {
+    sass: [
+      '~/assets/sass/global.sass'
+    ]
+  },
+
   /*
   ** Axios module configuration
   */
@@ -67,25 +79,27 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    publicPath: isProd ? '/' : '/_nuxt/',
+
     /*
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-          options: {
-            fix: true
-          }
-        })
-      }
+      // // Run ESLint on save
+      // if (ctx.isDev && ctx.isClient) {
+      //   config.module.rules.push({
+      //     enforce: 'pre',
+      //     test: /\.(js|vue)$/,
+      //     loader: 'eslint-loader',
+      //     exclude: /(node_modules)/,
+      //     options: {
+      //       fix: true
+      //     }
+      //   })
+      // }
 
       // Custom alias
-      config.resolve.alias['~comp'] = path.join(__dir)
+      config.resolve.alias['~comp'] = path.resolve(__dirname, 'nuxt', 'components')
 
       // Load SVG as Vue Components
       const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
@@ -94,8 +108,6 @@ module.exports = {
         test: /\.svg$/,
         loader: 'vue-svg-loader',
       })
-    },
-
-    publicPath: '/'
+    }
   }
 }

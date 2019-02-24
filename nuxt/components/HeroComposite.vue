@@ -18,9 +18,9 @@ div(class='hero-composite')
 
 
 <script>
-import CardCode from '~comp/CardCode.vue'
-import CardWireframe from '~comp/CardWireframe.vue'
-import CardMockup from '~comp/CardMockup.vue'
+import CardCode from '~/components/CardCode.vue'
+import CardWireframe from '~/components/CardWireframe.vue'
+import CardMockup from '~/components/CardMockup.vue'
 
 
 export default {

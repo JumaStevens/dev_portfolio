@@ -19,7 +19,7 @@ div(class='container-card')
         class='card__display'
       )
         img(
-          v-lazy='card.image'
+          :src='card.image'
           class='card__image'
         )
     //- body

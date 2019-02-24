@@ -1,12 +1,14 @@
-import { Store } from 'vuex'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
 // modules
 import app from './modules/app'
 import error from './modules/error'
 
+Vue.use(Vuex)
 
 const createStore = () => {
-  return new Store({
+  return new Vuex.Store({
     strict: process.env.NODE_ENV !== 'production',
 
 
@@ -17,26 +19,7 @@ const createStore = () => {
 
 
     actions: {
-      async nuxtServerInit({ dispatch }, context) {
-        try {
-          return
-        }
-        catch (e) {
-          console.error(e)
-          throw e
-        }
-      },
-
-
-      async nuxtClientInit({ state, dispatch }, context) {
-        try {
-          return
-        }
-        catch (e) {
-          console.error(e)
-          throw e
-        }
-      }
+      
     }
   })
 }

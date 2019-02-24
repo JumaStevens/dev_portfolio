@@ -20,7 +20,7 @@ div(
 
 
 <script>
-import Card from '~comp/Card.vue'
+import Card from '~/components/Card.vue'
 import dashMockup from '~/assets/images/dashMockup.png'
 import feedMeSugarMockup from '~/assets/images/feedMeSugarMockup.png'
 import chatCiaoMockup from '~/assets/images/chatCiaoMockup.png'

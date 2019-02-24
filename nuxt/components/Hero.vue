@@ -18,7 +18,7 @@ div(
 
 
 <script>
-import HeroComposite from '~comp/HeroComposite.vue'
+import HeroComposite from '~/components/HeroComposite.vue'
 
 
 export default {

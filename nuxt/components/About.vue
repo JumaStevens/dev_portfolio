@@ -38,7 +38,7 @@ div(
 
 
 <script>
-import Card from '~comp/Card.vue'
+import Card from '~/components/Card.vue'
 import headshot from '~/assets/images/headshot.png'
 import iconFirebase from '~/assets/images/iconFirebase.png'
 import iconJavascript from '~/assets/images/iconJavascript.png'

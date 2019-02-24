@@ -1,6 +1,6 @@
-const functions = require('firebase-functions')
-const express = require('express')
-const { Nuxt } = require('nuxt')
+import * as functions from 'firebase-functions'
+import express from 'express'
+import { Nuxt } from 'nuxt'
 
 const app = express()
 
@@ -17,7 +17,6 @@ function handleRequest(req, res) {
   console.log('<SSR Request>')
   res.set('Cache-Control', 'public, max-age=600, s-maxage=1200')
   nuxt.renderRoute('/').then(result => {
-    console.log('result: ', result)
     res.send(result.html)
   }).catch(e => {
     console.error(e)
