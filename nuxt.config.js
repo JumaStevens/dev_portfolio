@@ -7,8 +7,6 @@ const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   mode: 'universal',
 
-  buildDir: isProd ? '../firebase/functions/nuxt' : '.nuxt',
-
   /*
   ** Headers of the page
   */
@@ -38,8 +36,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/vue-lazyload.js', ssr: true },
-    { src: '~/plugins/vue-scrollto.js', ssr: true },
+    { src: '~/plugins/vue-lazyload', ssr: false },
+    { src: '~/plugins/vue-scrollto.js', ssr: false },
   ],
 
   /*
@@ -47,13 +45,13 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    // '@nuxtjs/axios',
-    //
-    // '@nuxtjs/pwa',
+    '@nuxtjs/axios',
+
+    '@nuxtjs/pwa',
 
     '@nuxtjs/style-resources',
 
-    // 'nuxt-validate',
+    'nuxt-validate',
 
     // 'nuxt-client-init-module',
   ],
@@ -79,8 +77,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    publicPath: isProd ? '/' : '/_nuxt/',
-
     /*
     ** You can extend webpack config here
     */

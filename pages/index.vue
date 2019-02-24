@@ -5,7 +5,7 @@ main(class='container-index')
   Work
   Testimonial
   About
-  //- Contact
+  Contact
 </template>
 
 
@@ -15,7 +15,7 @@ import Services from '~/components/Services.vue'
 import Work from '~/components/Work.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import About from '~/components/About.vue'
-// import Contact from '~/components/Contact.vue'
+import Contact from '~/components/Contact.vue'
 
 
 export default {
@@ -25,7 +25,7 @@ export default {
     Work,
     Testimonial,
     About,
-    // Contact
+    Contact
   },
   data () {
     return {}
