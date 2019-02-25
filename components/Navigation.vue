@@ -15,6 +15,13 @@ div(
           @click='handleNavLink(item)'
           class='navigation__link'
         ) {{ item.text }}
+      li(
+        class='navigation__item'
+      )
+        //- nuxt-link(
+        //-   :to='{ name: "blog" }'
+        //-   class='navigation__link'
+        //- ) Blog
     aside(class='navigation__connect')
       a(
         href='https://github.com/JumaStevens'

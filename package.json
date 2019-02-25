@@ -15,10 +15,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/markdownit": "^1.2.3",
     "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "firebase": "^5.8.3",
+    "markdown-it-highlightjs": "^3.0.0",
     "nuxt": "^2.2.0",
     "nuxt-client-init-module": "^0.1.4",
     "nuxt-validate": "^0.1.2",

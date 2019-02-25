@@ -29,7 +29,9 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/sass/main.sass'
+    '@/assets/sass/main.sass',
+
+    { src: '~/node_modules/highlight.js/styles/github.css', lang: 'css' }
   ],
 
   /*
@@ -51,10 +53,22 @@ module.exports = {
 
     '@nuxtjs/style-resources',
 
+    '@nuxtjs/markdownit',
+
     'nuxt-validate',
 
     // 'nuxt-client-init-module',
   ],
+
+  /*
+  ** Markdown options
+  */
+  markdownit: {
+    injected: true,
+    use: [
+      'markdown-it-highlightjs'
+    ]
+  },
 
 
   /*
@@ -93,6 +107,7 @@ module.exports = {
       //     }
       //   })
       // }
+
 
       // Custom alias
       config.resolve.alias['~comp'] = path.resolve(__dirname, 'nuxt', 'components')
