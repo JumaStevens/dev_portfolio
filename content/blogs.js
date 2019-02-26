@@ -1,5 +1,8 @@
 export default [
   'markdown',
   'tomorrow',
-  'firenuxt'
+  'firenuxt',
+  'tomorrow',
+  'firenuxt',
+  'markdown',
 ]

@@ -1,10 +1,3 @@
----
-test: false
-
----
-
-
-
 # example-firenuxt
 
 Live site: https://example-firenuxt.firebaseapp.com

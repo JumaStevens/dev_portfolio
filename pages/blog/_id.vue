@@ -1,5 +1,6 @@
 <template lang='pug'>
-main(class='container-index')
+main(class='container-markdown')
+  section()
   div(
     v-html='markdown'
     class='markdown'
@@ -25,9 +26,11 @@ export default {
 </script>
 
 <style lang='sass'>
-.container-index
+.container-markdown
+  @extend %container-main
 
 .markdown
+  @extend %container-content
 
   & pre
     padding: $unit*2

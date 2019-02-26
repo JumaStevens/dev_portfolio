@@ -1,11 +1,24 @@
 <template lang='pug'>
 main(class='container-index')
-  div(v-html='blogs')
+  Hero
+  BlogCollection(
+    :blogsMeta='blogsMeta'
+  )
+  BlogList(
+    :blogsMeta='blogsMeta'
+  )
+  Newsletter
+  //- Contact
 </template>
 
 
 <script>
 import blogs from '~/content/blogs.js'
+import Hero from '~/components/BlogHero.vue'
+import BlogCollection from '~/components/BlogCollection.vue'
+import BlogList from '~/components/BlogList.vue'
+import Newsletter from '~/components/Newsletter.vue'
+import Contact from '~/components/Contact.vue'
 
 
 export default {
@@ -13,16 +26,25 @@ export default {
 
     async function asyncImport (blogName) {
       const wholeMD = await import(`~/content/blog/${blogName}.md`)
+      const wholeMDMeta = await import(`~/content/blog/meta/${blogName}.json`)
+      wholeMD.meta = wholeMDMeta.default
+      // console.log('wholeMD: ', wholeMD.meta)
       return wholeMD
     }
 
 
     return Promise.all(blogs.map(blog => asyncImport(blog)))
       .then((res) => {
-        return { blogs: res }
+        return { blogsMeta: res.map(blog => blog.meta) }
       })
   },
-  components: {},
+  components: {
+    Hero,
+    BlogCollection,
+    BlogList,
+    Newsletter,
+    Contact
+  },
   data () {
     return {}
   },
