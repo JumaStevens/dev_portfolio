@@ -13,7 +13,6 @@ export default {
 
     async function asyncImport (blogName) {
       const wholeMD = await import(`~/content/blog/${blogName}.md`)
-      console.log('att: ', wholeMD.attributes)
       return wholeMD
     }
 
