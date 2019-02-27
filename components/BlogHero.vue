@@ -8,8 +8,8 @@ div(
     div(class='hero__body')
       h1(class='hero__headline') {{ headline }}
       p(class='hero__text') {{ text }}
-      a(
-        v-scroll-to='"#contact"'
+      nuxt-link(
+        to='/#contact'
         class='hero__link'
       ) {{ link }}
 </template>

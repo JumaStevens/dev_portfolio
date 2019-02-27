@@ -105,6 +105,8 @@ export default {
     &-image
       background-position: center
       background-repeat: no-repeat
+      box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.25)
+      border-radius: $unit*.75
 
     &-link
       grid-row: 1 / -1

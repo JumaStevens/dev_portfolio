@@ -1,4 +1,4 @@
-# example-firenuxt
+# example-firenuxt is in the near future, yep!
 
 Live site: https://example-firenuxt.firebaseapp.com
 
