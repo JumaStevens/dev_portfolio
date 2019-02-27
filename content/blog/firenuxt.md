@@ -1,4 +1,4 @@
-# example-firenuxt is in the near future, yep!
+# Deploy a SSR Nuxt.js app on Firebase Functions.
 
 Live site: https://example-firenuxt.firebaseapp.com
 

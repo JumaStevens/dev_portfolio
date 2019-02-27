@@ -21,7 +21,7 @@ export default {
   props: {},
   data () {
     return {
-      headline: 'Tutorial Nirvana', // 'Tutorial Heaven',
+      headline: 'Learning Nirvana', // 'Tutorial Nirvana', // 'Tutorial Heaven',
       text: 'Sharing the lessions learned along my web developer journey. Vue.js tutorials, Shopify insights, and Web App hackatons—oh my!',
       link: 'Get In Touch'
     }

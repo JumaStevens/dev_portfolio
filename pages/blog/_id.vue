@@ -107,6 +107,9 @@ export default {
     & pre code
       padding: unset
 
+    & a
+      color: $blue
+
     &-header
       display: grid
       grid-template-columns: auto auto 1fr

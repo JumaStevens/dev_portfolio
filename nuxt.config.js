@@ -65,6 +65,7 @@ module.exports = {
   */
   markdownit: {
     injected: false,
+    linkify: true,
     use: [
       'markdown-it-highlightjs'
     ]
