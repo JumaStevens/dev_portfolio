@@ -23,21 +23,40 @@ main(class='container-markdown')
     )
 
     div(class='markdown__post-header')
-      a(class='markdown__post-header-button active') Post
-      a(class='markdown__post-header-button') 21 Comments
-      a(class='')
+      a(
+        @click='activePanel = "post"'
+        :class='{ active: activePanel === "post" }'
+        class='markdown__post-header-button'
+      ) Post
+      a(
+        @click='activePanel = "comments"'
+        :class='{ active: activePanel === "comments" }'
+        class='markdown__post-header-button'
+      ) Comments
+      a(
+        :href='"https://github.com/JumaStevens/dev_portfolio/blob/master/content/blog/" + meta.handle + ".md"'
+        target='_blank'
+        class='markdown__post-header-button'
+      )
         IconPencil
         span Edit
 
     div(
+      v-show='activePanel === "post"'
       v-html='markdown'
       class='markdown__post'
+    )
+
+    BlogComments(
+      v-if='activePanel === "comments"'
+      class='markdown__comments'
     )
   Newsletter
 </template>
 
 
 <script>
+import BlogComments from '~/components/BlogComments.vue'
 import Newsletter from '~/components/Newsletter.vue'
 import headshot from '~/assets/images/headshot.png'
 import IconPencil from '~/assets/svg/icon-pencil.svg'
@@ -50,12 +69,14 @@ export default {
     return { markdown: md.default, meta: meta.default }
   },
   components: {
+    BlogComments,
     Newsletter,
     IconPencil
   },
   data () {
     return {
-      headshot: headshot
+      headshot: headshot,
+      activePanel: 'post'
     }
   },
   computed: {
@@ -113,6 +134,7 @@ export default {
     &-header
       display: grid
       grid-template-columns: auto auto 1fr
+      grid-gap: 0 $unit
       justify-items: end
       margin-top: $unit*8
       border-bottom: 1px solid #d1d5da
@@ -126,13 +148,20 @@ export default {
         transform: translateY(1px)
         border-top-left-radius: $unit*.75
         border-top-right-radius: $unit*.75
+        border: 1px solid transparent
+        color: $dark
 
         &.active
           border: 1px solid #d1d5da
           border-bottom: 1px solid $white
+          color: $black
 
       & span
         margin-left: $unit
+        color: currentcolor
+
+      & svg
+        fill: currentcolor
 
   &__header
 
