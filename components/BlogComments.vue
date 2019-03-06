@@ -3,6 +3,7 @@ div(class='blog-comments')
 
 
   ul(class='blog-comments__list')
+    p(class='blog-comments__date') Feb 27, 2019
     li(
       v-for='(comment, index) in comments'
       :key='comment + index'
@@ -19,10 +20,12 @@ div(class='blog-comments')
           nuxt-link(
             to='/#bio'
             class='auther__title') {{ comment.username }}
-          p(class='auther__copy') 28 days ago
+          //- p(class='auther__copy') Feb 28
 
         p(class='blog-comments__comment') {{ comment.text }}
 
+        div(class='blog-comments__buttons')
+          a Reply
 
         ul(class='blog-comments__list blog-comments__list-sub')
           li(
@@ -41,16 +44,9 @@ div(class='blog-comments')
                 nuxt-link(
                   to='/#bio'
                   class='auther__title') {{ subComment.username || 'RandomDude' }}
-                p(class='auther__copy') 28 days ago
+                //- p(class='auther__copy') 28 days ago
 
               p(class='blog-comments__comment') {{ subComment.text }}
-
-        div(class='blog-comments__form')
-          img(
-            v-lazy='headshot'
-            class='auther__image'
-          )
-          button() Reply...
 
 
   div(class='blog-comments__form last')
@@ -63,7 +59,8 @@ div(class='blog-comments')
       placeholder='Leave a comment...'
     )
     div
-      p Markdown is supported
+      input(type='checkbox')
+      p Receive Reply Notification
       button() Preview
       button(@click='submitComment') Comment
 
@@ -200,6 +197,7 @@ export default {
       height: 100%
       width: 2px
       background: $grey
+      display: none
 
   &__item
     display: grid
@@ -208,51 +206,61 @@ export default {
     grid-auto-columns: auto 1fr
     position: relative
     z-index: 4
-    margin-top: $unit*10
+    margin-top: $unit*5
 
     &:first-child
       margin-top: unset
 
   &__card
+    // display: flex
 
   &__auther
 
   &__comment
     margin-top: $unit
-    margin-left: $unit*8
+    // margin-left: $unit
 
   &__buttons
-    margin-top: $unit
-    margin-left: $unit*8
+    // margin-top: $unit
+    // margin-left: $unit
     // display: none
 
     & a
-      color: $dark
+      color: $blue
+      font-size: 12px
       font-weight: $fw-light
 
+  &__date
+    // text-align: center
+    color: $dark
+    font-size: 12px
+
   &__list-sub
-    margin-left: $unit*8
+    margin-left: $unit*3
     position: relative
+    // display: none
 
     & .blog-comments__item
-      margin-top: $unit*5
+      margin-top: $unit*3
       position: relative
       z-index: 4
+
+      &::before
+        content: ''
+        // display: none
+        position: absolute
+        left: -$unit*3
+        height: 100%
+        width: 1px
+        background: $grey
 
     & .auther__image
       width: $unit*5
       height: $unit*5
+      display: none
 
     & .blog-comments__comment
-      margin-left: $unit*7
-
-    &::before
-      content: ''
-      position: absolute
-      left: $unit*2.5
-      height: 100%
-      width: 2px
-      background: $grey
+      // margin-left: $unit*2
 
 
   &__form
@@ -290,7 +298,7 @@ export default {
 
       & textarea
         grid-row: 1 / 2
-        grid-column: 2 / 3
+        grid-column: 1 / 3
         background: $grey
         padding: $unit*2
         width: 100%
@@ -306,12 +314,15 @@ export default {
         display: flex
         align-items: center
         grid-row: 2 / 3
-        grid-column: 2 / 3
+        grid-column: 1 / 3
 
         & p
           margin-right: auto
-          color: $dark
+          margin-left: 8px
+          color: $blue
           font-size: 12px
+          white-space: nowrap
+          // visibility: hidden
 
       & button
         width: unset
@@ -326,12 +337,16 @@ export default {
           background: transparent
           color: $black
           border: 1px solid $dark
+          visibility: hidden
+          display: none
 
 .auther
   display: grid
   grid-template-rows: repeat(2, auto)
   grid-template-columns: min-content min-content
   grid-gap: 0 $unit*2
+  display: flex
+  align-items: center
 
   &__image
     grid-row: 1 / 3
@@ -341,12 +356,18 @@ export default {
     border-radius: 50%
     object-fit: contain
     background: $grey
+    display: none
 
   &__title
     grid-row: 1 / 2
     grid-column: 2 / 3
     white-space: nowrap
     align-self: end
+    // font-weight: $fw-bold
+    background: yellow
+    padding: 4px 8px
+    margin-left: -8px
+    border-radius: $unit*.75
 
   &__copy
     grid-row: 2 / 3
@@ -355,4 +376,5 @@ export default {
     font-weight: $fw-light
     color: $dark
     font-size: 12px
+    margin-left: $unit
 </style>
