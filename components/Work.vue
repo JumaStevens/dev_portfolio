@@ -48,35 +48,36 @@ export default {
           link: 'https://www.feedmesugar.com/'
         },
         {
-          image: chatCiaoMockup,
-          headline: 'Chat Ciao — P2P Messenger',
-          text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
-          link: 'https://chat-ciao.herokuapp.com/'
-        },
-        {
           image: kushMockup,
           headline: 'Kush Rugs — Shopify',
           text: 'E-commerce storefront selling ethically sourced designer rugs. (Monumental Agency)',
           link: 'https://kushrugs.com/'
         },
         {
-          image: dashMockup,
-          headline: 'Dash — Single Page Application',
-          text: 'Minimalist chat utility that is secure and easy to use.',
-          link: ''
+          image: chatCiaoMockup,
+          headline: 'Chat Ciao — P2P Messenger',
+          text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
+          link: 'https://chat-ciao.herokuapp.com/'
         },
+
+        // {
+        //   image: dashMockup,
+        //   headline: 'Dash — Single Page Application',
+        //   text: 'Minimalist chat utility that is secure and easy to use.',
+        //   link: ''
+        // },
         // {
         //   image: hhrMockup,
         //   headline: 'HRR — Server Side Rendered',
         //   text: 'Hurricane relief job board, connecting restaurateurs with displaced survivors.',
         //   link: ''
         // },
-        {
-          image: adventMockup,
-          headline: 'Advent — Agency Webpage',
-          text: 'Mobile-first, brand development digital agency.',
-          link: 'https://advent-digital-agency.herokuapp.com/'
-        },
+        // {
+        //   image: adventMockup,
+        //   headline: 'Advent — Agency Webpage',
+        //   text: 'Mobile-first, brand development digital agency.',
+        //   link: 'https://advent-digital-agency.herokuapp.com/'
+        // },
         {
           image: galleryMockup,
           headline: 'Gallery — Artist Portfolio',

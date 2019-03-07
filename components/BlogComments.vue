@@ -1,11 +1,12 @@
 <template lang='pug'>
 div(class='blog-comments')
 
-
   ul(class='blog-comments__list')
-    p(class='blog-comments__date') Feb 27, 2019
+
+    p(class='blog-comments__date') {{ oldestCommentData }}
+
     li(
-      v-for='(comment, index) in comments'
+      v-for='(comment, index) in comments.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds)'
       :key='comment + index'
       class='blog-comments__item'
     )
@@ -13,23 +14,24 @@ div(class='blog-comments')
       div(class='blog-comments__card')
 
         div(class='blog-comments__auther auther')
-          img(
-            v-lazy='headshot'
-            class='auther__image'
-          )
+
           nuxt-link(
             to='/#bio'
-            class='auther__title') {{ comment.username }}
-          //- p(class='auther__copy') Feb 28
+            class='auther__title'
+          ) {{ comment.username }}
 
         p(class='blog-comments__comment') {{ comment.text }}
 
         div(class='blog-comments__buttons')
-          a Reply
+
+          a(
+            @click='replyCommentId = comment.commentId'
+          ) Reply
 
         ul(class='blog-comments__list blog-comments__list-sub')
+
           li(
-            v-for='(subComment, index) in subComments.filter(subComment => subComment.commentId === comment.commentId)'
+            v-for='(subComment, index) in subComments.filter(subComment => subComment.commentId === comment.commentId).sort((a, b) => a.createdAt.seconds - b.createdAt.seconds)'
             :key='subComment + index'
             class='blog-comments__item'
           )
@@ -37,63 +39,73 @@ div(class='blog-comments')
             div(class='blog-comments__card')
 
               div(class='blog-comments__auther auther')
-                img(
-                  v-lazy='headshot'
-                  class='auther__image'
-                )
+
                 nuxt-link(
                   to='/#bio'
                   class='auther__title') {{ subComment.username || 'RandomDude' }}
-                //- p(class='auther__copy') 28 days ago
 
               p(class='blog-comments__comment') {{ subComment.text }}
 
+        BlogCommentForm(
+          v-if='comment.commentId === replyCommentId'
+          :replyCommentId='replyCommentId'
+          @clearReplyCommentId='clearReplyCommentId'
+          class='blog-comments__form last'
+        )
 
-  div(class='blog-comments__form last')
-    img(
-      v-lazy='headshot'
-      class='auther__image'
-    )
-    textarea(
-      v-model='comment'
-      placeholder='Leave a comment...'
-    )
-    div
-      input(type='checkbox')
-      p Receive Reply Notification
-      button() Preview
-      button(@click='submitComment') Comment
-
+  BlogCommentForm(
+    v-if='!replyCommentId'
+    class='blog-comments__form last'
+  )
 </template>
 
 
 <script>
-import headshot from '~/assets/images/headshot.png'
 import { firestore } from '~/plugins/firebase'
+import BlogCommentForm from '~/components/BlogCommentForm.vue'
+import { mapState } from 'vuex'
+import moment from 'moment'
 
 
 export default {
-  components: {},
+  components: {
+    BlogCommentForm
+  },
   props: {},
   data () {
     return {
-      headshot,
-      comment: '',
+      replyCommentId: '',
       comments: [],
       subComments: []
     }
   },
-  computed: {},
+  computed: {
+    oldestCommentData () {
+      const comments = this.comments.sort((a, b) => a.createdAt - b.createdAt)
+
+      return comments.length > 0 ? moment(comments[0].createdAt.miliseconds).format('LL') : ''
+    },
+
+
+    ...mapState({
+      blogMeta: state => state.blog.blogMeta
+    })
+  },
   beforeMount () {
     this.fetchComments()
   },
   methods: {
     async fetchComments () {
       try {
+        const blogHandle = this.$route.params.id
+        const blogMeta = this.blogMeta.find(meta => meta.handle === blogHandle)
+        const blogId = blogMeta.id
+
         const querySnapshot = await firestore
-          .collection('blog')
-          .doc('HhlNzf2BXqEwG8f0hCNu')
-          .collection('comments').get()
+          .collection('blogComments')
+          .where('blogId', '==', blogId)
+          .where('parentCommentId', '==', '')
+          .get()
 
         querySnapshot.forEach(doc => {
           this.comments.push({
@@ -106,8 +118,6 @@ export default {
           const { commentId } = comment
           if (commentId) await this.fetchSubComments({ commentId })
         }
-
-        console.log('DONE')
       }
       catch (e) {
         console.error(e)
@@ -117,24 +127,17 @@ export default {
 
     async fetchSubComments ({ commentId }) {
       try {
-        console.log('commentId: ', commentId)
         const querySnapshot = await firestore
-          .collection('blog')
-          .doc('HhlNzf2BXqEwG8f0hCNu')
-          .collection('comments')
-          .doc(commentId)
-          .collection('subComments')
+          .collection('blogComments')
+          .where('parentCommentId', '==', commentId)
           .get()
 
         querySnapshot.forEach(doc => {
-          console.log('subComment: ', doc.data())
           this.subComments.push({
             commentId,
             ...doc.data()
           })
         })
-
-        console.log('Almost done...')
       }
       catch (e) {
         console.error(e)
@@ -142,41 +145,8 @@ export default {
     },
 
 
-    async submitComment () {
-      // need to know the blog id
-
-
-      console.log('submit commit: ', this.comment)
-      const url = 'http://localhost:5000/juma-stevens/us-central1/https-blogComments'
-      const config = {
-        headers : {
-          'Access-Control-Allow-Origin' : '*',
-          'Access-Control-Allow-Headers' : 'Origin, X-Requested-With, Content-Type, Accept'
-        },
-        data: {
-          text: this.comment,
-          handle: 'firenuxt',
-          uid: '007',
-          username: 'Milkman',
-          id: 'HhlNzf2BXqEwG8f0hCNu'
-        }
-      }
-
-      const success = (res) => {
-        console.log('it worked: ', res)
-      }
-
-      const error = (e) => {
-        console.error(e)
-      }
-
-      try {
-        const res = await this.$axios.post(url, config)
-        success(res)
-      }
-      catch (e) {
-        error(e)
-      }
+    clearReplyCommentId () {
+      this.replyCommentId = ''
     }
   }
 }
@@ -261,84 +231,6 @@ export default {
 
     & .blog-comments__comment
       // margin-left: $unit*2
-
-
-  &__form
-    display: flex
-    margin: $unit*5 0 0 $unit*8
-    align-items: center
-
-    & img
-      width: $unit*5
-      height: $unit*5
-
-    & button
-      width: 100%
-      height: $unit*5
-      padding: 0 $unit*2
-      border-radius: $unit*.75
-      background: $grey
-      color: $dark
-      text-align: left
-      margin-left: $unit*2
-
-    &.last
-      margin: $unit*10 0 0 0
-      display: grid
-      grid-template-rows: auto min-content
-      grid-template-columns: auto 1fr
-      grid-gap: $unit*2
-      align-items: unset
-
-      & img
-        width: $unit*6
-        height: $unit*6
-        grid-row: 1 / 2
-        grid-column: 1 / 2
-
-      & textarea
-        grid-row: 1 / 2
-        grid-column: 1 / 3
-        background: $grey
-        padding: $unit*2
-        width: 100%
-        max-height: 500px
-        min-height: 200px
-        resize: vertical
-        border-radius: $unit*.75
-
-        &::placeholder
-          color: $dark
-
-      & div
-        display: flex
-        align-items: center
-        grid-row: 2 / 3
-        grid-column: 1 / 3
-
-        & p
-          margin-right: auto
-          margin-left: 8px
-          color: $blue
-          font-size: 12px
-          white-space: nowrap
-          // visibility: hidden
-
-      & button
-        width: unset
-        height: $unit*5
-        padding: 0 $unit*2
-        border-radius: $unit*.75
-        margin-left: $unit*2
-        background: $blue
-        color: $white
-
-        &:first-of-type
-          background: transparent
-          color: $black
-          border: 1px solid $dark
-          visibility: hidden
-          display: none
 
 .auther
   display: grid

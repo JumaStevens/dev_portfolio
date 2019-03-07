@@ -57,7 +57,7 @@ module.exports = {
 
     'nuxt-validate',
 
-    // 'nuxt-client-init-module',
+    'nuxt-client-init-module',
   ],
 
   /*

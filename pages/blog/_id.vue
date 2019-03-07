@@ -64,9 +64,15 @@ import IconPencil from '~/assets/svg/icon-pencil.svg'
 
 export default {
   async asyncData ({ params, store }) {
+    const blogsMeta = store.state.blog.blogMeta
+
+    if (!blogsMeta.find(b => b.handle === params.id)) {
+      await store.dispatch('blog/blogMetaFetch', { handle: params.id })
+    }
+
     const md = await import(`~/content/blog/${params.id}.md`)
-    const meta = await import(`~/content/blog/meta/${params.id}.json`)
-    return { markdown: md.default, meta: meta.default }
+
+    return { markdown: md.default, meta: blogsMeta.find(b => b.handle === params.id) }
   },
   components: {
     BlogComments,

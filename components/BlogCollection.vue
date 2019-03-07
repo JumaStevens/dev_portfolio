@@ -20,9 +20,8 @@ div(class='container-blog-collection')
           v-lazy:background-image='item.image'
           class='blog-collection__card'
         )
-          span(class='blog-collection__card-catagory') {{ item.catagory }}
+          span(class='blog-collection__card-catagory') {{ item.category }}
           h3(class='blog-collection__card-title') {{ item.title }}
-          //- p(class='blog-collection__card-copy') {{ item.description }}
           nuxt-link(
             :to='"blog/" + item.handle'
             class='blog-collection__card-link'
@@ -62,37 +61,41 @@ export default {
     display: grid
     grid-gap: $unit*5
     grid-auto-flow: dense
-    // grid-template-rows: 1fr 1fr
-    // grid-template-columns: 1fr 1fr
-    grid-auto-columns: 1fr
+    grid-auto-columns: auto
     grid-auto-rows: 1fr
+    +mq-s
+      grid-template-rows: auto auto
+      grid-template-columns: 1fr 1fr
 
   &__item
     display: grid
     border-radius: 6px
     box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.5)
 
-    &:nth-child(1)
+    +mq-m
       grid-row: 1 / 3
       grid-column: 1 / 2
 
     &:nth-child(2)
-      grid-row: 1 / 2
-      grid-column: 2 / 3
+      +mq-m
+        grid-row: 1 / 2
+        grid-column: 2 / 3
 
     &:nth-child(3)
-      grid-row: 2 / 4
-      grid-column: 2 / 3
+      +mq-m
+        grid-row: 2 / 4
+        grid-column: 2 / 3
 
     &:nth-child(4)
-      grid-row: 3 / 4
-      grid-column: 1 / 2
+      +mq-m
+        grid-row: 3 / 4
 
   &__aspect-ratio
     grid-row: 1 / 2
     grid-column: 1 / 2
     display: grid
-    display: none
+    +mq-s
+      display: none
 
     &-sizer
       grid-row: 1 / 2
@@ -112,6 +115,7 @@ export default {
     border-radius: 6px
     background-position: center
     background-repeat: no-repeat
+    background-size: cover
 
     &-catagory
       color: $white
@@ -134,6 +138,5 @@ export default {
       font-size: 12px
       background: $white
       border-radius: 6px
-
 
 </style>

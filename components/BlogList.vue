@@ -13,7 +13,7 @@ div(class='container-blog-list')
         div(
           class='blog-list__card'
         )
-          span(class='blog-list__card-catagory') {{ item.catagory }}
+          span(class='blog-list__card-catagory') {{ item.category }}
           h3(class='blog-list__card-title') {{ item.title }}
           p(class='blog-list__card-copy') {{ item.description }}
           div(
