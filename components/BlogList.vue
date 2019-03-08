@@ -81,7 +81,7 @@ export default {
     background: $grey
     border-radius: $unit*.75
     height: 100%
-    +mq-s
+    +mq-l
       grid-template-columns: 3fr 1fr
 
 
@@ -124,7 +124,7 @@ export default {
   grid-row: 1 / -1
   grid-column: 2 / 3
   display: none
-  +mq-s
+  +mq-l
     display: grid
 
   &-sizer

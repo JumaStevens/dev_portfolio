@@ -66,6 +66,9 @@ export default {
     +mq-s
       grid-template-rows: auto auto
       grid-template-columns: 1fr 1fr
+    +mq-m
+      grid-template-rows: unset
+      grid-template-columns: unset
 
   &__item
     display: grid

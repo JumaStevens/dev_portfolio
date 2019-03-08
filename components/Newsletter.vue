@@ -27,13 +27,49 @@ div(class='container-newsletter')
       h3(class='newsletter__title') Keep in touch
 
       p(class='newsletter__copy') I post regularly on topics of tech, happenings in web development, and business.
+
+      div(class='newsletter__social-media')
+        a(
+          class='newsletter__social-media-link'
+          href='https://github.com/JumaStevens'
+          target='_blank'
+        )
+          IconGithub(class='newsletter__social-media-icon')
+        a(
+          class='newsletter__social-media-link'
+          href='https://linkedin.com/in/juma-stevens-05730b138/'
+          target='_blank'
+        )
+          IconLinkedin(class='newsletter__social-media-icon')
+        a(
+          class='newsletter__social-media-link'
+          href='https://www.instagram.com/jumastevens/'
+          target='_blank'
+        )
+          IconInstagram(class='newsletter__social-media-icon')
+        //- a(
+        //-   class='newsletter__social-media-link'
+        //-   href='https://twitter.com/JumaStevens'
+        //-   target='_blank'
+        //- )
+        //-   IconTwitter(class='newsletter__social-media-icon')
 </template>
 
 
 <script>
+import IconGithub from '~/assets/svg/iconGithub.svg'
+import IconLinkedin from '~/assets/svg/iconLinkedin.svg'
+import IconInstagram from '~/assets/svg/iconInstagram.svg'
+// import IconTwitter from '~/assets/svg/iconTwitter.svg'
+
 
 export default {
-  components: {},
+  components: {
+    IconGithub,
+    IconLinkedin,
+    IconInstagram,
+    // IconTwitter
+  },
   props: {},
   data () {
     return {}
@@ -113,4 +149,23 @@ export default {
       background: $dark
       color: $grey
       border-radius: $unit*.75
+
+  &__social-media
+    display: grid
+    grid-auto-flow: column
+    grid-auto-columns: min-content
+    grid-gap: $unit*2
+    margin-top: $unit*3
+    padding: 0 $unit*2
+    align-self: end
+
+    &-link
+      @extend %flex--row-center
+      width: $unit*5
+      height: $unit*5
+
+
+    &-icon
+      width: $unit*3
+      height: $unit*3
 </style>

@@ -93,6 +93,9 @@ export default {
 <style lang='sass'>
 .container-markdown
   @extend %container-main
+  padding: $unit*2.5 0 $unit*10 0
+  +mq-s
+    padding: $unit*5 0 $unit*10 0
 
 .markdown
   @extend %container-content

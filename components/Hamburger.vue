@@ -2,7 +2,7 @@
 div(class='container-hamburger')
   a(
     @click='handleClick'
-    :class='{ active: isOpen }'
+    :class='{ active: isOpen, isBack }'
     class='hamburger'
   )
 </template>
@@ -18,6 +18,11 @@ export default {
     return {}
   },
   computed: {
+    isBack () {
+      return this.$route.name === 'blog-id'
+    },
+
+
     ...mapState({
       scrollY: state => state.app.scroll.y,
       isOpen: state => state.app.menu.isOpen
@@ -25,6 +30,11 @@ export default {
   },
   methods: {
     handleClick () {
+      if (this.isBack) {
+        this.$router.push({ name: 'blog' })
+        return
+      }
+
       this.toggleMenu()
 
       if (!this.isOpen) {
@@ -81,5 +91,12 @@ export default {
       background: $white
       transform: translate(-50%, 0)
 
+  &.isBack
+
+    &::after
+      transform: translate(-50%, 0) rotate(45deg)
+
+    &::before
+      transform: translate(-50%, 0) rotate(-45deg)
 
 </style>
