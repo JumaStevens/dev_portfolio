@@ -65,20 +65,25 @@ export default {
 
   &__list
     display: grid
-    grid-template-columns: repeat(2, 1fr)
+    grid-template-columns: repeat(1, 1fr)
     grid-gap: $unit*5
+    +mq-s
+      grid-template-columns: repeat(2, 1fr)
 
   &__item
 
   &__card
     display: grid
     grid-template-rows: min-content min-content 1fr
-    grid-template-columns: 3fr 1fr
+    grid-template-columns: 1fr
     grid-gap: $unit/2 $unit*4
     padding: $unit*3 $unit*2
     background: $grey
     border-radius: $unit*.75
     height: 100%
+    +mq-s
+      grid-template-columns: 3fr 1fr
+
 
     &-title,
     &-copy,
@@ -118,7 +123,9 @@ export default {
 .aspect-ratio
   grid-row: 1 / -1
   grid-column: 2 / 3
-  display: grid
+  display: none
+  +mq-s
+    display: grid
 
   &-sizer
     grid-row: 1 / 2

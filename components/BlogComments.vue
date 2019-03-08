@@ -6,7 +6,7 @@ div(class='blog-comments')
     p(class='blog-comments__date') {{ oldestCommentData }}
 
     li(
-      v-for='(comment, index) in comments.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds)'
+      v-for='(comment, index) in comments'
       :key='comment + index'
       class='blog-comments__item'
     )
@@ -50,12 +50,12 @@ div(class='blog-comments')
           v-if='comment.commentId === replyCommentId'
           :replyCommentId='replyCommentId'
           @clearReplyCommentId='clearReplyCommentId'
-          class='blog-comments__form last'
+          class='blog-comments__form'
         )
 
   BlogCommentForm(
     v-if='!replyCommentId'
-    class='blog-comments__form last'
+    class='blog-comments__form'
   )
 </template>
 
@@ -81,7 +81,7 @@ export default {
   },
   computed: {
     oldestCommentData () {
-      const comments = this.comments.sort((a, b) => a.createdAt - b.createdAt)
+      const comments = this.comments.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds)
 
       return comments.length > 0 ? moment(comments[0].createdAt.miliseconds).format('LL') : ''
     },

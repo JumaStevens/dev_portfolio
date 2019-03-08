@@ -4,21 +4,29 @@ div(class='container-newsletter')
 
     h2(class='newsletter__headline') Subscribe
 
-    h3(class='newsletter__title') Stay informed
-    p(class='newsletter__copy') Enter your email to receive my newsletter covering topics of tech, cryptocurrency, and business.
+    div(class='newsletter__wrapper')
 
-    form(class='newsletter__form')
-      input(
-        class='newsletter__form-input'
-        placeholder='example@email.com'
-      )
-      input(
-        class='newsletter__form-submit'
-        type='submit'
-      )
+      h3(class='newsletter__title') Stay informed
 
-    h3(class='newsletter__title') Keep in touch
-    p(class='newsletter__copy') I post regularly on topics of tech, happenings in web development, and business.
+      p(class='newsletter__copy') Enter your email to receive my newsletter covering topics of tech, cryptocurrency, and business.
+
+      form(class='newsletter__form')
+
+        input(
+          class='newsletter__form-input'
+          placeholder='example@email.com'
+        )
+
+        input(
+          class='newsletter__form-submit'
+          type='submit'
+        )
+
+    div(class='newsletter__wrapper')
+
+      h3(class='newsletter__title') Keep in touch
+
+      p(class='newsletter__copy') I post regularly on topics of tech, happenings in web development, and business.
 </template>
 
 
@@ -44,44 +52,53 @@ export default {
 .newsletter
   @extend %container-content
   display: grid
-  grid-template-rows: min-content min-content auto auto
-  grid-template-columns: 1fr 1fr
-  grid-gap: $unit $unit*5
+  grid-template-rows: min-content auto auto
+  grid-template-columns: 1fr
+  grid-auto-flow: column
+  grid-gap: $unit*5
+  +mq-s
+    grid-template-rows: min-content auto
+    grid-template-columns: 1fr 1fr
 
   &__headline
     @extend %text-headline
     grid-row: 1 / 2
-    grid-column: 1 / 2
-    // visibility: hidden
+    grid-column: 1 / -1
+    margin-bottom: $unit*5
+
+  &__wrapper
+    display: grid
+    grid-template-rows: min-content auto auto
+    grid-template-columns: 1fr
+    grid-gap: $unit $unit*5
+
+    &:last-child
+      margin-top: $unit*2
+      +mq-s
+        margin-top: 0
 
   &__title
-    grid-row: 2 / 3
+    grid-row: 1 / 2
     grid-column: 1 / 2
     font-weight: $fw-bold
     padding: 0 $unit*2
 
-    &:nth-child(5)
-      grid-column: 2 / 3
-
   &__copy
-    grid-row: 3 / 4
+    grid-row: 2 / 3
     grid-column: 1 / 2
     font-weight: $fw-light
     max-width: 400px
     padding: 0 $unit*2
 
-    &:last-child
-      grid-column: 2 / 3
-
   &__form
     align-self: center
-    grid-row: 4 / 5
+    grid-row: 3 / 4
     grid-column: 1 / 2
     display: grid
     grid-auto-flow: column
     grid-gap: $unit*2
     border-radius: $unit*.75
-    margin-top: $unit*5
+    margin-top: $unit*3
     padding: 0 $unit*2
 
     &-input
