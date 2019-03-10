@@ -7,8 +7,10 @@ main(class='container-index')
   BlogList(
     :blogsMeta='blogsMeta'
   )
+  BlogList(
+    :blogsMeta='blogsMeta'
+  )
   Newsletter
-  //- Contact
 </template>
 
 
@@ -17,21 +19,19 @@ import Hero from '~/components/BlogHero.vue'
 import BlogCollection from '~/components/BlogCollection.vue'
 import BlogList from '~/components/BlogList.vue'
 import Newsletter from '~/components/Newsletter.vue'
-import Contact from '~/components/Contact.vue'
 
 
 export default {
   async asyncData ({ params, store }) {
     await store.dispatch('blog/blogMetaFetchAll')
     const blogsMeta = store.state.blog.blogMeta
-    return { blogsMeta }
+    return { blogsMeta: [...blogsMeta, ...blogsMeta] }
   },
   components: {
     Hero,
     BlogCollection,
     BlogList,
-    Newsletter,
-    Contact
+    Newsletter
   },
   data () {
     return {}

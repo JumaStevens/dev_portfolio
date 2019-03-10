@@ -6,7 +6,7 @@ div(class='blog-comments')
     p(class='blog-comments__date') {{ oldestCommentData }}
 
     li(
-      v-for='(comment, index) in comments'
+      v-for='(comment, index) in processedComments.comments'
       :key='comment + index'
       class='blog-comments__item'
     )
@@ -15,10 +15,9 @@ div(class='blog-comments')
 
         div(class='blog-comments__auther auther')
 
-          nuxt-link(
-            to='/#bio'
+          h4(
             class='auther__title'
-          ) {{ comment.username }}
+          ) {{ comment.username || 'RandomDude' }}
 
         p(class='blog-comments__comment') {{ comment.text }}
 
@@ -26,12 +25,19 @@ div(class='blog-comments')
 
           a(
             @click='replyCommentId = comment.commentId'
+            class='blog-comments__button'
           ) Reply
+
+          a(
+            v-if='authUser.uid === comment.uid'
+            @click='commentDelete({ commentId: comment.commentId })'
+            class='blog-comments__button blog-comments__button--delete'
+          ) Delete
 
         ul(class='blog-comments__list blog-comments__list-sub')
 
           li(
-            v-for='(subComment, index) in subComments.filter(subComment => subComment.commentId === comment.commentId).sort((a, b) => a.createdAt.seconds - b.createdAt.seconds)'
+            v-for='(subComment, index) in processedComments.subComments.filter(sc => sc.parentCommentId === comment.commentId )'
             :key='subComment + index'
             class='blog-comments__item'
           )
@@ -40,11 +46,19 @@ div(class='blog-comments')
 
               div(class='blog-comments__auther auther')
 
-                nuxt-link(
-                  to='/#bio'
-                  class='auther__title') {{ subComment.username || 'RandomDude' }}
+                h4(
+                  class='auther__title'
+                ) {{ subComment.username || 'RandomDude' }}
 
               p(class='blog-comments__comment') {{ subComment.text }}
+
+              div(class='blog-comments__buttons')
+
+                a(
+                  v-if='authUser.uid === subComment.uid'
+                  @click='commentDelete({ commentId: subComment.commentId })'
+                  class='blog-comments__button blog-comments__button--delete'
+                ) Delete
 
         BlogCommentForm(
           v-if='comment.commentId === replyCommentId'
@@ -63,7 +77,7 @@ div(class='blog-comments')
 <script>
 import { firestore } from '~/plugins/firebase'
 import BlogCommentForm from '~/components/BlogCommentForm.vue'
-import { mapState } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 import moment from 'moment'
 
 
@@ -74,80 +88,43 @@ export default {
   props: {},
   data () {
     return {
-      replyCommentId: '',
-      comments: [],
-      subComments: []
+      replyCommentId: ''
     }
   },
   computed: {
     oldestCommentData () {
-      const comments = this.comments.sort((a, b) => a.createdAt.seconds - b.createdAt.seconds)
+      const comments = this.processedComments.comments
+      return comments.length > 0 ? moment.unix(comments[0].createdAt.seconds).format('LL') : ''
+    },
 
-      return comments.length > 0 ? moment(comments[0].createdAt.miliseconds).format('LL') : ''
+
+    processedComments () {
+      const sortedComments = [...this.blogComments].sort((a, b) => a.createdAt.seconds - b.createdAt.seconds)
+      const comments = []
+      const subComments = []
+      sortedComments.forEach(c => !c.parentCommentId ? comments.push(c) : subComments.push(c))
+      return { comments, subComments }
     },
 
 
     ...mapState({
-      blogMeta: state => state.blog.blogMeta
+      blogComments: state => state.blog.comments
+    }),
+
+
+    ...mapGetters({
+      authUser: 'auth/authUser'
     })
   },
-  beforeMount () {
-    this.fetchComments()
-  },
   methods: {
-    async fetchComments () {
-      try {
-        const blogHandle = this.$route.params.id
-        const blogMeta = this.blogMeta.find(meta => meta.handle === blogHandle)
-        const blogId = blogMeta.id
-
-        const querySnapshot = await firestore
-          .collection('blogComments')
-          .where('blogId', '==', blogId)
-          .where('parentCommentId', '==', '')
-          .get()
-
-        querySnapshot.forEach(doc => {
-          this.comments.push({
-            commentId: doc.id,
-            ...doc.data()
-          })
-        })
-
-        for (const comment of this.comments) {
-          const { commentId } = comment
-          if (commentId) await this.fetchSubComments({ commentId })
-        }
-      }
-      catch (e) {
-        console.error(e)
-      }
-    },
-
-
-    async fetchSubComments ({ commentId }) {
-      try {
-        const querySnapshot = await firestore
-          .collection('blogComments')
-          .where('parentCommentId', '==', commentId)
-          .get()
-
-        querySnapshot.forEach(doc => {
-          this.subComments.push({
-            commentId,
-            ...doc.data()
-          })
-        })
-      }
-      catch (e) {
-        console.error(e)
-      }
-    },
-
-
     clearReplyCommentId () {
       this.replyCommentId = ''
-    }
+    },
+
+
+    ...mapActions({
+      commentDelete: 'blog/commentDelete'
+    })
   }
 }
 </script>
@@ -191,14 +168,25 @@ export default {
     // margin-left: $unit
 
   &__buttons
-    // margin-top: $unit
-    // margin-left: $unit
-    // display: none
+    width: min-content
+    display: grid
+    grid-auto-flow: column
+    grid-gap: $unit*2
+    margin-top: $unit
 
-    & a
+  &__button
+    color: $dark
+    font-size: 12px
+    font-weight: $fw-light
+
+    &:hover
       color: $blue
-      font-size: 12px
-      font-weight: $fw-light
+
+    &--delete
+      color: $dark
+
+      &:hover
+        color: $error
 
   &__date
     // text-align: center

@@ -10,16 +10,25 @@ div(class='container-newsletter')
 
       p(class='newsletter__copy') Enter your email to receive my newsletter covering topics of tech, cryptocurrency, and business.
 
-      form(class='newsletter__form')
+      form(
+        @submit.prevent='newsletterSubscribe'
+        class='newsletter__form'
+      )
 
         input(
+          v-model.trim='email'
+          v-validate='"required|email"'
           class='newsletter__form-input'
+          name='email'
+          type='email'
           placeholder='example@email.com'
         )
 
         input(
+          :class='{ active: email }'
           class='newsletter__form-submit'
           type='submit'
+          value='Send'
         )
 
     div(class='newsletter__wrapper')
@@ -61,6 +70,7 @@ import IconGithub from '~/assets/svg/iconGithub.svg'
 import IconLinkedin from '~/assets/svg/iconLinkedin.svg'
 import IconInstagram from '~/assets/svg/iconInstagram.svg'
 // import IconTwitter from '~/assets/svg/iconTwitter.svg'
+import { firestore, auth } from '~/plugins/firebase'
 
 
 export default {
@@ -72,10 +82,41 @@ export default {
   },
   props: {},
   data () {
-    return {}
+    return {
+      email: ''
+    }
   },
   computed: {},
-  methods: {}
+  methods: {
+    async newsletterSubscribe () {
+      try {
+        const { uid } = auth().currentUser
+
+        const isValid = await this.$validator.validateAll()
+        if (!isValid || !uid) return
+
+        const dbRef = firestore.collection('queueNewsletterSubscribe')
+        const data = { email: this.email }
+        await dbRef.add(data)
+        await this.handleSuccess()
+        return
+      }
+      catch (e) {
+        console.error(e)
+      }
+    },
+
+
+    handleSuccess () {
+      this.email = 'Thanks, got it! 🙌'
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve()
+          this.email = ''
+        }, 3000)
+      })
+    }
+  }
 }
 </script>
 
@@ -142,13 +183,20 @@ export default {
       padding: 0 $unit
       background: transparent
       border-bottom: 1px solid $dark
+      border-radius: unset
 
     &-submit
       width: min-content
       padding: $unit $unit*2
       background: $dark
-      color: $grey
+      color: $white
       border-radius: $unit*.75
+      transition: box-shadow 250ms ease
+
+      &.active
+        background: $blue
+        box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.25)
+        cursor: pointer
 
   &__social-media
     display: grid
@@ -163,7 +211,6 @@ export default {
       @extend %flex--row-center
       width: $unit*5
       height: $unit*5
-
 
     &-icon
       width: $unit*3

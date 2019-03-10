@@ -1,3 +1,4 @@
 export default {
-  blogMeta: []
+  blogMeta: [],
+  comments: []
 }

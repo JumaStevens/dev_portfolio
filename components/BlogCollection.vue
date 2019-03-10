@@ -25,7 +25,7 @@ div(class='container-blog-collection')
           nuxt-link(
             :to='"blog/" + item.handle'
             class='blog-collection__card-link'
-          ) Read more
+          ) Read More
 </template>
 
 
@@ -68,7 +68,7 @@ export default {
       grid-template-columns: 1fr 1fr
     +mq-m
       grid-template-rows: unset
-      grid-template-columns: unset
+      grid-template-columns: 1fr 1fr
 
   &__item
     display: grid
@@ -111,7 +111,7 @@ export default {
   &__card
     grid-row: 1 / 2
     grid-column: 1 / 2
-    padding: $unit*3
+    padding: $unit*3 $unit*2
     background: $grey
     display: grid
     grid-template-rows: min-content auto 1fr
@@ -138,8 +138,12 @@ export default {
       justify-self: start
       align-self: end
       padding: $unit $unit*2
-      font-size: 12px
+      // font-size:
       background: $white
-      border-radius: 6px
+      border-radius: $unit*.75
+      border: 2px solid white
+      background: transparent
+      color: white
+      // box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.25)
 
 </style>

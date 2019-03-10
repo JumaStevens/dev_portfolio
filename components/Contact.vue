@@ -256,6 +256,7 @@ export default {
     grid-row: 2 / 3
     grid-column: 1 / 2
     border-bottom: 1px solid $dark
+    border-radius: unset
 
   &__submit
     @extend %card-container
@@ -264,8 +265,11 @@ export default {
     padding: $unit $unit*3
     background: $dark
     color: $white
+    transition: box-shadow 250ms ease
 
     &.active
       background: $blue
+      box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.25)
+      cursor: pointer
 
 </style>

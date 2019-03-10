@@ -27,12 +27,16 @@ main(class='container-markdown')
         @click='activePanel = "post"'
         :class='{ active: activePanel === "post" }'
         class='markdown__post-header-button'
-      ) Post
+      )
+        IconFile
+        span Post
       a(
         @click='activePanel = "comments"'
         :class='{ active: activePanel === "comments" }'
         class='markdown__post-header-button'
-      ) Comments
+      )
+        IconComments
+        span Comments
       a(
         :href='"https://github.com/JumaStevens/dev_portfolio/blob/master/content/blog/" + meta.handle + ".md"'
         target='_blank'
@@ -56,9 +60,12 @@ main(class='container-markdown')
 
 
 <script>
+import { mapActions } from 'vuex'
 import BlogComments from '~/components/BlogComments.vue'
 import Newsletter from '~/components/Newsletter.vue'
 import headshot from '~/assets/images/headshot.png'
+import IconFile from '~/assets/svg/iconFile.svg'
+import IconComments from '~/assets/svg/iconComments.svg'
 import IconPencil from '~/assets/svg/icon-pencil.svg'
 
 
@@ -77,7 +84,9 @@ export default {
   components: {
     BlogComments,
     Newsletter,
-    IconPencil
+    IconPencil,
+    IconComments,
+    IconFile
   },
   data () {
     return {
@@ -86,6 +95,14 @@ export default {
     }
   },
   computed: {
+  },
+  mounted () {
+    this.commentsFetch()
+  },
+  methods: {
+    ...mapActions({
+      commentsFetch: 'blog/commentsFetch'
+    })
   }
 }
 </script>

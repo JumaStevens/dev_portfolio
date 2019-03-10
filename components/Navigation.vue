@@ -18,23 +18,26 @@ div(
       li(
         class='navigation__item'
       )
-        //- nuxt-link(
-        //-   :to='{ name: "blog" }'
-        //-   class='navigation__link'
-        //- ) Blog
+        nuxt-link(
+          :to='{ name: "blog" }'
+          @click='toggleMenu'
+          class='navigation__link navigation__link--secret'
+        ) Blog
     aside(class='navigation__connect')
       a(
         href='https://github.com/JumaStevens'
         target='_blank'
         rel='external'
-        class='navigation__link'
-      ) GitHub
+        class='navigation__social'
+      )
+        IconGithub(class='navigation__icon')
       a(
         href='https://www.linkedin.com/in/juma-stevens-05730b138/'
         target='_blank'
         rel='external'
-        class='navigation__link'
-      ) LinkedIn
+        class='navigation__social'
+      )
+        IconLinkedin(class='navigation__icon')
       a(
         href='mailto:jumastevens@gmail.com'
         class='navigation__link'
@@ -44,12 +47,18 @@ div(
 
 <script>
 import IconGithub from '~/assets/svg/iconGithub.svg'
+import IconLinkedin from '~/assets/svg/iconLinkedin.svg'
+import IconInstagram from '~/assets/svg/iconInstagram.svg'
+// import IconTwitter from '~/assets/svg/iconTwitter.svg'
 import { mapState, mapMutations } from 'vuex'
 
 
 export default {
   components: {
-    IconGithub
+    IconGithub,
+    IconLinkedin,
+    IconInstagram,
+    // IconTwitter
   },
   props: {},
   data () {
@@ -80,6 +89,8 @@ export default {
     handleNavLink ({ text }) {
       const anchor = `#${text.toLowerCase()}`
       this.toggleMenu()
+
+      this.$router.push('/')
 
       this.$nextTick(() => {
         window.scrollTo(0, this.scrollY)
@@ -148,16 +159,19 @@ export default {
     &:hover
       opacity: 1
 
+    &--secret
+      opacity: 0 !important
+
   &__connect
     display: grid
     grid-template-rows: repeat(2, min-content)
     grid-template-columns: repeat(3, min-content)
-    grid-gap: $unit*2 $unit*5
+    grid-gap: $unit $unit*2
     grid-row: 3 / -1
     align-self: center
     margin: $unit*5 0
     +mq-s
-      grid-gap: $unit $unit*5
+      grid-gap: $unit*2
 
     & .navigation__link
       grid-row: 1 / 2
@@ -172,8 +186,18 @@ export default {
         grid-column: 1 / -1
 
   &__social
-    width: 40px
-    height: 40px
+    @extend %flex--row-center
+    width: $unit*5
+    height: $unit*5
+
+  &__icon
+    width: $unit*3
+    height: $unit*3
+    fill: $white
+    opacity: 0.9
+
+    &:hover
+      opacity: 1
 
 
 </style>

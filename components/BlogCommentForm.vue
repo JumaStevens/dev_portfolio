@@ -36,6 +36,15 @@ export default {
     }
   },
   computed: {},
+  mounted () {
+    if (this.replyCommentId) {
+      this.$nextTick(() => {
+        const el = this.$refs.textarea
+        el.focus()
+        console.log('input el: ', el)
+      })
+    }
+  },
   methods: {
     async submitComment () {
       try {
@@ -46,6 +55,8 @@ export default {
         }
 
         await this.commentCreate(data)
+        this.commentInput = ''
+        this.clearReplyCommentId()
       }
       catch (e) {
         console.error(e)

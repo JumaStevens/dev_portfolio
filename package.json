@@ -25,6 +25,7 @@
     "nuxt": "^2.2.0",
     "nuxt-client-init-module": "^0.1.4",
     "nuxt-validate": "^0.1.2",
+    "nuxt-vuex-router-sync": "0.0.2",
     "vue-lazyload": "^1.2.6",
     "vue-scrollto": "^2.13.0"
   },

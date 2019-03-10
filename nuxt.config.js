@@ -58,6 +58,8 @@ module.exports = {
     'nuxt-validate',
 
     'nuxt-client-init-module',
+
+    'nuxt-vuex-router-sync',
   ],
 
   /*

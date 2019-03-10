@@ -1,22 +1,14 @@
-# Hello World!
+# Custom Vue.js delimiters
 
-Current route is: {{ $route.path }}
+The use of custom Vue.js delimiters (use `[[ ]]` instead of default `{{ }}`), helpful on platforms like Shopify where delimiters conflict.
 
+Add the custom delimiters as an option to the Vue instance.
 ```js
-const hello = false;
-console.log('error');
-```
-
-Current route is: {{ $route.path }}
-
-```js
-const hello = false;
-console.log('error');
-```
-
-Current route is: {{ $route.path }}
-
-```js
-const hello = false;
-console.log('error');
+new Vue({
+  el: '#app',
+  data: {
+    return {}
+  },
+  delimiters: ['[[', ']]']
+})
 ```

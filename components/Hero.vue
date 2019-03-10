@@ -28,7 +28,7 @@ export default {
   props: {},
   data () {
     return {
-      headline: 'Creative Web Solutions',
+      headline: 'Lead By Example',
       text: 'Full Stack Web Developer specializing in modular code architecture, helping businesses and agencies build better digital experiences.',
       link: 'Get In Touch'
     }
@@ -48,17 +48,15 @@ export default {
   @extend %container-content
   position: relative
   max-height: 1000px
-  height: calc(100vh + 200px)
+  // height: calc(100vh + 200px)
   display: grid
-  grid-template-rows: 1fr 200px
-  grid-template-columns: repeat(1, 1fr)
+  grid-template-rows: 1fr auto
+  grid-template-columns: 1fr
   +mq-s
     // grid-template-rows: 100vh auto
     // grid-template-columns: repeat(2, 1fr)
 
   &__body
-    // @extend %flex--column-center
-    // align-items: flex-start
     position: relative
     z-index: 3
     grid-row: 1 / 2
@@ -83,23 +81,10 @@ export default {
     margin-top: $unit*4
     background: $blue
     color: $white
+    box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.25)
 
   &__composite
-    grid-row: 1 / 2
+    grid-row: 2 / 3
     grid-column: 1 / 2
-    position: absolute
-    z-index: 4
-    bottom: calc(0% - 400px)
-    right: calc(100% - 80px)
-    +mq-xs
-      // grid-row: 2 / 3
-      // position: relative
-      bottom: calc(0% - 200px)
-      right: calc(100% - 200px)
-    +mq-s
-      // grid-row: 2 / 3
-      // position: relative
-      bottom: - 300px
-      right: unset
 
 </style>

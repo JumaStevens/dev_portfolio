@@ -90,6 +90,10 @@ export default {
   box-shadow: 40px 32px 40px rgba(34, 34, 34, 0.7)
   overflow: hidden
   transform: rotateX(-60deg) rotateZ(45deg) scale(1)
+  +mq-s
+    // width: 100%
+  +mq-m
+    transform: rotateX(-60deg) rotateZ(45deg) scale(1)
 
   &__aspect-ratio-sizer,
   &__view

@@ -26,9 +26,7 @@ import feedMeSugarMockup from '~/assets/images/feedMeSugarMockup.png'
 import chatCiaoMockup from '~/assets/images/chatCiaoMockup.png'
 import kushMockup from '~/assets/images/kushMockup.png'
 import adventMockup from '~/assets/images/adventMockup.png'
-import hhrMockup from '~/assets/images/hhrMockup.png'
 import galleryMockup from '~/assets/images/galleryMockup.png'
-import portfolioMockup from '~/assets/images/portfolioMockup.png'
 import mockupVessel from '~/assets/images/mockupVessel.jpg'
 
 
@@ -54,12 +52,17 @@ export default {
           link: 'https://kushrugs.com/'
         },
         {
+          image: galleryMockup,
+          headline: 'Gallery — Artist Portfolio',
+          text: 'Stripped down showcase of large photographic content.',
+          link: 'https://still-citadel-96416.herokuapp.com/'
+        },
+        {
           image: chatCiaoMockup,
           headline: 'Chat Ciao — P2P Messenger',
           text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
           link: 'https://chat-ciao.herokuapp.com/'
         },
-
         // {
         //   image: dashMockup,
         //   headline: 'Dash — Single Page Application',
@@ -67,28 +70,10 @@ export default {
         //   link: ''
         // },
         // {
-        //   image: hhrMockup,
-        //   headline: 'HRR — Server Side Rendered',
-        //   text: 'Hurricane relief job board, connecting restaurateurs with displaced survivors.',
-        //   link: ''
-        // },
-        // {
         //   image: adventMockup,
         //   headline: 'Advent — Agency Webpage',
         //   text: 'Mobile-first, brand development digital agency.',
         //   link: 'https://advent-digital-agency.herokuapp.com/'
-        // },
-        {
-          image: galleryMockup,
-          headline: 'Gallery — Artist Portfolio',
-          text: 'Stripped down showcase of large photographic content.',
-          link: 'https://still-citadel-96416.herokuapp.com/'
-        },
-        // {
-        //   image: portfolioMockup,
-        //   headline: 'Portfolio — Single Page Application',
-        //   text: 'Lightweight portfolio for technology professionals.',
-        //   link: ''
         // },
       ]
     }

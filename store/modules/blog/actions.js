@@ -1,4 +1,4 @@
-import { firestore } from '~/plugins/firebase'
+import { firestore, auth } from '~/plugins/firebase'
 
 
 export default {
@@ -40,10 +40,64 @@ export default {
   },
 
 
+  async commentsFetch ({ state, commit, dispatch, rootState, rootGetters }) {
+    try {
+      const { uid } = rootGetters['auth/authUser']
+      const blogHandle = rootState.route.params.id
+      const blogMeta = state.blogMeta.find(meta => meta.handle === blogHandle)
+      const blogId = blogMeta.id
+      console.log('commentsFetch')
+      console.log(`uid: ${uid} || blogId: ${blogId} || blogHandle: ${blogHandle}`)
+
+      // TO DO: Needs to be refactored... too many database reads!
+      const querySnapshot = await firestore.collection('blogComments')
+        .where('blogId', '==', blogId)
+        .get()
+
+      querySnapshot.forEach(doc => {
+        if (!state.comments.find(c => c.commentId === doc.id)) {
+          const data = { commentId: doc.id, ...doc.data() }
+          commit('ADD_COMMENT', { comment: data })
+        }
+      })
+
+      dispatch('commentsWatch')
+    }
+    catch (e) {
+      console.error(e)
+      throw e
+    }
+  },
+
+
+  commentsWatch ({ state, commit, rootState, rootGetters }) {
+    const { uid } = rootGetters['auth/authUser']
+    const blogHandle = rootState.route.params.id
+    const blogMeta = state.blogMeta.find(meta => meta.handle === blogHandle)
+    const blogId = blogMeta.id
+    console.log('commentsWatch')
+    console.log(`uid: ${uid} || blogId: ${blogId} || blogHandle: ${blogHandle}`)
+
+    // TO DO: Needs to be refactored... too many database reads!
+    firestore.collection('blogComments')
+      .where('blogId', '==', blogId)
+      .where('uid', '==', uid)
+      .onSnapshot(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          if (!state.comments.find(c => c.commentId === doc.id)) {
+            const data = { commentId: doc.id, ...doc.data() }
+            commit('ADD_COMMENT', { comment: data })
+          }
+        })
+      })
+  },
+
+
   async commentCreate ({ dispatch, rootGetters }, { handle, text, parentCommentId }) {
+    dispatch('commentsWatch')
     try {
       const isAuthUser = rootGetters['auth/isAuthUser']
-      const authUser = rootGetters['auth/authUser']
+      let authUser = rootGetters['auth/authUser']
 
       if (!isAuthUser) {
         await dispatch('auth/signInAnonymously', null, { root: true })
@@ -53,7 +107,7 @@ export default {
       const data = {
         handle,
         text,
-        uid: authUser.uid
+        uid: authUser.uid || auth().currentUser.uid
       }
 
       if (parentCommentId) data.parentCommentId = parentCommentId
@@ -99,7 +153,7 @@ export default {
   },
 
 
-  async commentDelete ({ dispatch, rootGetters }, { text, commentId }) {
+  async commentDelete ({ dispatch, rootGetters }, { commentId }) {
     try {
       const isAuthUser = rootGetters['auth/isAuthUser']
       const authUser = rootGetters['auth/authUser']
@@ -114,10 +168,12 @@ export default {
         uid: authUser.uid
       }
 
-      // add comment to database queue
+      // add delete request to database queue
       await firestore
         .collection('queueBlogCommentsDelete')
         .add(data)
+
+      console.log('BAM!')
 
     }
     catch (e) {

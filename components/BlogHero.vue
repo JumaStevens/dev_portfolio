@@ -21,7 +21,7 @@ export default {
   props: {},
   data () {
     return {
-      headline: 'Learning Nirvana', // 'Tutorial Nirvana', // 'Tutorial Heaven',
+      headline: 'Digital Nirvana', // 'Tutorial Nirvana', // 'Tutorial Heaven',
       text: 'Sharing the lessions learned along my web developer journey. Vue.js tutorials, Shopify insights, and Web App hackatons—oh my!',
       link: 'Get In Touch'
     }
@@ -44,7 +44,7 @@ export default {
   // height: calc(100vh + 200px)
   display: grid
   grid-template-rows: 1fr
-  grid-template-columns: repeat(1, 1fr)
+  grid-template-columns: 1fr
   +mq-s
     // grid-template-rows: 100vh auto
     // grid-template-columns: repeat(2, 1fr)
@@ -76,6 +76,7 @@ export default {
     margin-top: $unit*4
     background: $blue
     color: $white
+    box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.25)
 
   &__composite
     grid-row: 1 / 2

@@ -195,21 +195,7 @@ export default {
       grid-auto-flow: column
 
     & .about__item
-      position: relative
-      padding-left: $unit*1.5
       color: $dark
-
-      &::before
-        content: ''
-        position: absolute
-        top: 50%
-        left: 0
-        width: $unit/2
-        height: $unit/2
-        transform: translateY(-50%)
-        background: $dark
-        border-radius: 50%
-
 
   &__subhead
 
@@ -252,6 +238,5 @@ export default {
 
     &:hover &-image
       display: none
-
 
 </style>
