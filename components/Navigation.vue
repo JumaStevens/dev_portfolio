@@ -40,15 +40,17 @@ div(
         IconLinkedin(class='navigation__icon')
       a(
         href='mailto:jumastevens@gmail.com'
-        class='navigation__link'
-      ) Jumastevens@gmail.com
+        class='navigation__social'
+      )
+        IconEmail(class='navigation__icon')
 </template>
 
 
 <script>
 import IconGithub from '~/assets/svg/iconGithub.svg'
 import IconLinkedin from '~/assets/svg/iconLinkedin.svg'
-import IconInstagram from '~/assets/svg/iconInstagram.svg'
+import IconEmail from '~/assets/svg/iconEmail.svg'
+// import IconInstagram from '~/assets/svg/iconInstagram.svg'
 // import IconTwitter from '~/assets/svg/iconTwitter.svg'
 import { mapState, mapMutations } from 'vuex'
 
@@ -57,7 +59,8 @@ export default {
   components: {
     IconGithub,
     IconLinkedin,
-    IconInstagram,
+    IconEmail
+    // IconInstagram,
     // IconTwitter
   },
   props: {},
@@ -164,8 +167,8 @@ export default {
 
   &__connect
     display: grid
-    grid-template-rows: repeat(2, min-content)
-    grid-template-columns: repeat(3, min-content)
+    grid-auto-flow: column
+    grid-auto-columns: min-content
     grid-gap: $unit $unit*2
     grid-row: 3 / -1
     align-self: center

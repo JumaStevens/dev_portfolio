@@ -12,11 +12,13 @@ div(
         :key='item + index'
         class='testimonial__item'
       )
-        img(
-          v-lazy='item.image'
-          class='testimonial__icon'
-        )
-        h3(class='testimonial__subhead') {{ item.headline }}
+        div(class='testimonial__author')
+          img(
+            v-lazy='item.image'
+            class='testimonial__image'
+          )
+          h3(class='testimonial__title') {{ item.headline }}
+          p(class='testimonial__copy') {{ item.subHeadline }}
         p(class='testimonial__text') {{ item.text }}
 </template>
 
@@ -35,17 +37,20 @@ export default {
       testimonial: [
         {
           image: avatarRob,
-          headline: 'Rob Alan — Monumental',
+          headline: 'Monumental',
+          subHeadline: 'Rob Alan',
           text: 'Juma lead our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
         },
         {
           image: avatarShaun,
-          headline: 'Shaun Brian Sells — HHR',
+          headline: 'HHR',
+          subHeadline: 'Shaun Brian Sells',
           text: 'Working together was a great experience. Communication was professional and prompt.'
         },
         {
           image: avatarSerra,
-          headline: 'Serra Kreger — Vessel',
+          headline: 'Vessel',
+          subHeadline: 'Serra Kreger',
           text: 'Juma truly felt like he was a part of our team. Looking forward to future projects.'
         }
       ]
@@ -88,16 +93,40 @@ export default {
       &:last-child
         margin-right: unset
 
-  &__icon
-    width: $unit*5
-    height: $unit*5
+  &__author
+    display: grid
+    grid-template-rows: repeat(2, auto)
+    grid-template-columns: min-content min-content
+    grid-gap: 0 $unit*2
+    margin: 0 0 $unit*2 0
+
+  &__image
+    grid-row: 1 / 3
+    grid-column: 1 / 2
+    width: $unit*6
+    height: $unit*6
     border-radius: 50%
+    object-fit: contain
     background: $grey
 
-  &__subhead
-    margin: $unit*2 0 $unit
+  &__title
+    grid-row: 1 / 2
+    grid-column: 2 / 3
+    white-space: nowrap
+    align-self: end
+    font-weight: $fw-bold
+
+  &__copy
+    grid-row: 2 / 3
+    grid-column: 2 / 3
+    white-space: nowrap
+    font-weight: $fw-light
+    color: $dark
+    font-size: 12px
 
   &__text
     @extend %text-copy
+    font-weight: $fw-light
+    color: $black
 
 </style>

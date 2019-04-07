@@ -91,10 +91,12 @@ export default {
   &__subhead
     // margin: $unit*2 0 $unit 0
     margin: 0 0 $unit 0
-
+    font-weight: $fw-bold
 
   &__text
     @extend %text-copy
+    color: $black
+    font-weight: $fw-light
 
 
 

@@ -41,25 +41,25 @@ export default {
       work: [
         {
           image: feedMeSugarMockup,
-          headline: 'Feed Me Sugar — Server-Side Rendering',
+          headline: 'Feed Me Sugar',
           text: 'Asynchronous e-commerce application utilizing Shopify APIs.',
           link: 'https://www.feedmesugar.com/'
         },
         {
           image: kushMockup,
-          headline: 'Kush Rugs — Shopify',
+          headline: 'Kush Rugs',
           text: 'E-commerce storefront selling ethically sourced designer rugs. (Monumental Agency)',
           link: 'https://kushrugs.com/'
         },
         {
           image: galleryMockup,
-          headline: 'Gallery — Artist Portfolio',
+          headline: 'Gallery',
           text: 'Stripped down showcase of large photographic content.',
           link: 'https://still-citadel-96416.herokuapp.com/'
         },
         {
           image: chatCiaoMockup,
-          headline: 'Chat Ciao — P2P Messenger',
+          headline: 'Chat Ciao',
           text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
           link: 'https://chat-ciao.herokuapp.com/'
         },

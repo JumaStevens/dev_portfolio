@@ -118,7 +118,7 @@ export default {
     background: $white
 
   &__headline
-    // font-weight: $fw-bold
+    font-weight: $fw-bold
 
   &__text
     @extend %text-copy
