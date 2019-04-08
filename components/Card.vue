@@ -83,6 +83,7 @@ export default {
 
   &__aspect-ratio
     display: grid
+    max-height: 492px
 
     &-sizer
       grid-row: 1 / 2
@@ -98,6 +99,7 @@ export default {
     grid-row: 1 / 2
     grid-column: 1 / 2
     background: $grey
+    max-height: 492px
 
   &__image
     position: absolute

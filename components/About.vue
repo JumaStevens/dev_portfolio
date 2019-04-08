@@ -7,9 +7,23 @@ div(
   section(class='about')
     h2(class='about__headline') {{ headline }}
     Card(
-      :cardData='card'
+      :cardData='{ image: card.image }'
       class='about__card no-shadow'
     )
+
+    div(class='card')
+      h3(
+        class='card__headline'
+      ) {{ card.headline }}
+      p(
+        v-html='card.text'
+        class='card__text'
+      )
+      img(
+        :src='card.signature'
+        class='card__signature'
+      )
+
     div(class='about__skills')
       h3(class='about__subhead') {{ skillset.subhead }}
       ul(class='about__list')
@@ -40,6 +54,7 @@ div(
 <script>
 import Card from '~/components/Card.vue'
 import headshot from '~/assets/images/headshot.png'
+import signature from '~/assets/images/signature.png'
 import iconFirebase from '~/assets/images/iconFirebase.png'
 import iconJavascript from '~/assets/images/iconJavascript.png'
 import iconNode from '~/assets/images/iconNode.png'
@@ -63,7 +78,7 @@ export default {
     return {
       headline: 'Meet the Developer',
       skillset: {
-        subhead: 'Skillset',
+        subhead: 'Tools',
         list: [
           {
             image: iconJavascript,
@@ -130,8 +145,9 @@ export default {
       },
       card: {
         image: headshot,
-        headline: 'Juma Stevens',
-        text: 'Hi! I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems with code.'
+        headline: 'Hello',
+        text: 'My name is Juma Stevens. I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems with code.<br><br>Cheers,',
+        signature
       }
     }
   },
@@ -150,7 +166,7 @@ export default {
   +mq-m
     display: grid
     grid-gap: 0 $unit*5
-    grid-template-rows: auto repeat(2, 1fr)
+    grid-template-rows: auto repeat(3, min-content)
     grid-template-columns: repeat(2, 1fr)
 
   &__headline
@@ -162,11 +178,9 @@ export default {
   &__skills
     @extend %card-container
     padding: $unit*3 $unit*2
-    margin-bottom: $unit*5
     +mq-m
-      grid-row: 2 / 3
-      grid-column: 2 / -1
-      margin-bottom: 20px
+      grid-row: 3 / 4
+      grid-column: 2 / 3
 
     & .about__list
       display: grid
@@ -174,9 +188,11 @@ export default {
       grid-template-rows: repeat(3, auto)
       grid-template-columns: repeat(4, auto)
       grid-auto-flow: column
+      max-width: 51ch
 
     & .about__item
       @extend %flex--row-center
+      @extend %text-copy
       width: $unit*5
       height: $unit*5
 
@@ -184,9 +200,8 @@ export default {
     @extend %card-container
     padding: $unit*3 $unit*2
     +mq-m
-      grid-row: 3 / -1
+      grid-row: 4 / 5
       grid-column: 2 / -1
-      margin-top: 20px
 
     & .about__list
       display: grid
@@ -194,18 +209,23 @@ export default {
       grid-template-rows: repeat(4, auto)
       grid-template-columns: repeat(2, auto)
       grid-auto-flow: column
+      max-width: 51ch
 
     & .about__item
-      color: $dark
+      @extend %text-copy
+      border: 1px solid $dark
+      border-radius: 6px
+      padding: $unit $unit*2
+      width: min-content
+      white-space: nowrap
 
   &__subhead
     font-weight: $fw-bold
 
   &__card
-    margin-bottom: $unit*5
     +mq-m
-      grid-row: 2 / -1
-      grid-column: 1 / 2
+      grid-row: 2 / 3
+      grid-column: 1 / -1
 
   &__list
     margin-top: $unit*3
@@ -219,7 +239,6 @@ export default {
     width: 100%
     height: 100%
     margin: 0
-
 
     &-image
       max-width: 100%
@@ -240,5 +259,30 @@ export default {
 
     &:hover &-image
       display: none
+
+.card
+  grid-row: 3 / 5
+  grid-column: 1 / 2
+  padding: $unit*3 $unit*2
+
+  &__body
+    position: relative
+    z-index: 6
+    background: $white
+
+  &__headline
+    font-weight: $fw-bold
+
+  &__text
+    @extend %text-copy
+    margin-top: $unit
+
+  &__link
+    color: $blue
+
+  &__signature
+    height: $unit*4
+    margin-top: $unit
+    opacity: 0.8
 
 </style>

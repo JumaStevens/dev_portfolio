@@ -13,24 +13,40 @@ div(
         class='hero__link'
       ) {{ link }}
 
-    HeroComposite(class='hero__composite')
+    //- HeroComposite(class='hero__composite')
+    //- video(
+    //-   :src='image'
+    //-   class='video'
+    //-   autoplay
+    //-   loop
+    //-   muted
+    //-   playsinline
+    //- )
+    img(
+      :src='image'
+      class='video'
+    )
 </template>
 
 
 <script>
+import Card from '~/components/Card.vue'
 import HeroComposite from '~/components/HeroComposite.vue'
+import atomEditor from '~/assets/images/heroAbstract.jpg'
 
 
 export default {
   components: {
-    HeroComposite
+    HeroComposite,
+    Card
   },
   props: {},
   data () {
     return {
-      headline: 'Lead By Example',
+      headline: 'Your Shopify Expert',
       text: 'Full Stack Web Developer specializing in modular code architecture, helping businesses and agencies build better digital experiences.',
-      link: 'Get In Touch'
+      link: 'Get In Touch',
+      image: atomEditor
     }
   },
   computed: {},
@@ -47,7 +63,6 @@ export default {
 .hero
   @extend %container-content
   position: relative
-  max-height: 1000px
   // height: calc(100vh + 200px)
   display: grid
   grid-template-rows: 1fr auto
@@ -57,6 +72,8 @@ export default {
     // grid-template-columns: repeat(2, 1fr)
 
   &__body
+    height: 100%
+    max-height: 1000px
     position: relative
     z-index: 3
     grid-row: 1 / 2
@@ -87,4 +104,14 @@ export default {
     grid-row: 2 / 3
     grid-column: 1 / 2
 
+.video
+  grid-row: 2 / 3
+  grid-column: 1 / 2
+  width: 100%
+  height: 280px
+  background: $grey
+  object-fit: cover
+  margin: 120px 0 0 0
+  box-shadow: 0px 8px 24px rgba(34, 34, 34, 0.5)
+  border-radius: 6px
 </style>
