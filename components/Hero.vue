@@ -32,7 +32,7 @@ div(
 <script>
 import Card from '~/components/Card.vue'
 import HeroComposite from '~/components/HeroComposite.vue'
-import atomEditor from '~/assets/images/heroAbstract.jpg'
+import heroImage from '~/assets/images/heroBanner.jpg'
 
 
 export default {
@@ -46,7 +46,7 @@ export default {
       headline: 'Your Shopify Expert',
       text: 'Full Stack Web Developer specializing in modular code architecture, helping businesses and agencies build better digital experiences.',
       link: 'Get In Touch',
-      image: atomEditor
+      image: heroImage
     }
   },
   computed: {},

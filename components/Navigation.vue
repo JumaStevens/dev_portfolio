@@ -15,14 +15,14 @@ div(
           @click='handleNavLink(item)'
           class='navigation__link'
         ) {{ item.text }}
-      li(
-        class='navigation__item'
-      )
-        nuxt-link(
-          :to='{ name: "blog" }'
-          @click='toggleMenu'
-          class='navigation__link navigation__link--secret'
-        ) Blog
+      //- li(
+      //-   class='navigation__item'
+      //- )
+      //-   nuxt-link(
+      //-     :to='{ name: "blog" }'
+      //-     @click='toggleMenu'
+      //-     class='navigation__link navigation__link--secret'
+      //-   ) Blog
     aside(class='navigation__connect')
       a(
         href='https://github.com/JumaStevens'
@@ -32,7 +32,7 @@ div(
       )
         IconGithub(class='navigation__icon')
       a(
-        href='https://www.linkedin.com/in/juma-stevens-05730b138/'
+        href='https://www.linkedin.com/in/juma-stevens/'
         target='_blank'
         rel='external'
         class='navigation__social'

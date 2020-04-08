@@ -25,8 +25,8 @@ div(
 
 <script>
 import avatarRob from '~/assets/images/avatarRob.jpg'
-import avatarSerra from '~/assets/images/avatarSerra.jpg'
-import avatarShaun from '~/assets/images/avatarShaun.jpg'
+import avatarMegan from '~/assets/images/avatarMegan.jpg'
+import avatarGerardo from '~/assets/images/avatarGerardo.jpg'
 
 export default {
   components: {},
@@ -38,20 +38,20 @@ export default {
         {
           image: avatarRob,
           headline: 'Monumental',
-          subHeadline: 'Rob Alan',
+          subHeadline: 'Rob Alan, Founder/CEO',
           text: 'Juma lead our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
         },
         {
-          image: avatarShaun,
-          headline: 'HHR',
-          subHeadline: 'Shaun Brian Sells',
-          text: 'Working together was a great experience. Communication was professional and prompt.'
+          image: avatarMegan,
+          headline: 'Cloud Four',
+          subHeadline: 'Megan Notarte, Vice President',
+          text: 'Juma is an incredibly talented engineer with the rare combination of technical expertise, problem-solving abilities and strong interpersonal skills.'
         },
         {
-          image: avatarSerra,
-          headline: 'Vessel',
-          subHeadline: 'Serra Kreger',
-          text: 'Juma truly felt like he was a part of our team. Looking forward to future projects.'
+          image: avatarGerardo,
+          headline: 'Cloud Four',
+          subHeadline: 'Gerardo Rodriguez, Senior Developer',
+          text: 'Juma has lots of knowledge around the Shopify platform. He\'s also very proficient with the web trifecta of HTML/CSS/JS. He\'s incredibly talented and an excellent problem-solver. Juma is hands-down a great addition to any team.'
         }
       ]
     }

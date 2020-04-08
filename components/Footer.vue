@@ -13,7 +13,7 @@ export default {
   props: {},
   data () {
     return {
-      copywrite: '© 2019 Juma Stevens || Designed & Developed with 🖤'
+      copywrite: '© 2020 Juma Stevens || Designed & Developed with 🖤'
     }
   },
   computed: {},
