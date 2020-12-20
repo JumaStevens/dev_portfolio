@@ -19,10 +19,6 @@ div(
         v-html='card.text'
         class='card__text'
       )
-      img(
-        :src='card.signature'
-        class='card__signature'
-      )
 
     div(class='about__skills')
       h3(class='about__subhead') {{ skillset.subhead }}
@@ -54,7 +50,6 @@ div(
 <script>
 import Card from '~/components/Card.vue'
 import headshot from '~/assets/images/headshot.png'
-import signature from '~/assets/images/signature.png'
 import iconFirebase from '~/assets/images/iconFirebase.png'
 import iconJavascript from '~/assets/images/iconJavascript.png'
 import iconNode from '~/assets/images/iconNode.png'
@@ -67,7 +62,6 @@ import iconPhotoshop from '~/assets/images/iconPhotoshop.png'
 import iconWebpack from '~/assets/images/iconWebpack.png'
 import iconShopify from '~/assets/images/iconShopify.png'
 import iconVue from '~/assets/images/iconVue.png'
-
 
 export default {
   components: {
@@ -146,8 +140,7 @@ export default {
       card: {
         image: headshot,
         headline: 'Hello',
-        text: 'My name is Juma Stevens. I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems with code.<br><br>Cheers,',
-        signature
+        text: 'My name is Juma. I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems with code.<br><br>Cheers,<br>Juma Stevens'
       }
     }
   },
@@ -279,10 +272,4 @@ export default {
 
   &__link
     color: $blue
-
-  &__signature
-    height: $unit*4
-    margin-top: $unit
-    opacity: 0.8
-
 </style>

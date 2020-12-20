@@ -21,14 +21,18 @@ div(
 
 <script>
 import Card from '~/components/Card.vue'
-import dashMockup from '~/assets/images/dashMockup.png'
+// import dashMockup from '~/assets/images/dashMockup.png'
 import feedMeSugarMockup from '~/assets/images/feedMeSugarMockup.png'
 import chatCiaoMockup from '~/assets/images/chatCiaoMockup.png'
 import kushMockup from '~/assets/images/kushMockup.png'
-import adventMockup from '~/assets/images/adventMockup.png'
-import galleryMockup from '~/assets/images/galleryMockup.png'
-import mockupVessel from '~/assets/images/mockupVessel.jpg'
-
+// import adventMockup from '~/assets/images/adventMockup.png'
+// import galleryMockup from '~/assets/images/galleryMockup.png'
+// import mockupVessel from '~/assets/images/mockupVessel.jpg'
+import girlstravelcoMockup from '~/assets/images/girlstravelcoMockup.png'
+import shopfulThemeMockup from '~/assets/images/shopfulThemeMockup.png'
+import shopfulMockup from '~/assets/images/shopfulMockup.png'
+import zeroWasteLoveMockup from '~/assets/images/zeroWasteLoveMockup.jpg'
+import herrayMockup from '~/assets/images/herrayMockup.jpg'
 
 export default {
   components: {
@@ -40,41 +44,59 @@ export default {
       headline: 'Select Work',
       work: [
         {
-          image: feedMeSugarMockup,
-          headline: 'Feed Me Sugar',
-          text: 'Asynchronous e-commerce application utilizing Shopify APIs.',
-          link: 'https://www.feedmesugar.com/'
+          image: shopfulMockup,
+          headline: 'Shopful',
+          text: 'E-commerce PaaS for vintage resellers.',
+          link: 'https://shopful.io/'
+        },
+        {
+          image: shopfulThemeMockup,
+          headline: 'Pilot Pro Theme',
+          text: 'White-label SPA Shopify theme for fashion brands.',
+          link: 'https://shopful-demo.myshopify.com/'
+        },
+        {
+          image: herrayMockup,
+          headline: 'Herray',
+          text: 'Event sharing social network.',
+          link: ''
+        },
+        {
+          image: zeroWasteLoveMockup,
+          headline: 'Zero Waste Love',
+          text: 'TEDx Talk featured zero waste guide.',
+          link: ''
+        },
+        {
+          image: chatCiaoMockup,
+          headline: 'Chat Ciao',
+          text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
+          link: ''
         },
         {
           image: kushMockup,
           headline: 'Kush Rugs',
           text: 'E-commerce storefront selling ethically sourced designer rugs. (Monumental Agency)',
           link: 'https://kushrugs.com/'
-        },
-        {
-          image: galleryMockup,
-          headline: 'Gallery',
-          text: 'Stripped down showcase of large photographic content.',
-          link: 'https://still-citadel-96416.herokuapp.com/'
-        },
-        {
-          image: chatCiaoMockup,
-          headline: 'Chat Ciao',
-          text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
-          link: 'https://chat-ciao.herokuapp.com/'
-        },
+        }
         // {
-        //   image: dashMockup,
-        //   headline: 'Dash — Single Page Application',
+        //   image: feedMeSugarMockup,
+        //   headline: 'Feed Me Sugar',
+        //   text: 'Asynchronous e-commerce application utilizing Shopify APIs.',
+        //   link: 'https://www.feedmesugar.com/'
+        // },
+        // {
+        //   image: galleryMockup,
+        //   headline: 'Gallery',
+        //   text: 'Stripped down showcase of large photographic content.',
+        //   link: 'https://still-citadel-96416.herokuapp.com/'
+        // },
+        // {
+        //   image: girlstravelcoMockup,
+        //   headline: 'Girls Travel Co',
         //   text: 'Minimalist chat utility that is secure and easy to use.',
         //   link: ''
-        // },
-        // {
-        //   image: adventMockup,
-        //   headline: 'Advent — Agency Webpage',
-        //   text: 'Mobile-first, brand development digital agency.',
-        //   link: 'https://advent-digital-agency.herokuapp.com/'
-        // },
+        // }
       ]
     }
   },
