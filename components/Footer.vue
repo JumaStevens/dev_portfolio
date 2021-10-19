@@ -1,6 +1,5 @@
 <template lang='pug'>
 div(class='container-footer')
-
   footer(class='footer')
     p(class='footer__copywrite') {{ copywrite }}
 </template>
@@ -12,11 +11,14 @@ export default {
   components: {},
   props: {},
   data () {
-    return {
-      copywrite: '© 2020 Juma Stevens || Designed & Developed with 🖤'
+    return {}
+  },
+  computed: {
+    copywrite() {
+      const year = new Date().getFullYear()
+      return `©${year} Juma Stevens, LLC`
     }
   },
-  computed: {},
   methods: {}
 }
 </script>

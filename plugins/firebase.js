@@ -1,5 +1,5 @@
 import firebase from 'firebase/app'
-import 'firebase/storage'
+// import 'firebase/storage'
 import 'firebase/firestore'
 import 'firebase/auth'
 
@@ -9,13 +9,14 @@ const config = {
   databaseURL: 'https://juma-stevens.firebaseio.com',
   projectId: 'juma-stevens',
   storageBucket: 'juma-stevens.appspot.com',
-  messagingSenderId: '195736207278'
+  messagingSenderId: '195736207278',
+  appId: '1:195736207278:web:fd217cf2b4f8766736523f'
 }
 
-!firebase.apps.length ? firebase.initializeApp(config) : null
+if (!firebase.apps.length) firebase.initializeApp(config)
 
-const storage = firebase.storage()
+// const storage = firebase.storage()
 const firestore = firebase.firestore()
 const auth = firebase.auth
 
-export { storage, firestore, auth }
+export { firestore, auth }
