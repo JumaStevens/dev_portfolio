@@ -47,7 +47,7 @@ export default {
         {
           image: shopfulMockup,
           headline: 'Shopful',
-          text: 'Social shopping platform.',
+          text: 'Social shopping network.',
           link: 'https://shopful.io/'
         },
         {
