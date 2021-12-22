@@ -94,11 +94,11 @@ export default {
   &__link
     @extend %card-container
     display: inline-block
-    padding: $unit $unit*2
+    padding: $unit*2 $unit*3
     margin-top: $unit*4
     background: $blue
     color: $white
-    box-shadow: 0px $unit $unit*3 rgba(34, 34, 34, 0.25)
+    border-radius: $unit*3
 
   &__composite
     grid-row: 2 / 3

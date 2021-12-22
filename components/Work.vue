@@ -22,17 +22,18 @@ div(
 <script>
 import Card from '~/components/Card.vue'
 // import dashMockup from '~/assets/images/dashMockup.png'
-import feedMeSugarMockup from '~/assets/images/feedMeSugarMockup.png'
-import chatCiaoMockup from '~/assets/images/chatCiaoMockup.png'
+// import feedMeSugarMockup from '~/assets/images/feedMeSugarMockup.png'
+// import chatCiaoMockup from '~/assets/images/chatCiaoMockup.png'
 import kushMockup from '~/assets/images/kushMockup.png'
 // import adventMockup from '~/assets/images/adventMockup.png'
 // import galleryMockup from '~/assets/images/galleryMockup.png'
 // import mockupVessel from '~/assets/images/mockupVessel.jpg'
-import girlstravelcoMockup from '~/assets/images/girlstravelcoMockup.png'
+// import girlstravelcoMockup from '~/assets/images/girlstravelcoMockup.png'
 import shopfulThemeMockup from '~/assets/images/shopfulThemeMockup.png'
-import shopfulMockup from '~/assets/images/shopfulMockup.png'
+import shopfulMockup from '~/assets/images/shopfulMockup.jpg'
 import zeroWasteLoveMockup from '~/assets/images/zeroWasteLoveMockup.jpg'
 import herrayMockup from '~/assets/images/herrayMockup.jpg'
+import investfulMockup from '~/assets/images/investfulMockup.jpg'
 
 export default {
   components: {
@@ -46,20 +47,20 @@ export default {
         {
           image: shopfulMockup,
           headline: 'Shopful',
-          text: 'E-commerce PaaS for vintage resellers.',
+          text: 'Social shopping platform.',
           link: 'https://shopful.io/'
         },
         {
           image: shopfulThemeMockup,
           headline: 'Pilot Pro Theme',
           text: 'White-label SPA Shopify theme for fashion brands.',
-          link: 'https://shopful-demo.myshopify.com/'
+          link: ''
         },
         {
-          image: herrayMockup,
-          headline: 'Herray',
-          text: 'Event sharing social network.',
-          link: ''
+          image: investfulMockup,
+          headline: 'Investful',
+          text: 'Co-learning community for investors.',
+          link: 'https://investful.app/'
         },
         {
           image: zeroWasteLoveMockup,
@@ -68,11 +69,17 @@ export default {
           link: ''
         },
         {
-          image: chatCiaoMockup,
-          headline: 'Chat Ciao',
-          text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
+          image: herrayMockup,
+          headline: 'Herray',
+          text: 'Event sharing social network.',
           link: ''
         },
+        // {
+        //   image: chatCiaoMockup,
+        //   headline: 'Chat Ciao',
+        //   text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
+        //   link: ''
+        // },
         {
           image: kushMockup,
           headline: 'Kush Rugs',
