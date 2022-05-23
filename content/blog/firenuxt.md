@@ -3,7 +3,7 @@
 Live site: https://example-firenuxt.firebaseapp.com
 
 ## Overview
-Temp
+Temp (^_^)/
 
 ## Getting started
 Create a new Nuxt.js project using the scaffolding tool [create-nuxt-app](https://github.com/nuxt/create-nuxt-app/).
