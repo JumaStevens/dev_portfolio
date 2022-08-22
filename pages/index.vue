@@ -5,7 +5,7 @@ main(class='container-index')
   Work
   Testimonial
   About
-  Contact
+  ContactUsFooter
 </template>
 
 
@@ -16,7 +16,7 @@ import Work from '~/components/Work.vue'
 import Testimonial from '~/components/Testimonial.vue'
 import About from '~/components/About.vue'
 import Contact from '~/components/Contact.vue'
-
+import ContactUsFooter from '~/components/compositions/ContactUsFooter.vue'
 
 export default {
   components: {
@@ -25,7 +25,8 @@ export default {
     Work,
     Testimonial,
     About,
-    Contact
+    Contact,
+    ContactUsFooter
   },
   data () {
     return {}

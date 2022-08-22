@@ -99,11 +99,7 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    '@/assets/sass/main.sass',
-    {
-      src: '~/node_modules/highlight.js/styles/github.css',
-      lang: 'css'
-    }
+    '@/assets/sass/main.sass'
   ],
   /*
    ** Plugins to load before mounting the App
@@ -167,6 +163,18 @@ module.exports = {
    */
   build: {
     extractCSS: isProd,
+    // optimization: {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       styles: {
+    //         name: 'styles',
+    //         test: /\.(css|vue)$/,
+    //         chunks: 'all',
+    //         enforce: true
+    //       }
+    //     }
+    //   }
+    // },
     /*
      ** You can extend webpack config here
      */

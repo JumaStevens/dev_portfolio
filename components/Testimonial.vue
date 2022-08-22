@@ -36,23 +36,29 @@ export default {
       headline: 'Testimonial',
       testimonial: [
         {
-          image: avatarRob,
-          headline: 'Monumental',
-          subHeadline: 'Rob Alan, Founder/CEO',
-          text: 'Juma lead our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
+          image: 'https://media-exp1.licdn.com/dms/image/C5603AQEHpxMcDQRnbA/profile-displayphoto-shrink_100_100/0/1516973884110?e=1666224000&v=beta&t=viMHEsSoiJYNfxR-9NEDhf8Z40dt7z8FxL2txdN6jnk',
+          headline: 'Caroline Haber',
+          subHeadline: 'Director of PM at Lunar Solar Group',
+          text: 'I really enjoy working with Juma and appreciate so much all of his hard. He is a valuable team member and am rooting for him in all of his future endeavors!'
         },
         {
           image: avatarMegan,
-          headline: 'Cloud Four',
-          subHeadline: 'Megan Notarte, Vice President',
+          headline: 'Megan Notarte',
+          subHeadline: 'Vice President at Cloud Four',
           text: 'Juma is an incredibly talented engineer with the rare combination of technical expertise, problem-solving abilities and strong interpersonal skills.'
         },
         {
           image: avatarGerardo,
-          headline: 'Cloud Four',
-          subHeadline: 'Gerardo Rodriguez, Senior Developer',
+          headline: 'Gerardo Rodriguez',
+          subHeadline: 'Senior Developer at Cloud Four',
           text: 'Juma has lots of knowledge around the Shopify platform. He\'s also very proficient with the web trifecta of HTML/CSS/JS. He\'s incredibly talented and an excellent problem-solver. Juma is hands-down a great addition to any team.'
-        }
+        },
+        // {
+        //   image: avatarRob,
+        //   headline: 'Monumental',
+        //   subHeadline: 'Rob Alan, Founder/CEO',
+        //   text: 'Juma lead our technical execution with finesse and ambition. From vanilla JavaScript, to Vue.js, he is a code craftsman in every sense.'
+        // }
       ]
     }
   },
@@ -85,7 +91,7 @@ export default {
     flex: 1
     padding: $unit*3 $unit*2
     margin-bottom: $unit*5
-    background: $white
+    // border: 1px solid $separator
     &:last-child
       margin-bottom: unset
     +mq-m
@@ -107,7 +113,6 @@ export default {
     height: $unit*6
     border-radius: 50%
     object-fit: contain
-    background: $grey
 
   &__title
     grid-row: 1 / 2
@@ -119,14 +124,14 @@ export default {
   &__copy
     grid-row: 2 / 3
     grid-column: 2 / 3
-    white-space: nowrap
+    // white-space: nowrap
+    width: 100%
     font-weight: $fw-light
-    color: $dark
+    color: $secondary-label
     font-size: 12px
 
   &__text
     @extend %text-copy
     font-weight: $fw-light
-    color: $black
-
+    color: $label
 </style>

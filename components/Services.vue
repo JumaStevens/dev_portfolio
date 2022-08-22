@@ -74,7 +74,6 @@ export default {
     max-width: $unit*57
     padding: $unit*3 $unit*2
     margin-bottom: $unit*5
-    background: $white
     &:last-child
       margin-bottom: unset
     +mq-m
@@ -95,9 +94,6 @@ export default {
 
   &__text
     @extend %text-copy
-    color: $black
     font-weight: $fw-light
-
-
-
+    color: $secondary-label
 </style>

@@ -139,8 +139,8 @@ export default {
       },
       card: {
         image: headshot,
-        headline: 'Hello',
-        text: 'My name is Juma. I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems with code.<br><br>Cheers,<br>Juma Stevens'
+        headline: 'About Me',
+        text: 'I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems with code.<br><br>Cheers,<br>Juma Stevens'
       }
     }
   },

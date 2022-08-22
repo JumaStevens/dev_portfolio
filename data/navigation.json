@@ -1,0 +1,11 @@
+{
+  "menu": [
+    {
+      "to": {
+        "name": "contact"
+      },
+      "text": "Contact",
+      "icon": "help"
+    }
+  ]
+}

@@ -1,21 +1,16 @@
 <template lang='pug'>
-div(
-  :class='{ menuIsOpen: menuIsOpen }'
-  class='vue-app'
-)
-
-  Navigation
-
-  Hamburger(class='vue-app__hamburger')
-
+div(class='vue-app')
+  AppNavigationBarTop
+  AppNavigationMenu
   nuxt(class='vue-app__view')
-
   Footer(class='vue-app__footer')
 </template>
 
 
 <script>
 import Navigation from '~/components/Navigation.vue'
+import AppNavigationBarTop from '~/components/app/NavigationBarTop.vue'
+import AppNavigationMenu from '~/components/app/NavigationMenu.vue'
 import Hamburger from '~/components/Hamburger.vue'
 import Footer from '~/components/Footer.vue'
 import { mapState } from 'vuex'
@@ -23,6 +18,8 @@ import { mapState } from 'vuex'
 
 export default {
   components: {
+    AppNavigationBarTop,
+    AppNavigationMenu,
     Navigation,
     Hamburger,
     Footer
@@ -46,8 +43,10 @@ export default {
 
 <style lang='sass'>
 .vue-app
-  +mq-s
-    padding-left: $unit*6
+  display: grid
+  grid-template-rows: $navigation-bar minmax(calc(100vh - #{$navigation-bar}), auto)
+  grid-template-rows: auto 1fr auto
+  height: 100%
 
   &__hamburger
     position: fixed
@@ -59,7 +58,6 @@ export default {
       left: $unit*3
       right: unset
       transform: translate(-50%, -50%)
-
 
   &__error,
   &__view

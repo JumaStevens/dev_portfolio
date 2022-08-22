@@ -1,34 +1,94 @@
+@use 'sass:math'
+
 *
   margin: 0
   padding: 0
 
 html,
 body
-  width: 100vw
+  width: 100%
+  // height: 100%
+  // overflow: hidden
+
+html
+  height: 100%
 
 body
+  min-height: 100%
+  display: grid
+  grid-template-rows: 1fr
   overflow-x: hidden
-  min-height: 100vh
-  background-color: $white
+  background-color: $system-background
+  // overflow-y: auto
 
+select,
 textarea,
 input,
 button,
-button:active
+button:active,
+*[contenteditable]
   outline: none
   border: 0
+  background: transparent
+  -webkit-appearance: none
 
-button, a
+select
+  appearance: none
+
+button,
+a
   cursor: pointer
+  -webkit-tap-highlight-color: transparent
 
-h1, h2, h3, h4 ,h5 ,h6, p, a, span, ul, ol, input, label, li, button, abbr, aside, header
+  &:disabled
+    cursor: not-allowed
+
+h1, h2, h3, h4 ,h5 ,h6, p, a, span, div, ul, ol, input, label, li, button, abbr, aside, header, figure, strong, b, textarea, time, blockquote, select, option
   font-family: $pri-font
   font-size: $fs
   font-weight: $fw-reg
   font-style: normal
   text-decoration: none
-  letter-spacing: $fs/24
-  line-height: 1.4
-  color: $black
+  letter-spacing: math.div($fs, 24)
+  line-height: 1.8
+  color: $label
   margin: 0
   padding: 0
+
+h1, h2, h3, h4 ,h5 ,h6
+  line-height: 1.3
+
+span
+  color: inherit
+  font-size: inherit
+  font-weight: inherit
+
+b
+  font-weight: $fw-bold
+
+code
+  display: block
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+  -webkit-box-shadow: 0 0 0px 1000px $white inset
+
+/**
+ * Remove arrows/spinners from input type number.
+ * Target browser(s): Chrome, Safari, Edge, Opera.
+ */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+/**
+ * Remove arrows/spinners from input type number.
+ * Target browser(s): Firefox.
+ */
+input[type=number]
+  -moz-appearance: textfield
+
+#__layout
+  height: 100%

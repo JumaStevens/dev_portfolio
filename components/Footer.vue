@@ -16,7 +16,7 @@ export default {
   computed: {
     copywrite() {
       const year = new Date().getFullYear()
-      return `©${year} Juma Stevens, LLC`
+      return `©${year} Juma Stevens`
     }
   },
   methods: {}
@@ -26,6 +26,7 @@ export default {
 
 <style lang='sass' scoped>
 .container-footer
+  border-top: 1px solid $separator
 
 
 .footer

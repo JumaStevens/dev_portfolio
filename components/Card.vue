@@ -79,7 +79,6 @@ export default {
 .card
   @extend %card-container
   height: 100%
-  background: $white
 
   &__aspect-ratio
     display: grid
@@ -98,7 +97,7 @@ export default {
     position: relative
     grid-row: 1 / 2
     grid-column: 1 / 2
-    background: $grey
+    background: $system-grey6
     max-height: 492px
 
   &__image
@@ -117,7 +116,6 @@ export default {
     position: relative
     z-index: 6
     padding: $unit*3 $unit*2
-    background: $white
 
   &__headline
     font-weight: $fw-bold
