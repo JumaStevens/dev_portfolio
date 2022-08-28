@@ -3,8 +3,8 @@ main(class='container-index')
   Hero
   Services
   Work
-  Testimonial
   About
+  Testimonial
   ContactUsFooter
 </template>
 

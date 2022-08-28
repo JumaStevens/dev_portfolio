@@ -2,7 +2,7 @@
 div(class='page-support')
   div(class='page-support__main')
     header
-      h1 Contact Us
+      h1 Contact Me
       p Fill out the form below to contact me.
     form(
       @submit.stop.prevent='onFormSubmit'

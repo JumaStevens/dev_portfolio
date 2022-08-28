@@ -24,7 +24,7 @@ div(
           href='https://cloudfour.com/'
           target='_blank'
         ) Cloud Four
-        | &nbsp;and others to create great e-commerce solutions.
+        | &nbsp;and others to build great websites.
       NuxtLink(
         :to='{ "name": "contact" }'
         class='hero__link'

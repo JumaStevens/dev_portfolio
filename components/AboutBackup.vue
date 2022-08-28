@@ -27,7 +27,13 @@ div(
           v-for='(item, index) in skillset.list'
           :key='item + index'
           class='about__item'
-        ) {{ item.text }}
+        )
+          figure(class='about__icon')
+            img(
+              v-lazy='item.image'
+              class='about__icon-image'
+            )
+            figcaption(class='about__icon-caption') {{ item.text }}
 
     div(class='about__techniques')
       h3(class='about__subhead') {{ techniques.subhead }}
@@ -44,6 +50,18 @@ div(
 <script>
 import Card from '~/components/Card.vue'
 import headshot from '~/assets/images/headshot.png'
+import iconFirebase from '~/assets/images/iconFirebase.png'
+import iconJavascript from '~/assets/images/iconJavascript.png'
+import iconNode from '~/assets/images/iconNode.png'
+import iconSass from '~/assets/images/iconSass.png'
+import iconPug from '~/assets/images/iconPug.png'
+import iconHTML from '~/assets/images/iconHTML.png'
+import iconCSS from '~/assets/images/iconCSS.png'
+import iconGulp from '~/assets/images/iconGulp.png'
+import iconPhotoshop from '~/assets/images/iconPhotoshop.png'
+import iconWebpack from '~/assets/images/iconWebpack.png'
+import iconShopify from '~/assets/images/iconShopify.png'
+import iconVue from '~/assets/images/iconVue.png'
 
 export default {
   components: {
@@ -57,39 +75,51 @@ export default {
         subhead: 'Tools',
         list: [
           {
+            image: iconJavascript,
             text: 'JavaScript'
           },
           {
+            image: iconHTML,
             text: 'HTML5'
           },
           {
+            image: iconCSS,
             text: 'CSS3'
           },
           {
+            image: iconVue,
             text: 'Vue.js'
           },
           {
+            image: iconFirebase,
             text: 'Firebase'
           },
           {
+            image: iconShopify,
             text: 'Shopify'
           },
           {
+            image: iconNode,
             text: 'Node.js'
           },
           {
+            image: iconWebpack,
             text: 'Webpack'
           },
           {
+            image: iconPug,
             text: 'Pug'
           },
           {
+            image: iconSass,
             text: 'Sass'
           },
           {
+            image: iconGulp,
             text: 'Gulp.js'
           },
           {
+            image: iconPhotoshop,
             text: 'Photoshop'
           }
         ]
@@ -110,7 +140,7 @@ export default {
       card: {
         image: headshot,
         headline: 'About Me',
-        text: 'I\'m a Full Stack Web Developer specializing in component-based web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems.'
+        text: 'I\'m a Full Stack Web Developer specializing in modern web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems with code.<br><br>Cheers,<br>Juma Stevens'
       }
     }
   },
@@ -128,7 +158,7 @@ export default {
   @extend %container-content
   +mq-m
     display: grid
-    grid-gap: $unit*2 $unit*5
+    grid-gap: 0 $unit*5
     grid-template-rows: auto repeat(3, min-content)
     grid-template-columns: repeat(2, 1fr)
 
@@ -142,35 +172,45 @@ export default {
     @extend %card-container
     padding: $unit*3 $unit*2
     +mq-m
-      grid-row: 4 / 5
+      grid-row: 3 / 4
       grid-column: 2 / 3
 
     & .about__list
       display: grid
       grid-gap: $unit*2
-      grid-template-columns: repeat(2, auto)
+      grid-template-rows: repeat(3, auto)
+      grid-template-columns: repeat(4, auto)
+      grid-auto-flow: column
       max-width: 51ch
-      list-style: disc
 
     & .about__item
+      @extend %flex--row-center
       @extend %text-copy
+      width: $unit*5
+      height: $unit*5
 
   &__techniques
     @extend %card-container
     padding: $unit*3 $unit*2
     +mq-m
       grid-row: 4 / 5
-      grid-column: 1 / 2
+      grid-column: 2 / -1
 
     & .about__list
       display: grid
       grid-gap: $unit*2
+      grid-template-rows: repeat(4, auto)
       grid-template-columns: repeat(2, auto)
+      grid-auto-flow: column
       max-width: 51ch
-      list-style: disc
 
     & .about__item
       @extend %text-copy
+      border: 1px solid $dark
+      border-radius: 6px
+      padding: $unit $unit*2
+      width: min-content
+      white-space: nowrap
 
   &__subhead
     font-weight: $fw-bold
@@ -214,8 +254,8 @@ export default {
       display: none
 
 .card
-  grid-row: 3 / 4
-  grid-column: 1 / -1
+  grid-row: 3 / 5
+  grid-column: 1 / 2
   padding: $unit*3 $unit*2
 
   &__body

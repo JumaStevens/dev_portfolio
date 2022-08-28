@@ -101,6 +101,17 @@ module.exports = {
   css: [
     '@/assets/sass/main.sass'
   ],
+
+  /*
+   ** Server middleware
+   */
+  serverMiddleware: [
+    {
+      path: '/api',
+      handler: '~/serverMiddleware/api/index.js'
+    }
+  ],
+
   /*
    ** Plugins to load before mounting the App
    */
