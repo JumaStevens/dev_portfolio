@@ -1,13 +1,13 @@
 <template lang="pug">
 aside(class='index-footer')
   header(class='index-footer__header')
-    h1(class='index-footer__title') Let's Get Started
+    h1(class='index-footer__title') If you believe quality work matters, let’s work together
     //- p(class='index-footer__description') Get started for free.
   div(class='index-footer__actions')
     NuxtLink(
       :to='{ name: "contact" }'
       class='index-footer__button'
-    ) Contact Me
+    ) Let's Talk
 </template>
 
 <script>
@@ -30,8 +30,9 @@ export default {
 .index-footer
   @extend %content
   display: grid
-  grid-gap: $unit*3
+  gap: $unit*5
   padding: $unit*16 0 $unit*32 0
+  justify-items: center
 
   &__header
     display: grid
@@ -42,8 +43,14 @@ export default {
     margin-bottom: $unit
 
   &__title
-    font-size: $fs2
-    font-weight: $fw-med
+    max-width: 780px
+    font-size: $fs3
+    font-weight: $fw-bold
+    line-height: 1.3
+    +mq-xs
+      font-size: $fs4
+    +mq-s
+      font-size: $fs4*1.5
 
   &__description
     color: $secondary-label

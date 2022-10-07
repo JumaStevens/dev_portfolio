@@ -30,17 +30,17 @@ export default {
         {
           svg: '',
           headline: 'Web Development',
-          text: 'Advanced JavaScript to modular microservices, your project will benefit from superior code craftsmanship.'
+          text: 'Advanced JavaScript to modern web applications, you will benefit from superior code craftsmanship.'
         },
         {
           svg: '',
-          headline: 'Shopify Partner',
-          text: 'E-commerce is competive. Shopify savvy, deep analytics, and artificial intelligence gives your project the edge it needs.'
+          headline: 'Vue.js Expert',
+          text: 'With a deep specialization in the Vue and Nuxt framework, I build high-quality web applications.'
         },
         {
           svg: '',
-          headline: 'Site Performance',
-          text: '53% of users abandon sites after 3 seconds of waiting. A thorough speed audit will grow your user retention.'
+          headline: 'Shopify Pro',
+          text: 'Over 5 years of experience working with Shopify Plus — let\'s build something great.'
         }
       ]
     }

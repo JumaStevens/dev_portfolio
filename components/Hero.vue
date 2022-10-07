@@ -14,17 +14,17 @@ div(
       //-   p(class='hero__avatar-name') Juma Stevens
       h1(class='hero__headline') {{ headline }}
       p(class='hero__text')
-        | I help Shopify Plus agencies like&nbsp;
+        | I help software companies like&nbsp;
         a(
           href='https://lunarsolargroup.com/'
           target='_blank'
         ) Lunar Solar Group
-        | ,&nbsp;
+        | &nbsp;and&nbsp;
         a(
           href='https://cloudfour.com/'
           target='_blank'
         ) Cloud Four
-        | &nbsp;and others to build great websites.
+        | &nbsp;build quality web applications.
       NuxtLink(
         :to='{ "name": "contact" }'
         class='hero__link'
@@ -62,7 +62,7 @@ export default {
     return {
       headline: 'Freelance Developer',
       text: 'I help Shopify Plus agencies like Lunar Solar Group, Cloud Four and others to build great digital experiences.',
-      link: 'Contact Me',
+      link: 'Let\'s Talk',
       image: heroImage
     }
   },
@@ -116,10 +116,12 @@ export default {
   //     font-weight: $fw-med
 
   &__headline
-    font-size: $fs2
-    font-weight: 900
+    font-size: $fs3
+    font-weight: $fw-bold
+    +mq-xs
+      font-size: $fs4
     +mq-s
-      font-size: $fs3
+      font-size: $fs4*1.5
 
   &__text
     @extend %text-copy
