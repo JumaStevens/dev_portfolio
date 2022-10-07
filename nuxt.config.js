@@ -193,5 +193,11 @@ module.exports = {
       // Custom alias
       config.resolve.alias['~comp'] = path.resolve(__dirname, 'nuxt', 'components')
     }
+  },
+  /*
+   ** Environment variables
+   */
+  env: {
+    LOGSNAG_API_KEY: process.env.LOGSNAG_API_KEY
   }
 }

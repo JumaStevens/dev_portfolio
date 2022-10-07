@@ -19,19 +19,20 @@ div(class='page-support')
         placeholder='Enter your message here'
       )
       ButtonElement(
-        text='Submit'
+        :text='formSubmitLabel'
+        :disabled='isFormSubmitting'
         class='page-support__form-button'
         type='submit'
       )
   div(class='page-support__meta')
     div(class='page-support__meta-item')
-      h3 Support Email
+      h3 Email
       CopyInput(
         :text='copyText'
         class='page-support__'
       )
     div(class='page-support__meta-item')
-      h3 Socials
+      h3 Links
       ul(class='page-support__social-list')
         li(
           v-for='(social, i) in socialMedia'
@@ -52,6 +53,7 @@ div(class='page-support')
 <script>
 import { isEmpty } from 'lodash'
 // import API from '~/services/api'
+import { onContact } from '~/services/logsnag'
 import { DISCORD_INVITE_URL } from '~/utils/constants'
 import ButtonElement from '~/components/elements/Button.vue'
 import InputElement from '~/components/elements/Input.vue'
@@ -59,6 +61,7 @@ import TextareaElement from '~/components/elements/Textarea.vue'
 import CopyInput from '~/components/elements/CopyInput.vue'
 // import IconDiscord from '~/assets/svg/discord.svg'
 import IconTwitter from '~/assets/svg/twitter.svg'
+import IconGithub from '~/assets/svg/iconGithub.svg'
 
 export default {
   components: {
@@ -72,13 +75,20 @@ export default {
     return {
       email: '',
       message: '',
-      copyText: 'jumastevens@gmail.com',
+      formSubmitLabel: 'Send',
+      isFormSubmitting: false,
+      copyText: 'juma@jumastevens.com',
       socialMedia: [
         {
           key: 'twitter',
           icon: IconTwitter,
           url: 'https://www.twitter.com/jumastevens'
         },
+        {
+          key: 'github',
+          icon: IconGithub,
+          url: 'https://www.github.com/JumaStevens'
+        }
         // {
         //   key: 'discord',
         //   icon: IconDiscord,
@@ -104,15 +114,20 @@ export default {
     async onFormSubmit() {
       try {
         console.log('onFormSubmit')
-        if (isEmpty(this.email) || isEmpty(this.message)) return
-        const API = {}
-        const res = await API.createContactUs({
+        if (isEmpty(this.email) || isEmpty(this.message) || this.isFormSubmitting) return
+        this.isFormSubmitting = true
+        const res = await onContact(JSON.stringify({
           email: this.email,
           message: this.message
-        })
-        console.log('res: ', res)
+        }))
+        this.email = ''
+        this.message = ''
+        this.formSubmitLabel = 'Thank You!'
+        setTimeout(() => (this.formSubmitLabel = 'Send'), 5000)
       } catch (e) {
         console.error(e)
+      } finally {
+        this.isFormSubmitting = false
       }
     }
   }
