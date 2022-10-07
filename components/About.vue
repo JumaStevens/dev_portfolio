@@ -110,7 +110,7 @@ export default {
       card: {
         image: headshot,
         headline: 'About Me',
-        text: 'I\'m a Full Stack Web Developer specializing in component-based web applications. I practice a minimalism dogma, building carefully-crafted user experiences. I love to collaborate on projects, design systems, and solve challenging problems.'
+        text: 'My name is Juma Stevens and I am a Front-end Web Developer based in Portland, Oregon. I have over five years of experience building component-based web applications using the Vue.js and Nuxt.js frameworks. I strive for simplicity and deliver quality work. I also enjoy working on projects with a team or independently. Some of my favorite challenges include building solutions that are a joy to use and solving tough client problems.'
       }
     }
   },
