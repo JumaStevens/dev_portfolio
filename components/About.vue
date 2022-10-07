@@ -57,6 +57,27 @@ export default {
         subhead: 'Tools',
         list: [
           {
+            text: 'Vue.js'
+          },
+          {
+            text: 'Nuxt.js'
+          },
+          {
+            text: 'Node.js'
+          },
+          {
+            text: 'Firebase'
+          },
+          {
+            text: 'Shopify Plus'
+          },
+          {
+            text: 'Webpack'
+          },
+          {
+            text: 'Sass'
+          },
+          {
             text: 'JavaScript'
           },
           {
@@ -66,31 +87,7 @@ export default {
             text: 'CSS3'
           },
           {
-            text: 'Vue.js'
-          },
-          {
-            text: 'Firebase'
-          },
-          {
-            text: 'Shopify'
-          },
-          {
-            text: 'Node.js'
-          },
-          {
-            text: 'Webpack'
-          },
-          {
-            text: 'Pug'
-          },
-          {
-            text: 'Sass'
-          },
-          {
-            text: 'Gulp.js'
-          },
-          {
-            text: 'Photoshop'
+            text: 'Figma'
           }
         ]
       },
@@ -101,7 +98,7 @@ export default {
           'Mobile First',
           'Version Control',
           'Design System',
-          'ES6/ES7/ES8',
+          'ES6/ES7/ES8+',
           'SPA/SSR',
           'BEM',
           'SMACSS'
