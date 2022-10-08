@@ -120,6 +120,7 @@ export default {
           email: this.email,
           message: this.message
         }))
+        console.log('res: ', res)
         this.email = ''
         this.message = ''
         this.formSubmitLabel = 'Thank You!'
