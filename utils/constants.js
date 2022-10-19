@@ -21,7 +21,7 @@ export const PRODUCTION_BASE_URL = 'https://www.hotfixcms.com'
  * dev: https://api.dev
  * local: http://localhost:5000
  */
-export const API_BASE_URL = IS_PROD
+export const API_BASE_URL = !IS_PROD
   ? 'https://api.hotfixcms.com'
   : 'http://localhost:5000'
 

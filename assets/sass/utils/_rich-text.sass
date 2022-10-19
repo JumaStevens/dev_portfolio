@@ -1,0 +1,173 @@
+@use 'sass:math'
+
+.rich-text
+  display: grid
+  align-content: start
+  grid-gap: $unit*2
+  white-space: pre-line
+
+  /** Contentful rich text marks */
+  & b
+    font-weight: $fw-bold
+
+  & i
+    font-style: italic
+
+  &__underline
+    text-decoration: underline
+
+  & code
+    display: inline
+    padding: $unit*0.25 $unit*0.5
+    border-radius: $unit*0.5
+    background: $quaternary-system-fill
+
+  & pre > code
+    display: block
+    padding: $unit*2
+    border: 1px solid $separator
+    border-radius: $unit
+    background: transparent
+    white-space: break-spaces
+    word-break: break-word
+
+  /** Contentful rich text blocks */
+  & h1
+    font-size: $fs3
+    font-weight: $fw-bold
+
+  & h2
+    font-size: $fs2
+    font-weight: $fw-bold
+
+  & h3
+    font-size: $fs1
+    font-weight: $fw-bold
+
+  & h4
+    font-size: $fs
+    font-weight: $fw-bold
+
+  & ol,
+  & ul
+    display: grid
+    list-style: decimal
+    margin-left: $unit*3
+
+  & ul
+    list-style: disc
+
+  & img
+    max-height: 600px
+    width: 100%
+    display: block
+    margin: $unit*5 auto
+    object-fit: contain
+    overflow: hidden
+    border-radius: $unit
+
+  & a
+    color: $system-blue
+
+/** TipTap rich text editor */
+.rich-text-editor
+
+  & p.is-editor-empty::before
+    content: 'Write your message...'
+    float: left
+    color: $grey
+    pointer-events: none
+    height: 0
+    font-style: italic
+
+.rich-text-content
+
+  & strong
+    font-weight: $fw-bold
+
+  & ol,
+  & ul
+    list-style: decimal
+    margin-left: $unit*3
+
+  & ul
+    list-style: disc
+
+  & code
+    background: $pri-cl
+    padding: 0 math.div($unit, 2)
+
+/** @nuxt/content rich text */
+.nuxt-content
+
+  & > p:not(:first-child)
+    margin-top: $unit*3
+
+/** highlightjs overrides */
+.hljs
+  background: transparent
+
+.hljs
+  display: block
+  overflow-x: auto
+  // padding: 0.5em
+  color: #abb2bf
+  // background: #282c34
+
+.hljs-comment,
+.hljs-quote
+  color: #5c6370
+  font-style: italic
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula
+  color: #c678dd
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst
+  color: #e06c75
+
+.hljs-literal
+  color: #56b6c2
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string
+  color: #98c379
+
+.hljs-built_in,
+.hljs-class .hljs-title
+  color: #e6c07b
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number
+  color: #d19a66
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title
+  color: #61aeee
+
+.hljs-emphasis
+  font-style: italic
+
+.hljs-strong
+  font-weight: bold
+
+.hljs-link
+  text-decoration: underline
