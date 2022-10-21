@@ -4,6 +4,10 @@
   "description": "Freelance portfolio",
   "author": "Juma Stevens <jumastevens@gmail.com>",
   "private": true,
+  "engines": {
+    "npm": "7.9.0",
+    "node": "12.11.1"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
