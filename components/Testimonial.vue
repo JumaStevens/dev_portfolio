@@ -24,7 +24,7 @@ div(
 
 
 <script>
-import avatarRob from '~/assets/images/avatarRob.jpg'
+import avatarCaroline from '~/assets/images/avatarCaroline.jpg'
 import avatarMegan from '~/assets/images/avatarMegan.jpg'
 import avatarGerardo from '~/assets/images/avatarGerardo.jpg'
 
@@ -36,7 +36,7 @@ export default {
       headline: 'Testimonial',
       testimonial: [
         {
-          image: 'https://media-exp1.licdn.com/dms/image/C5603AQEHpxMcDQRnbA/profile-displayphoto-shrink_100_100/0/1516973884110?e=1666224000&v=beta&t=viMHEsSoiJYNfxR-9NEDhf8Z40dt7z8FxL2txdN6jnk',
+          image: avatarCaroline,
           headline: 'Caroline Haber',
           subHeadline: 'Director of PM at Lunar Solar Group',
           text: 'I really enjoy working with Juma and appreciate so much all of his hard. He is a valuable team member and am rooting for him in all of his future endeavors!'
