@@ -57,10 +57,13 @@ export default {
 
   &__actions
     display: grid
-    justify-content: center
+    justify-items: center
+    width: 100%
 
   &__button
     @extend %base-button
+    width: 100%
+    max-width: 420px
 
     +mq-m
       min-width: $unit*35

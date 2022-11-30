@@ -34,6 +34,9 @@ import shopfulMockup from '~/assets/images/shopfulMockup.jpg'
 import zeroWasteLoveMockup from '~/assets/images/zeroWasteLoveMockup.jpg'
 import herrayMockup from '~/assets/images/herrayMockup.jpg'
 import investfulMockup from '~/assets/images/investfulMockup.jpg'
+import hotfixMockup from '~/assets/images/hotfixMockup.jpg'
+import marketshowerMockup from '~/assets/images/marketshowerMockup.jpg'
+import voicemailbioMockup from '~/assets/images/voicemailbioMockup.jpg'
 
 export default {
   components: {
@@ -45,10 +48,28 @@ export default {
       headline: 'Select Work',
       work: [
         {
+          image: hotfixMockup,
+          headline: 'Hotfix CMS',
+          text: 'Minimalist CMS for Developers.',
+          link: 'https://www.hotfixcms.com'
+        },
+        {
+          image: voicemailbioMockup,
+          headline: 'Voicemail Bio',
+          text: 'Anonymous voice messages for your link in bio.',
+          link: 'https://www.voicemail.bio'
+        },
+        {
+          image: kushMockup,
+          headline: 'Kush Rugs',
+          text: 'E-commerce storefront selling ethically sourced designer rugs. (Monumental Agency)',
+          link: 'https://kushrugs.com'
+        },
+        {
           image: shopfulMockup,
           headline: 'Shopful',
           text: 'Social shopping network.',
-          link: 'https://shopful.io/'
+          link: 'https://shopful.io'
         },
         {
           image: shopfulThemeMockup,
@@ -57,10 +78,10 @@ export default {
           link: ''
         },
         {
-          image: investfulMockup,
-          headline: 'Investful',
-          text: 'Co-learning community for investors.',
-          link: 'https://investful.app/'
+          image: marketshowerMockup,
+          headline: 'Market Shower',
+          text: 'Stock market forecast tool for new investors.',
+          link: 'https://www.marketshower.com'
         },
         {
           image: zeroWasteLoveMockup,
@@ -69,29 +90,11 @@ export default {
           link: ''
         },
         {
-          image: herrayMockup,
-          headline: 'Herray',
-          text: 'Event sharing social network.',
-          link: ''
+          image: investfulMockup,
+          headline: 'Investful',
+          text: 'Co-learning community for investors.',
+          link: 'https://investful.app'
         },
-        // {
-        //   image: chatCiaoMockup,
-        //   headline: 'Chat Ciao',
-        //   text: 'Anonymous Peer-to-Peer text, voice & video chat solution.',
-        //   link: ''
-        // },
-        {
-          image: kushMockup,
-          headline: 'Kush Rugs',
-          text: 'E-commerce storefront selling ethically sourced designer rugs. (Monumental Agency)',
-          link: 'https://kushrugs.com/'
-        }
-        // {
-        //   image: feedMeSugarMockup,
-        //   headline: 'Feed Me Sugar',
-        //   text: 'Asynchronous e-commerce application utilizing Shopify APIs.',
-        //   link: 'https://www.feedmesugar.com/'
-        // },
         // {
         //   image: galleryMockup,
         //   headline: 'Gallery',
