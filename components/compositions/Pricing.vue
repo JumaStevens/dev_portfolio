@@ -35,7 +35,7 @@ const prices = [
   {
     title: 'Container',
     text:
-      'For ongoing projects, requiring a commitment of 40 hours per month.',
+      'For ongoing projects, requiring a commitment of 32+ hours per week.',
     price: 11500,
     billFrequency: 'mo',
     features: [
