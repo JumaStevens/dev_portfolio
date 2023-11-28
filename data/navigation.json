@@ -2,13 +2,6 @@
   "menu": [
     {
       "to": {
-        "name": "blog"
-      },
-      "text": "Blog",
-      "icon": "help"
-    },
-    {
-      "to": {
         "name": "contact"
       },
       "text": "Contact",

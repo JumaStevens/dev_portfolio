@@ -34,13 +34,13 @@ export default {
         },
         {
           svg: '',
-          headline: 'Vue.js Expert',
+          headline: 'Vue.js Pro',
           text: 'With a deep specialization in the Vue and Nuxt framework, I build high-quality web applications.'
         },
         {
           svg: '',
-          headline: 'Shopify Pro',
-          text: 'Over 5 years of experience working with Shopify Plus — let\'s build something great.'
+          headline: 'Shopify Expert',
+          text: 'Over 6 years of experience working with Shopify Plus — let\'s build something great.'
         }
       ]
     }

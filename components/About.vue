@@ -62,14 +62,23 @@ export default {
           {
             text: 'Nuxt.js'
           },
+					{
+            text: 'React.js'
+          },
           {
             text: 'Node.js'
+          },
+					{
+            text: 'OpenAI'
           },
           {
             text: 'Firebase'
           },
           {
             text: 'Shopify Plus'
+          },
+					{
+            text: 'Vite'
           },
           {
             text: 'Webpack'
@@ -79,12 +88,6 @@ export default {
           },
           {
             text: 'JavaScript'
-          },
-          {
-            text: 'HTML5'
-          },
-          {
-            text: 'CSS3'
           },
           {
             text: 'Figma'
@@ -107,7 +110,7 @@ export default {
       card: {
         image: headshot,
         headline: 'About Me',
-        text: 'My name is Juma Stevens and I am a Front-end Web Developer based in Portland, Oregon. I have over five years of experience building component-based web applications using the Vue.js and Nuxt.js frameworks. I strive for simplicity and craft high-quality work. I also enjoy working on projects with a team or independently. Some of my favorite challenges include building solutions that are a joy to use and solving tough client problems.'
+        text: 'My name is Juma Stevens. I\'m a Front-end Web Developer and Shopify expert based in Portland, Oregon. I have over six years of experience building component-based web applications using the Vue.js and Nuxt.js frameworks. I strive for simplicity and craft high-quality work. I also enjoy working on projects with a team or independently. Some of my favorite challenges include building solutions that are a joy to use and solving tough client problems.'
       }
     }
   },
