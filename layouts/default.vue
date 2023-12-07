@@ -27,6 +27,18 @@ export default {
   data () {
     return {}
   },
+	head() {
+		return {
+			script: [
+				{
+					src: 'https://api.lingoblocks.com/chatbot-embed.js',
+					defer: true,
+					type: 'module',
+					'data-lingo-id': 'sDyz6qEo7MoXE051mRNs'
+				}
+			]
+		}
+	},
   computed: {
     error () {
       return this.$store.state.error
