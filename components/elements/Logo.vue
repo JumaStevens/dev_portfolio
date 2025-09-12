@@ -1,10 +1,10 @@
 <template lang="pug">
 div(class='logo')
   div(class='logo__avatar')
-    img(
-      src='https://pbs.twimg.com/profile_images/984998667286282240/kByXV1jU_400x400.jpg'
-      class='logo__avatar-image'
-    )
+    //- img(
+    //-   src='https://pbs.twimg.com/profile_images/984998667286282240/kByXV1jU_400x400.jpg'
+    //-   class='logo__avatar-image'
+    //- )
     p(class='logo__avatar-name') Juma Stevens
 </template>
 

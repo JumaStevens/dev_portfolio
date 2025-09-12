@@ -54,13 +54,13 @@ div(class='page-support')
 import { isEmpty } from 'lodash'
 // import API from '~/services/api'
 import { onContact } from '~/services/logsnag'
-import { DISCORD_INVITE_URL } from '~/utils/constants'
+// import { DISCORD_INVITE_URL } from '~/utils/constants'
 import ButtonElement from '~/components/elements/Button.vue'
 import InputElement from '~/components/elements/Input.vue'
 import TextareaElement from '~/components/elements/Textarea.vue'
 import CopyInput from '~/components/elements/CopyInput.vue'
 // import IconDiscord from '~/assets/svg/discord.svg'
-import IconTwitter from '~/assets/svg/twitter.svg'
+import IconLinkedIn from '~/assets/svg/iconLinkedin.svg'
 import IconGithub from '~/assets/svg/iconGithub.svg'
 
 export default {
@@ -68,7 +68,7 @@ export default {
     ButtonElement,
     CopyInput,
     InputElement,
-    TextareaElement
+    TextareaElement,
   },
   props: {},
   data() {
@@ -80,9 +80,9 @@ export default {
       copyText: 'juma@jumastevens.com',
       socialMedia: [
         {
-          key: 'twitter',
-          icon: IconTwitter,
-          url: 'https://www.twitter.com/jumastevens'
+          key: 'linkedIn',
+          icon: IconLinkedIn,
+          url: 'https://www.linkedin.com/in/juma-stevens/'
         },
         {
           key: 'github',

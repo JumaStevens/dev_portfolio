@@ -69,7 +69,7 @@ export default {
             text: 'Node.js'
           },
 					{
-            text: 'OpenAI'
+            text: 'LLMs'
           },
           {
             text: 'Firebase'
@@ -98,19 +98,20 @@ export default {
         subhead: 'Techniques',
         list: [
           'Responsive Design',
-          'Mobile First',
-          'Version Control',
-          'Design System',
-          'ES6/ES7/ES8+',
-          'SPA/SSR',
-          'BEM',
-          'SMACSS'
+          'Component Architecture',
+					'SPA/SSR',
+					'Modular CSS',
+          'API Integrations',
+          'LLM Pipelines',
+          'CI/CD Workflows',
+          'Performance Optimization',
+					'Accessibility'
         ]
       },
       card: {
         image: headshot,
         headline: 'About Me',
-        text: 'My name is Juma Stevens. I\'m a Front-end Web Developer and Shopify expert based in Portland, Oregon. I have over six years of experience building component-based web applications using the Vue.js and Nuxt.js frameworks. I strive for simplicity and craft high-quality work. I also enjoy working on projects with a team or independently. Some of my favorite challenges include building solutions that are a joy to use and solving tough client problems.'
+        text: 'I\'m Juma Stevens, a Senior Full Stack Engineer and Shopify Plus expert based in Oregon with over eight years of experience building modern web applications. I work across Vue, React, and Node.js to deliver everything from custom storefronts to scaleable backend integrations, and I\'ve deployed LLM-powered personalization and automation pipelines. Equally comfortable working autonomously or collaborating with a team, I focus on shipping high-quality, user-focused solutions.'
       }
     }
   },

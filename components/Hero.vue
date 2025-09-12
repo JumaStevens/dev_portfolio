@@ -21,14 +21,14 @@ div(
 				) MrBeast Feastables
 				| ,&nbsp;
 				a(
+					href='https://gopure.com/'
+					target='_blank'
+				) GoPure
+				| &nbsp;and&nbsp;
+				a(
 					href='https://lunarsolargroup.com/'
 					target='_blank'
 				) Lunar Solar Group
-				| &nbsp;and&nbsp;
-				a(
-					href='https://cloudfour.com/'
-					target='_blank'
-				) Cloud Four
 				| &nbsp;build exceptional user experiences.
 			NuxtLink(
 				:to='{ "name": "contact" }'
@@ -65,7 +65,7 @@ export default {
 	props: {},
 	data () {
 		return {
-			headline: 'Front-end Developer',
+			headline: 'Senior Full Stack Engineer',
 			text: 'I help Shopify Plus agencies like Lunar Solar Group, Cloud Four and others to build great digital experiences.',
 			link: 'Let\'s Talk',
 			image: heroImage

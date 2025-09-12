@@ -25,22 +25,22 @@ export default {
   props: {},
   data () {
     return {
-      headline: 'Services',
+      headline: 'Expertise',
       services: [
         {
           svg: '',
-          headline: 'Web Development',
-          text: 'Advanced JavaScript to modern web applications, you will benefit from superior code craftsmanship.'
+          headline: 'Shopify Plus Expert',
+          text: 'Over 8 years working with the Shopify Plus ecosystem, Hydrogen storefronts, custom integrations.'
         },
         {
           svg: '',
-          headline: 'Vue.js Pro',
-          text: 'With a deep specialization in the Vue and Nuxt framework, I build high-quality web applications.'
+          headline: 'Large Language Models',
+          text: 'Experienced in using LLMs to build personalization, automation, and data-driven pipelines.'
         },
         {
           svg: '',
-          headline: 'Shopify Expert',
-          text: 'Over 6 years of experience working with Shopify Plus — let\'s build something great.'
+          headline: 'Full-Stack JavaScript',
+          text: 'Deep expertise in Vue, Nuxt, React, and Node.js to deliver fast and modern applications.'
         }
       ]
     }
